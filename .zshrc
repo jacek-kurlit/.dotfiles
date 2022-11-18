@@ -99,9 +99,6 @@ eval "$(starship init zsh)"
 # SAML2AWS
 eval "$(saml2aws --completion-script-zsh)"
 
-# MAVEN
-export PATH="$PATH:/home/jacek.kurlit/tools/apache-maven-3.8.6/bin"
-
 # ENV CONFIG
 export RIGHTBITE_CODEARTIFACT_REPOSITORY_URL='https://rightbite-main-373297882832.d.codeartifact.eu-west-1.amazonaws.com/maven/mvn-artifacts/'
 
