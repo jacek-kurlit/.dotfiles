@@ -1,0 +1,17 @@
+
+theme = "pop-dark"
+
+[editor]
+line-number = "relative"
+idle-timeout = 300
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-type"]
+separator = "│"
