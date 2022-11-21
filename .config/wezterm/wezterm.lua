@@ -22,7 +22,7 @@ return {
     font = wezterm.font 'JetBrainsMono',
     font_size = 9,
   },
-  window_background_image = wezterm.config_dir .. "/backdrops/voyage.jpg",
+  window_background_image = wezterm.config_dir .. "/backdrops/astro-jelly.jpg",
   window_background_opacity = 1.0,
   window_background_image_hsb = {
     -- Darken the background image by reducing it to 1/3rd

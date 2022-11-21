@@ -100,8 +100,12 @@ eval "$(starship init zsh)"
 # SAML2AWS
 eval "$(saml2aws --completion-script-zsh)"
 
-# ENV CONFIG
+# ZOXIDE
+eval "$(zoxide init zsh)"# ENV CONFIG
+
 export RIGHTBITE_CODEARTIFACT_REPOSITORY_URL='https://rightbite-main-373297882832.d.codeartifact.eu-west-1.amazonaws.com/maven/mvn-artifacts/'
+
+alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 # SDKMAN
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -109,4 +113,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export JAVA_HOME=~/.sdkman/candidates/java/current
 
-alias wezterm='flatpak run org.wezfurlong.wezterm'
