@@ -101,8 +101,9 @@ eval "$(starship init zsh)"
 eval "$(saml2aws --completion-script-zsh)"
 
 # ZOXIDE
-eval "$(zoxide init zsh)"# ENV CONFIG
+eval "$(zoxide init zsh)"
 
+# ENV CONFIG
 export RIGHTBITE_CODEARTIFACT_REPOSITORY_URL='https://rightbite-main-373297882832.d.codeartifact.eu-west-1.amazonaws.com/maven/mvn-artifacts/'
 
 alias wezterm='flatpak run org.wezfurlong.wezterm'
