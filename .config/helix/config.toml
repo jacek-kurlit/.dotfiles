@@ -1,17 +1,16 @@
 
-theme = "pop-dark"
+theme = "spacebones_light"
 
 [editor]
 line-number = "relative"
-idle-timeout = 300
-
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
+idle-timeout = 200
+completion-trigger-len = 1
+indent-guides.render = false
+cursorline = true
+color-modes = true
 
 [editor.statusline]
-left = ["mode", "spinner"]
+left = ["mode", "spinner", "diagnostics"]
 center = ["file-name"]
-right = ["diagnostics", "selections", "position", "file-encoding", "file-type"]
+right = ["selections", "position","position-percentage", "file-encoding", "file-type"]
 separator = "│"
