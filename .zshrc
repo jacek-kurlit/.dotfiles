@@ -93,7 +93,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=~/.local/bin:$PATH
+# local bin add to path
+export PATH=$HOME/.local/bin:$PATH
+
 # STAR SHIP
 eval "$(starship init zsh)"
 
@@ -106,7 +108,7 @@ eval "$(zoxide init zsh)"
 # ENV CONFIG
 export RIGHTBITE_CODEARTIFACT_REPOSITORY_URL='https://rightbite-main-373297882832.d.codeartifact.eu-west-1.amazonaws.com/maven/mvn-artifacts/'
 
-alias wezterm='flatpak run org.wezfurlong.wezterm'
+#alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 # SDKMAN
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
