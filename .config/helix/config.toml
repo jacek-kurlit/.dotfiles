@@ -8,6 +8,8 @@ completion-trigger-len = 1
 indent-guides.render = false
 cursorline = true
 color-modes = true
+bufferline = "multiple"
+auto-save = true
 
 [editor.statusline]
 left = ["mode", "spinner", "diagnostics"]
