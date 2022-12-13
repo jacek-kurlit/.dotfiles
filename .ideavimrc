@@ -4,7 +4,16 @@
 " plugins
 set sneak
 set which-key
+set surround
+set NERDTree
+set commentary
 
+"""""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
+" System clipboard fix
+set clipboard+=unnamed
+" Turning off error bells
+set noerrorbells
+set visualbell
 " for which-key to display popup
 set notimeout
 let g:WhichKey_ShowVimActions = "true"
@@ -14,26 +23,20 @@ let g:WhichKey_ShowVimActions = "true"
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
 set nu rnu
-
 " Do incremental searching.
 set incsearch
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
+nmap <C-i> <Action>(Forward)
+nmap <C-o> <Action>(Back)
+
 let mapleader = " "
-map gh 0
-map gl $
-map ge G
-map gs ^
 
-map gr <Action>(GotoDeclaration)
-map gd <Action>(GotoDeclaration)
-map gy <Action>(GotoTypeDeclaration)
-map gi <Action>(GotoImplementation)
-
+"""""""""""""""""""""""" LEADER MAPPINGS """""""""""""""""""""""""""""
 map <leader>a <Action>(ShowIntentionActions)
-let g:WhichKeyDesc_intentions        = "<leader>a Show actions"
+let g:WhichKeyDesc_actions        = "<leader>a Show actions"
 map <leader>f <Action>(GotoFile)
 map <leader>s <Action>(FileStructurePopup)
 map <leader>S <Action>(GotoSymbol)
@@ -41,9 +44,9 @@ map <leader>k <Action>(QuickJavaDoc)
 map <leader>/ <Action>(FindInPath)
 map <leader>? <Action>(GotoAction)
 
-" Refactor actions
-let g:WhichKeyDesc_refactor        = "<leader>r  Refactor"
+"""""""""""""""""""""""" REFACTOR MAPPINGS """""""""""""""""""""""""""""
 map <leader>rr <Action>(RenameElement)
+let g:WhichKeyDesc_refactor        = "<leader>r Refactor"
 let g:WhichKeyDesc_refactor_rename = "<leader>rr rename"
 map <leader>rm <Action>(ExtractMethod)
 let g:WhichKeyDesc_refactor_method  = "<leader>rm extract method"
@@ -61,6 +64,45 @@ map <leader>ro <Action>(IntroduceParameterObject)
 let g:WhichKeyDesc_refactor_param_object  = "<leader>ro extract parameter object"
 map <leader>rq <Action>(Refactorings.QuickListPopupAction)
 let g:WhichKeyDesc_refactor_quick_popup  = "<leader>rq show refactor popup"
+map <leader>rs <Action>(SurroundWith)
+let g:WhichKeyDesc_surround_with  = "<leader>rs surround with"
+
+"""""""""""""""""""""""" GIT MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_git        = "<leader>g  Git"
+map <leader>gu <Action>(Vcs.UpdateProject)
+map <leader>gp <Action>(Vcs.Push)
+map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+map <leader>gc <Action>(CheckinProject)
+map <leader>gf <Action>(Git.Fetch)
+map <leader>gn <Action>(Git.CreateNewBranch)
+map <leader>gl <Action>(Git.Branches)
+map <leader>gm <Action>(Git.Merge)
+map <leader>g= <Action>(Git.CompareWithBranch)
+
+"""""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
+map gh 0
+map gl $
+map ge G
+map gs ^
+
+nmap gd <Action>(GotoDeclaration)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gt <Action>(GotoTest)
+nmap g; <Action>(JumpToLastChange)
+nmap g, <Action>(JumpToNextChange)
+
+"""""""""""""""""""""""" UNIMPARIED MAPPINGS """""""""""""""""""""""""""""
+map ]] <Action>(MethodDown)
+nmap <c-j> <Action>(MethodDown)
+map [[ <Action>(MethodUp)
+map <c-k> <Action>(MethodUp)
+map ]d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+map ]s <Action>(MoveStatementDown)
+map [s <Action>(MoveStatementUp)
+nnoremap ]<space> mpo<Esc>`p
+nnoremap [<space> mpO<Esc>`p
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
@@ -72,5 +114,43 @@ let g:WhichKeyDesc_refactor_quick_popup  = "<leader>rq show refactor popup"
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
 
+" In insert or command mode, move by using Ctrl
+
+"""""""""""""""""""""""" INSERT MODE MAPPINGS """""""""""""""""""""""""""""
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+
+"""""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""
+" Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
+function! Invert(calledFromVisual)
+  let antonyms = ['true', 'false', 'after', 'before', 'start', 'end', 'left', 'right', 'first', 'last',
+                 \'True', 'False', 'After', 'Before', 'Start', 'End', 'Left', 'Right', 'First', 'Last']
+
+  if a:calledFromVisual
+    normal gv"wy
+  else
+    normal "wyiw
+  endif
+  let wordUnderCaret = @w
+
+  let eraseWord = a:calledFromVisual ? 'gvc' : 'ciw'
+  let count = 0
+  while (count < len(antonyms))
+    if (antonyms[count] ==# wordUnderCaret)
+      let antonym = (count % 2 ==? 0) ? antonyms[count + 1] : antonyms[count - 1]
+      execute 'normal ' .. eraseWord .. antonym
+      break
+    endif
+    let count += 1
+  endwhile
+endfunction
+nnoremap ! :call Invert(0)<CR>
+vnoremap ! :<C-u>call Invert(1)<CR>
 
 " Find more examples here: https://jb.gg/share-ideavimrc
