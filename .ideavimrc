@@ -7,6 +7,8 @@ set which-key
 set surround
 set NERDTree
 set commentary
+set argtextobj
+set highlightedyank
 
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
 " System clipboard fix
@@ -18,6 +20,9 @@ set visualbell
 set notimeout
 let g:WhichKey_ShowVimActions = "true"
 
+" for highlightedyank
+let g:highlightedyank_highlight_duration = "1000"
+let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
@@ -66,6 +71,8 @@ map <leader>rq <Action>(Refactorings.QuickListPopupAction)
 let g:WhichKeyDesc_refactor_quick_popup  = "<leader>rq show refactor popup"
 map <leader>rs <Action>(SurroundWith)
 let g:WhichKeyDesc_surround_with  = "<leader>rs surround with"
+map <leader>ru <Action>(Unwrap)
+let g:WhichKeyDesc_unwrap  = "<leader>rs unwrap"
 
 """""""""""""""""""""""" GIT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_git        = "<leader>g  Git"
