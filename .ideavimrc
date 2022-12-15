@@ -20,11 +20,11 @@ set visualbell
 set notimeout
 let g:WhichKey_ShowVimActions = "true"
 
-" for highlightedyank
+" settings for highlightedyank
 let g:highlightedyank_highlight_duration = "1000"
 let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
+
+Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
 set nu rnu
@@ -85,6 +85,7 @@ map <leader>gn <Action>(Git.CreateNewBranch)
 map <leader>gl <Action>(Git.Branches)
 map <leader>gm <Action>(Git.Merge)
 map <leader>g= <Action>(Git.CompareWithBranch)
+map <leader>gr <Action>(ChangesView.Revert)
 
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
 map gh 0

@@ -1,0 +1,42 @@
+
+idea vim key mappings
+
+Plugins:
+
+vim-surround
+
+cs"' -> change surrounding " to '
+ds" -> deletes surrouding "
+ysiw[ -> surrounds inner word with []
+
+in visual mode
+S{ -> surrounds selection with {}
+
+
+vim sneaks:
+
+sxx -> search for xx characters forward. Not limited to current line
+Sxx -> search for xx characters backward. Not limited to current line
+
+
+NERDTree
+
+q -> close nerd tree
+s -> open split horizontal
+i -> open split vertical
+o -> open file
+
+
+Commentary vim
+[count]gcc -> comment line(s)
+gcap -> comments around paragrapf
+gcgc/gcu -> Uncomment the current and adjacent commented lines.
+vgc -> comments selection
+dgc -> delete commented line (gc in command targets comments
+:[range]Commentary      Comment or uncomment [range] lines for example :1,10 Commentary to comment lines from 1 to 10
+
+
+Arguments
+daa -> delete argument
+cia -> change argument
+via -> select inner argument

@@ -1,0 +1,210 @@
+# FEDORA setup
+
+### First things in Fedora to do
+follow instruction on https://rpmfusion.org/Configuration/
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+mkdir ~/tools && mkdir ~/.local/bin
+
+### JUMP CLOUD CLIENT
+name: Jacek Kurlit
+username: jacek.kurlit
+hostname(devicename/computer name): PL01-ITLT-00155
+
+curl --tlsv1.2 --silent --show-error --header 'x-connect-key: 71c4687f2da7b0ce3fa0edb982bdbcdad1c139e2' https://kickstart.jumpcloud.com/Kickstart | sudo bash
+
+### GIT
+sudo dnf -y install git
+git config --global user.name "Jacek Kurlit"
+git config --global user.email "jacek.kurlit@kitopi.com"
+
+### ZSH && OH-MY-ZSH
+sudo dnf install zsh
+sudo chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+###FONTS - download from https://www.nerdfonts.com/font-downloads 
+mkdir ~/.local/share/fonts
+cd ~/Downloads
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
+wget -O JetBrainsMono.zip https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip
+unzip FiraCode.zip -d ~/.local/share/fonts/
+unzip JetBrainsMono.zip -d ~/.local/share/fonts/
+fc-cache ~/.local/share/fonts
+
+rm FiraCode.zip && rm JetBrainsMono.zip
+
+### RUST
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+curl -sS https://starship.rs/install.sh | sh
+### STARSHIP
+
+# zsh
+eval "$(starship init zsh)"
+
+### SDKMAN
+curl -s "https://get.sdkman.io" | bash
+
+sdk install java 11.0.17-tem
+
+### MVN
+wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+tar xvf apache-maven-3.8.6-bin.tar.gz --directory ~/tools
+rm apache-maven-3.8.6-bin.tar.gz
+ln -s ~/tools/apache-maven-3.8.6/bin/mvn ~/.local/bin/mvn
+ln -s ~/tools/apache-maven-3.8.6/bin/mvnDebug ~/.local/bin/mvnDebug
+ln -s ~/tools/apache-maven-3.8.6/bin/mvnyjp ~/.local/bin/mvnyjp
+
+### Docker & docker-composer
+
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo systemctl start docker
+sudo docker run hello-world
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
+
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+ 
+### Chrome
+sudo dnf install fedora-workstation-repositories
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install google-chrome-stable
+
+### KeePassXC
+flatpak install flathub org.keepassxc.KeePassXC
+
+### Mailspring
+flatpak install flathub com.getmailspring.Mailspring
+
+### Slack
+flatpak install flathub com.slack.Slack
+
+### Zoom
+flatpak install flathub us.zoom.Zoom
+
+### Stretchly
+flatpak install flathub net.hovancik.Stretchly
+
+# Flat seal - is a graphical utility to review and modify permissions from your Flatpak applications. (By default slack on wayland wont allow you to share screen!)
+flatpak install flathub com.github.tchx84.Flatseal
+
+# WEZTERM
+sudo dnf install https://github.com/wez/wezterm/releases/download/20221119-145034-49b9839f/wezterm-20221119_145034_49b9839f-1.fedora36.x86_64.rpm
+
+### HELIX
+cd ~/tools
+git clone https://github.com/helix-editor/helix
+cd helix
+cargo install --path helix-term
+ln -s $PWD/runtime ~/.config/helix/runtime
+
+sudo dnf install gcc-c++ libX11-devel alsa-lib-devel systemd-devel
+sudo dnf install wayland-devel libxkbcommon-devel
+
+hx --grammar fetch
+hx --grammar build (wymaga c++ compilatora)
+
+### RUST ANALYZER
+cd ~/tools
+
+git clone https://github.com/rust-lang/rust-analyzer.git && cd rust-analyzer
+cargo xtask install --server
+
+### BAT
+source - https://github.com/sharkdp/bat
+
+dnf install bat
+
+### ZOXIDE
+source - https://github.com/ajeetdsouza/zoxide
+dnf install zoxide
+
+# zsh
+Add this to your configuration (usually ~/.zshrc):
+eval "$(zoxide init zsh)"
+
+### Mongo Compas
+flatpak install flathub com.mongodb.Compass
+
+### INTELLIJ ULTIMATE
+Install via tool box since it uses native image
+
+### AWS CLI
+cd ~/tools
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+rm awscliv2.zip
+sudo ./aws/install
+
+# SAML2AWS
+CURRENT_VERSION=$(curl -Ls https://api.github.com/repos/Versent/saml2aws/releases/latest | grep 'tag_name' | cut -d'v' -f2 | cut -d'"' -f1)
+wget -c https://github.com/Versent/saml2aws/releases/download/v${CURRENT_VERSION}/saml2aws_${CURRENT_VERSION}_linux_amd64.tar.gz -O - | tar -xzv -C ~/.local/bin
+chmod u+x ~/.local/bin/saml2aws
+hash -r
+saml2aws --version
+ 
+# stow - requires ssh set up && probably removeing files that are going to be linked
+sudo dnf install stow
+cd ~
+git clone git@github.com:jacek-kurlit/.dotfiles.git
+cd .dotfiles
+stow .
+
+##### GIT REPOS #####
+mkdir -p ~/kitopi_projects/rightbite
+cd ~/kitopi_projects/rightbite
+git clone git@bitbucket.org:rbl9team/configurationdata.git
+git clone git@bitbucket.org:rbl9team/mealplannerservice.git
+git clone git@bitbucket.org:rbl9team/paymentservice.git
+git clone git@bitbucket.org:rbl9team/ruleengineservice.git
+git clone git@bitbucket.org:rbl9team/subscriptionservice.git
+git clone git@bitbucket.org:rbl9team/zohointegrationservice.git
+git clone git@bitbucket.org:rbl9team/apigatewayservice.git
+git clone git@bitbucket.org:rbl9team/configurationservice.git
+git clone git@bitbucket.org:rbl9team/test-commons.git
+git clone git@bitbucket.org:rbl9team/domainobjects.git
+git clone git@bitbucket.org:rbl9team/service-commons.git
+
+##### OPTIONALS #####
+
+THIS BREAKS SYSTEM, DOT USE IT ON FEDORA!!!!!!!!!
+# Timeshift - system backup (better safe than sorry!)
+site: https://github.com/linuxmint/timeshift
+sudo dnf install timeshift
+
+### NEO VIM 
+sudo dnf install -y neovim python3-neovim
+
+requires (npm)
+### TLDR command cheatsheet --> NAVI has tldr pages too so there is no point in downloading it
+https://github.com/tldr-pages/tldr
+npm install -g tldr
+
+### SKIM - fuzzy finder
+https://github.com/lotabout/skim
+cargo install skim
+
+
+### THEMES AND APPERANCE
+
+To install (from software center)
+- Extension Manager
+  - Dash2Dock Lite or Dash to Dock (more features but no animations)
+  - Lock screen background
+  - Unblank lock screen
+  - No overview at startup
+  - system monitor next
+  - Tray Icons: Reloaded
+  - User themes  
+- Tweaks
+
+Site with themes 
+https://www.gnome-look.org/browse/
