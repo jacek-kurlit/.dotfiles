@@ -40,3 +40,29 @@ Arguments
 daa -> delete argument
 cia -> change argument
 via -> select inner argument
+
+ReplaceWithRegister
+[count]["x]gr{motion}   Replace {motion} text with the contents of register x.
+                        Especially when using the unnamed register, this is
+                        quicker than "_d{motion}P or "_c{motion}<C-R>"
+[count]["x]grr          Replace [count] lines with the contents of register x.
+                        To replace from the cursor position to the end of the
+                        line use ["x]gr$
+{Visual}["x]gr          Replace the selection with the contents of register x.
+
+Exchange
+
+cx{motion}              Used in pairs.
+                        FIRST USE: define the first region of text to be
+                        exchanged. Any valid {motion} can be used.
+                        SECOND USE: define the second region of text and
+                        perform the exchange.
+                        Note: If a region was defined accidentally, it can
+                        be cleared with |cxc|
+
+cxx                     Like |cx|, but for the current line. |linewise|
+
+cxc                     Clear any defined region of text (previously defined
+                        by a |cx| command)
+
+{Visual}X               Can be used in |visual-mode|.

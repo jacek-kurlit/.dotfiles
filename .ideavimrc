@@ -9,6 +9,9 @@ set NERDTree
 set commentary
 set argtextobj
 set highlightedyank
+set ReplaceWithRegister
+set exchange
+"set multiple-cursors  this is not working as plugin describes, replaced with intellij mappings
 
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
 " System clipboard fix
@@ -18,7 +21,7 @@ set noerrorbells
 set visualbell
 " for which-key to display popup
 set notimeout
-let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_ShowVimActions = "false"
 
 " settings for highlightedyank
 let g:highlightedyank_highlight_duration = "1000"
@@ -111,6 +114,13 @@ map ]s <Action>(MoveStatementDown)
 map [s <Action>(MoveStatementUp)
 nnoremap ]<space> mpo<Esc>`p
 nnoremap [<space> mpO<Esc>`p
+
+"""""""""""""""""""""""" MULTIPLE CURSOR MAPPINGS """""""""""""""""""""""""""""
+map <c-n> <Action>(EditorCloneCaretBelow)
+map <c-s-N> <Action>(EditorCloneCaretAbove)
+map <a-n> <Action>(SelectNextOccurrence)
+map <a-s-N> <Action>(SelectPreviousOccurrence)
+map <c-s-a-j> <Action>(SelectAllOccurrences)
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
