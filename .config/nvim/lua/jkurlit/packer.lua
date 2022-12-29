@@ -49,6 +49,13 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim', -- editor line
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'} -- bufferline
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    }
+  }
 
  -- cmp plugins
   use 'hrsh7th/nvim-cmp' -- The completion plugin
@@ -86,14 +93,7 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-  -- nvm tree
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    }
-  }
+  use 'ahmedkhalf/project.nvim'
 
   -- git
   use 'lewis6991/gitsigns.nvim'
@@ -102,6 +102,7 @@ return packer.startup(function(use)
   use 'numToStr/Comment.nvim' -- Adds comments with commands
   use 'kylechui/nvim-surround' -- Add/Delete/Change surroudings with commands
   use 'windwp/nvim-autopairs'
+  use 'akinsho/toggleterm.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -6,6 +6,9 @@ require("jkurlit.plugins.nvim-tree")
 require("jkurlit.plugins.treesitter")
 require("jkurlit.plugins.autopairs")
 require("jkurlit.plugins.gitsigns")
+require("jkurlit.plugins.bufferline")
+require("jkurlit.plugins.toggleterm")
+require("jkurlit.plugins.projects")
 
 -- one liners with default configuration
 local safe_require = function(plugin_name)

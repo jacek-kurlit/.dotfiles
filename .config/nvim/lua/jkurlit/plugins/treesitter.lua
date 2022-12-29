@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-  ensure_installed = { "bash", "rust", "javascript", "json", "lua", "typescript", "css", "yaml"}, -- one of "all" or a list of languages
+  ensure_installed = { "bash", "toml", "rust", "javascript", "json", "lua", "typescript", "css", "yaml"}, -- one of "all" or a list of languages
 
 	-- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
