@@ -1,8 +1,8 @@
 "" Source your .vimrc
 "source ~/.vimrc
 
+let mapleader = " "
 " plugins
-set sneak
 set which-key
 set surround
 set NERDTree
@@ -11,11 +11,21 @@ set argtextobj
 set highlightedyank
 set ReplaceWithRegister
 set exchange
+set ideajoin
+set multicursor
+set quickscope
+set easymotion
+
 "set multiple-cursors  this is not working as plugin describes, replaced with intellij mappings
 
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
 " System clipboard fix
 set clipboard+=unnamed
+" System clipboard mappings
+map <leader>p "+p
+map <leader><s-p> "+P
+map <leader>y "+y
+
 " Turning off error bells
 set noerrorbells
 set visualbell
@@ -27,9 +37,11 @@ let g:WhichKey_ShowVimActions = "false"
 let g:highlightedyank_highlight_duration = "1000"
 let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
 
-Note that this makes the
+" Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
+set tabstop = 4
+set softtabstop = 4
+set scrolloff=8
 set nu rnu
 " Do incremental searching.
 set incsearch
@@ -40,17 +52,18 @@ map Q gq
 nmap <C-i> <Action>(Forward)
 nmap <C-o> <Action>(Back)
 
-let mapleader = " "
 
 """""""""""""""""""""""" LEADER MAPPINGS """""""""""""""""""""""""""""
 map <leader>a <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_actions        = "<leader>a Show actions"
-map <leader>f <Action>(GotoFile)
+map <leader>ff <Action>(GotoFile)
+map <leader>fc <Action>(GotoClass)
+map <leader>fb <Action>(RecentFiles)
 map <leader>s <Action>(FileStructurePopup)
-map <leader>S <Action>(GotoSymbol)
-map <leader>k <Action>(QuickJavaDoc)
-map <leader>/ <Action>(FindInPath)
-map <leader>? <Action>(GotoAction)
+map <leader>fs <Action>(GotoSymbol)
+map K <Action>(QuickJavaDoc)
+map <leader>f/ <Action>(FindInPath)
+map <leader>f? <Action>(GotoAction)
 
 """""""""""""""""""""""" REFACTOR MAPPINGS """""""""""""""""""""""""""""
 map <leader>rr <Action>(RenameElement)
@@ -121,6 +134,11 @@ map <c-s-N> <Action>(EditorCloneCaretAbove)
 map <a-n> <Action>(SelectNextOccurrence)
 map <a-s-N> <Action>(SelectPreviousOccurrence)
 map <c-s-a-j> <Action>(SelectAllOccurrences)
+
+"""""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
+map s <Plug>(easymotion-s)
+map <leader>w <Plug>(easymotion-bd-w)
+map <leader>e <Plug>(easymotion-bd-e)
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action

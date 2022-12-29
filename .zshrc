@@ -80,7 +80,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
+export EDITOR='/usr/bin/nvim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -107,6 +107,8 @@ eval "$(zoxide init zsh)"
 
 # ENV CONFIG
 export RIGHTBITE_CODEARTIFACT_REPOSITORY_URL='https://rightbite-main-373297882832.d.codeartifact.eu-west-1.amazonaws.com/maven/mvn-artifacts/'
+# This is fix for aws vpn client
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 #alias wezterm='flatpak run org.wezfurlong.wezterm'
 

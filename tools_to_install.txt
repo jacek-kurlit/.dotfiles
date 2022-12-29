@@ -175,23 +175,24 @@ git clone git@bitbucket.org:rbl9team/service-commons.git
 
 ##### OPTIONALS #####
 
-THIS BREAKS SYSTEM, DOT USE IT ON FEDORA!!!!!!!!!
-# Timeshift - system backup (better safe than sorry!)
-site: https://github.com/linuxmint/timeshift
-sudo dnf install timeshift
-
-### NEO VIM 
+### NEO VIM ###
 sudo dnf install -y neovim python3-neovim
 
-requires (npm)
-### TLDR command cheatsheet --> NAVI has tldr pages too so there is no point in downloading it
+## DEPENDENCIES
+
+# TREE-SITTER
+cargo install tree-sitter-cli
+
+# RIPGREP
+sudo dnf install ripgrep
+
+# LAZY GIT
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
+
+### TLDR command cheatsheet 
 https://github.com/tldr-pages/tldr
 npm install -g tldr
-
-### SKIM - fuzzy finder
-https://github.com/lotabout/skim
-cargo install skim
-
 
 ### THEMES AND APPERANCE
 
