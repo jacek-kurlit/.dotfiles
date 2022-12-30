@@ -23,6 +23,11 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-q>", "<C-w>q", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+keymap("n", "<leader>c", "<cmd>Bdelete %<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -39,9 +44,14 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==g<Esc>", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==g<Esc>", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
+keymap("i", "<C-j>", "<down>", opts)
+keymap("i", "<C-k>", "<up>", opts)
+keymap("i", "<C-h>", "<left>", opts)
+keymap("i", "<C-l>", "<right>", opts)
+keymap("i", "<C-c>", "<Esc>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -65,21 +75,31 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- Telewscope
+-- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fj", "<cmd>Telescope jumplist<cr>", opts)
-keymap("n", "<leader>fd", "<cmd>Telescope diagnostic<cr>", opts)
+keymap("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", opts)
 keymap("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", opts)
 keymap("n", "<leader>fp", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<leader>?", "<cmd>Telescope commands<cr>", opts)
 keymap("n", "<C-e>", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 
+-- link visitor
+keymap("n", "<leader>wb", "<cmd>VisitLinkInBuffer<cr>", opts)
+keymap("n", "<leader>wc", "<cmd>VisitLinkNearCursor<cr>", opts)
+-- missing config for documentation hover https://github.com/xiyaowong/link-visitor.nvim
+
 -- nvim-tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>o", ":NvimTreeFindFile<cr>", opts)
 
+-- multiselect
+-- <C-n>/<C-N> to select next/previous word at cursor
+keymap("n", "<A-n>", "<Plug>(VM-Add-Cursor-Down)", opts)
+keymap("n", "<A-N>", "<Plug>(VM-Add-Cursor-Up)", opts)
+keymap("n", "<C-A-S-n>", "<Plug>(VM-Select-All)", opts)
 
 -- used elswhere
 -- ### comment line
@@ -103,10 +123,10 @@ keymap("n", "<leader>o", ":NvimTreeFindFile<cr>", opts)
 -- keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 -- ### autopairs
 -- # insert mode
--- <A-e> fast wrap 
+-- <A-e> fast wrap
 -- ### SURROUND
--- ys - add 
--- cs - change 
+-- ys - add
+-- cs - change
 -- ds - delete
 -- ### terminal
 -- <c-\> - toggle terminal

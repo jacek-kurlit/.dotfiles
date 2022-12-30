@@ -129,11 +129,12 @@ nnoremap ]<space> mpo<Esc>`p
 nnoremap [<space> mpO<Esc>`p
 
 """""""""""""""""""""""" MULTIPLE CURSOR MAPPINGS """""""""""""""""""""""""""""
-map <c-n> <Action>(EditorCloneCaretBelow)
-map <c-s-N> <Action>(EditorCloneCaretAbove)
-map <a-n> <Action>(SelectNextOccurrence)
-map <a-s-N> <Action>(SelectPreviousOccurrence)
-map <c-s-a-j> <Action>(SelectAllOccurrences)
+map <c-n> <Action>(SelectNextOccurrence)
+" intellij nie ma takiej akcji!
+"map <c-s-N> <Action>(SelectPreviousOccurrence)
+map <a-n> <Action>(EditorCloneCaretBelow)
+map <a-s-N> <Action>(EditorCloneCaretAbove)
+map <c-s-a-n> <Action>(SelectAllOccurrences)
 
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
 map s <Plug>(easymotion-s)

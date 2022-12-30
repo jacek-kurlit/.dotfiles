@@ -3,7 +3,7 @@ local servers = {
 	"cssls",
 	"html",
 	"tsserver",
-	"rust_analyzer",
+  -- rust is configured by rust_tools plugin
 	"bashls",
 	"jsonls",
 	"yamlls",
@@ -25,7 +25,7 @@ local settings = {
 require("mason").setup(settings)
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
-	automatic_installation = true,
+	automatic_installation = false,
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
