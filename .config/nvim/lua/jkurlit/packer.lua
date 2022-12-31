@@ -68,6 +68,7 @@ return packer.startup(function(use)
 		},
 	})
 	use("moll/vim-bbye")
+	use("goolord/alpha-nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -100,6 +101,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use("chrisgrieser/nvim-various-textobjs")
 
 	-- telescope
 	use({
@@ -126,6 +128,13 @@ return packer.startup(function(use)
 	use("vim-scripts/ReplaceWithRegister")
 	use("mg979/vim-visual-multi")
 	use("ggandor/leap.nvim")
+	use({
+		"Wansmer/treesj",
+		requires = { "nvim-treesitter" },
+	})
+	use("booperlv/nvim-gomove")
+	use("gbprod/substitute.nvim")
+	use("nguyenvukhang/nvim-toggler")
 
 	-- utils
 

@@ -44,7 +44,6 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==g<Esc>", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==g<Esc>", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "<C-j>", "<down>", opts)
@@ -54,6 +53,7 @@ keymap("i", "<C-l>", "<right>", opts)
 keymap("i", "<C-c>", "<Esc>", opts)
 
 -- Visual --
+keymap("n", "<leader>h", ":noh<cr>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -62,11 +62,6 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
@@ -100,6 +95,48 @@ keymap("n", "<leader>o", ":NvimTreeFindFile<cr>", opts)
 keymap("n", "<A-n>", "<Plug>(VM-Add-Cursor-Down)", opts)
 keymap("n", "<A-N>", "<Plug>(VM-Add-Cursor-Up)", opts)
 keymap("n", "<C-A-S-n>", "<Plug>(VM-Select-All)", opts)
+
+-- refactoring & lsp
+keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+keymap("n", "<leader>ls", ":TSJToggle<cr>", opts)
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+keymap("n", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("i", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+
+-- subsitute
+keymap("n", "cr", "<cmd>lua require('substitute').operator()<cr>", opts)
+keymap("n", "crr", "<cmd>lua require('substitute').line()<cr>", opts)
+keymap("n", "cR", "<cmd>lua require('substitute').eol()<cr>", opts)
+keymap("x", "cr", "<cmd>lua require('substitute').visual()<cr>", opts)
+keymap("n", "cx", "<cmd>lua require('substitute.exchange').operator()<cr>", opts)
+keymap("n", "cxx", "<cmd>lua require('substitute.exchange').line()<cr>", opts)
+keymap("x", "X", "<cmd>lua require('substitute.exchange').visual()<cr>", opts)
+
+-- more textobjects to target
+vim.keymap.set({ "o", "x" }, "an", "<cmd>lua require('various-textobjs').number(false)<cr>")
+vim.keymap.set({ "o", "x" }, "in", "<cmd>lua require('various-textobjs').number(true)<cr>")
+vim.keymap.set({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value(false)<cr>")
+vim.keymap.set({ "o", "x" }, "iv", "<cmd>lua require('various-textobjs').value(true)<cr>")
+vim.keymap.set({ "o", "x" }, "ak", "<cmd>lua require('various-textobjs').key(false)<cr>")
+vim.keymap.set({ "o", "x" }, "ik", "<cmd>lua require('various-textobjs').key(true)<cr>")
+
+-- inverse word
+vim.keymap.set({ "n", "v" }, "!", require("nvim-toggler").toggle)
+
+-- others
+-- ["af"] = "@function.outer",
+-- ["if"] = "@function.inner",
+-- ["aa"] = "@parameter.outer",
+-- ["ia"] = "@parameter.inner",
+-- ["al"] = "@loop.outer",
+-- ["il"] = "@loop.inner",
+-- ["ab"] = "@block.outer",
+-- ["ib"] = "@block.inner",
+-- ["ai"] = "@conditional.outer",
+-- ["ii"] = "@conditional.inner",
+-- ["ac"] = "@class.outer",
+-- ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
 
 -- used elswhere
 -- ### comment line
