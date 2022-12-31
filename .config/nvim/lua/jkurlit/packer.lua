@@ -69,6 +69,7 @@ return packer.startup(function(use)
 	})
 	use("moll/vim-bbye")
 	use("goolord/alpha-nvim")
+	use("folke/which-key.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -125,7 +126,6 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("akinsho/toggleterm.nvim")
 	use("xiyaowong/link-visitor.nvim") -- open links
-	use("vim-scripts/ReplaceWithRegister")
 	use("mg979/vim-visual-multi")
 	use("ggandor/leap.nvim")
 	use({
@@ -134,7 +134,6 @@ return packer.startup(function(use)
 	})
 	use("booperlv/nvim-gomove")
 	use("gbprod/substitute.nvim")
-	use("nguyenvukhang/nvim-toggler")
 
 	-- utils
 

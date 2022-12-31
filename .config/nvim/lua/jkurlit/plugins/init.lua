@@ -13,7 +13,7 @@ require("jkurlit.plugins.rust-tools")
 require("jkurlit.plugins.link-visitor")
 require("jkurlit.plugins.noice")
 require("jkurlit.plugins.alpha")
-require("jkurlit.plugins.nvim-toggler")
+require("jkurlit.plugins.whichkey")
 
 -- one liners with default configuration
 local safe_require = function(plugin_name, config)
