@@ -14,7 +14,7 @@ local setup = {
 }
 
 local opts = {
-	mode = "n", -- NORMAL mode
+	mode = { "n", "v" }, -- NORMAL mode
 	prefix = "<leader>",
 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps
@@ -47,9 +47,11 @@ local mappings = {
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Document symbols" },
 		["?"] = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
-	s = { "<cmd>Telescope lsp_document)symbols<cr>", "Document symbols" },
+	["/"] = { "<cmd>lua require 'Comment.api'.toggle.linewise.current()<cr>", "Comment line" },
+	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document symbols" },
 
 	["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 

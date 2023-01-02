@@ -18,6 +18,10 @@ set easymotion
 
 "set multiple-cursors  this is not working as plugin describes, replaced with intellij mappings
 
+" removing mappings
+nunmap gr
+nunmap grr
+
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
 " System clipboard fix
 set clipboard+=unnamed
@@ -49,9 +53,13 @@ set incsearch
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
+"""""""""""""""""""""""" MOVEMENTS """""""""""""""""""""""""""""
+map <A-j> <Action>(MoveStatementDown)
+map <A-k> <Action>(MoveStatementUp)
+map <S-L> <Action>(NextTab)
+map <S-H> <Action>(PreviousTab)
 nmap <C-i> <Action>(Forward)
 nmap <C-o> <Action>(Back)
-
 
 """""""""""""""""""""""" LEADER MAPPINGS """""""""""""""""""""""""""""
 map <leader>a <Action>(ShowIntentionActions)
@@ -59,11 +67,12 @@ let g:WhichKeyDesc_actions        = "<leader>a Show actions"
 map <leader>ff <Action>(GotoFile)
 map <leader>fc <Action>(GotoClass)
 map <leader>fb <Action>(RecentFiles)
-map <leader>s <Action>(FileStructurePopup)
-map <leader>fs <Action>(GotoSymbol)
+map <leader>fs <Action>(FindInPath)
+map <leader>f<S-s> <Action>(GotoSymbol)
 map K <Action>(QuickJavaDoc)
-map <leader>f/ <Action>(FindInPath)
 map <leader>f? <Action>(GotoAction)
+map <leader>s <Action>(FileStructurePopup)
+map <leader>q <Action>(Exit)
 
 """""""""""""""""""""""" REFACTOR MAPPINGS """""""""""""""""""""""""""""
 map <leader>rr <Action>(RenameElement)
@@ -104,12 +113,9 @@ map <leader>g= <Action>(Git.CompareWithBranch)
 map <leader>gr <Action>(ChangesView.Revert)
 
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
-map gh 0
-map gl $
-map ge G
-map gs ^
 
 nmap gd <Action>(GotoDeclaration)
+nmap gr <Action>(GotoDeclaration)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap gt <Action>(GotoTest)
@@ -117,14 +123,10 @@ nmap g; <Action>(JumpToLastChange)
 nmap g, <Action>(JumpToNextChange)
 
 """""""""""""""""""""""" UNIMPARIED MAPPINGS """""""""""""""""""""""""""""
-map ]] <Action>(MethodDown)
-nmap <c-j> <Action>(MethodDown)
-map [[ <Action>(MethodUp)
-map <c-k> <Action>(MethodUp)
+nmap ]f <Action>(MethodDown)
+map [f <Action>(MethodUp)
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
-map ]s <Action>(MoveStatementDown)
-map [s <Action>(MoveStatementUp)
 nnoremap ]<space> mpo<Esc>`p
 nnoremap [<space> mpO<Esc>`p
 
@@ -140,6 +142,11 @@ map <c-s-a-n> <Action>(SelectAllOccurrences)
 map s <Plug>(easymotion-s)
 map <leader>w <Plug>(easymotion-bd-w)
 map <leader>e <Plug>(easymotion-bd-e)
+
+"""""""""""""""""""""""" ReplaceWithRegister """""""""""""""""""""""""""""
+nmap cr <Plug>ReplaceWithRegisterOperator
+nmap crr <Plug>ReplaceWithRegisterLine
+xmap cr <Plug>ReplaceWithRegisterVisual
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action

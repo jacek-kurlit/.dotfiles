@@ -1,6 +1,3 @@
--- autoformat before save
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format{ async = true }]])
-
 local options = {
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard

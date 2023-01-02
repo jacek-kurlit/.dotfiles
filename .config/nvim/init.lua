@@ -1,3 +1,4 @@
+require("jkurlit.autocommands")
 require("jkurlit.options")
 require("jkurlit.keymaps")
 require("jkurlit.colorscheme")

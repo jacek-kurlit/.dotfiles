@@ -64,8 +64,8 @@ keymap("n", "<C-A-S-n>", "<Plug>(VM-Select-All)", opts())
 -- lsp
 keymap("n", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts())
 keymap("i", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts())
-keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts("Next diagnostic"))
-keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts("Prev diagnostic"))
+keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts("Next diagnostic"))
+keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts("Prev diagnostic"))
 
 -- subsitute
 keymap("n", "cr", "<cmd>lua require('substitute').operator()<cr>", opts("Replace with register"))
@@ -83,6 +83,14 @@ vim.keymap.set({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value(f
 vim.keymap.set({ "o", "x" }, "iv", "<cmd>lua require('various-textobjs').value(true)<cr>")
 vim.keymap.set({ "o", "x" }, "ak", "<cmd>lua require('various-textobjs').key(false)<cr>")
 vim.keymap.set({ "o", "x" }, "ik", "<cmd>lua require('various-textobjs').key(true)<cr>")
+
+-- intellij keynappings
+keymap(
+	"n",
+	"<C-e>",
+	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	opts("Recent files")
+)
 
 -- others
 -- ["af"] = "@function.outer",
