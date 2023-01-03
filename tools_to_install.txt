@@ -17,6 +17,8 @@ curl --tlsv1.2 --silent --show-error --header 'x-connect-key: 71c4687f2da7b0ce3f
 sudo dnf -y install git
 git config --global user.name "Jacek Kurlit"
 git config --global user.email "jacek.kurlit@kitopi.com"
+mkdir -p ~/.git-templates/hooks
+git config --global init.templatedir '~/.git-templates'
 
 ### ZSH && OH-MY-ZSH
 sudo dnf install zsh
