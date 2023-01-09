@@ -110,7 +110,7 @@ export RIGHTBITE_CODEARTIFACT_REPOSITORY_URL='https://rightbite-main-37329788283
 # This is fix for aws vpn client
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
-#alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias xcc='xclip -sel clipboard'
 
 # SDKMAN
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

@@ -39,6 +39,7 @@ let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
 
 " Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
+set iskeyword+=-
 set tabstop = 4
 set softtabstop = 4
 set scrolloff=8
@@ -69,10 +70,17 @@ map K <Action>(QuickJavaDoc)
 map <leader>f? <Action>(GotoAction)
 map <leader>s <Action>(FileStructurePopup)
 map <leader>q <Action>(Exit)
+map <leader>/ <Action>(CommentByLineComment)
 let g:WhichKeyDesc_project        = "<leader>p Project"
-map <leader>pe <Action>(ActivateProjectToolWindow)
-map <leader>po <Action>(SelectInProjectView)
+map <leader>pe :NERDTreeToggle<CR>
+map <leader>po :NERDTreeFind<CR>
 map <leader>pr <Action>(ManageRecentProjects)
+
+"""""""""""""""""""""""" LSP MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_lsp        = "<leader>l LSP"
+map <leader>lf <Action>(ReformatCode)
+map <leader>lo <Action>(OptimizeImports)
+map <leader>lg <Action>(Generate)
 
 """""""""""""""""""""""" REFACTOR MAPPINGS """""""""""""""""""""""""""""
 map <leader>rr <Action>(RenameElement)
@@ -113,7 +121,6 @@ map <leader>g= <Action>(Git.CompareWithBranch)
 map <leader>gr <Action>(ChangesView.Revert)
 
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
-
 nmap gd <Action>(GotoDeclaration)
 nmap gr <Action>(GotoDeclaration)
 nmap gy <Action>(GotoTypeDeclaration)
