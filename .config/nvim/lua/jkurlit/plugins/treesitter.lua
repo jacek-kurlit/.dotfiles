@@ -11,6 +11,15 @@ configs.setup({
 	auto_install = true,
 
 	ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<c-space>", -- set to `false` to disable one of the mappings
+			node_incremental = "<c-space>",
+			scope_incremental = "<c-s>",
+			node_decremental = "<c-backspace>",
+		},
+	},
 	textobjects = {
 		select = {
 			enable = true,

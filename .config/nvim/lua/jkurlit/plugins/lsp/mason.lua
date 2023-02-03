@@ -3,10 +3,11 @@ local servers = {
 	"cssls",
 	"html",
 	"tsserver",
-  -- rust is configured by rust_tools plugin
+	-- rust is configured by rust_tools plugin
 	"bashls",
 	"jsonls",
 	"yamlls",
+	"pyright",
 }
 
 local settings = {

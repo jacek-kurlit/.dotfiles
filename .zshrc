@@ -110,6 +110,13 @@ export RIGHTBITE_CODEARTIFACT_REPOSITORY_URL='https://rightbite-main-37329788283
 # This is fix for aws vpn client
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
+# Export variables to make downloading artifacts from s3 possible
+export AWS_PROFILE=kitopi-developers
+export AWS_REGION=eu-west-1
+
+# Other useful aliases
+alias sldev="saml2aws login -a developers --force"
+alias sll3="saml2aws login -a l3support --force"
 alias xcc='xclip -sel clipboard'
 
 # SDKMAN

@@ -34,6 +34,7 @@ local mappings = {
 	["q"] = { "<cmd>qa<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["a"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 	f = {
 		name = "Find",
 		f = {
@@ -44,6 +45,7 @@ local mappings = {
 		j = { "<cmd>Telescope jumplist<cr>", "Jumplist" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+		t = { "<cmd>TodoTelescope <cr>", "Find TODO list" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
@@ -86,7 +88,6 @@ local mappings = {
 	},
 	l = {
 		name = "LSP",
-		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		d = {
 			"<cmd>Telescope diagnostics bufnr=0<cr>",
 			"Document Diagnostics",

@@ -4,27 +4,28 @@
 let mapleader = " "
 " plugins
 set which-key
-set surround
 set NERDTree
 set commentary
 set argtextobj
 set highlightedyank
 set ReplaceWithRegister
+set sneak
+set surround
 set exchange
 set ideajoin
-set multicursor
 set quickscope
-set easymotion
-
-"set multiple-cursors  this is not working as plugin describes, replaced with intellij mappings
-
+" set easymotion sneak is less overwhelming in case of cognitive overload
+set multiple-cursors
+set textobj-entire
+set matchit
 " removing mappings
 nunmap gr
 nunmap grr
 
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
 " System clipboard fix
-set clipboard+=unnamed
+
+" set clipboard^=unnamedplus,unnamed
 
 " Turning off error bells
 set noerrorbells
@@ -33,9 +34,15 @@ set visualbell
 set notimeout
 let g:WhichKey_ShowVimActions = "false"
 
+" settings for quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 " settings for highlightedyank
 let g:highlightedyank_highlight_duration = "1000"
 let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+
+" settings for argtextobject
+let g:argtextobj_pairs="(:),{:},<:>,[:]"
 
 " Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
@@ -46,9 +53,13 @@ set scrolloff=8
 set nu rnu
 " Do incremental searching.
 set incsearch
+set ignorecase
+set smartcase
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
+
+nmap <C-\> <Action>(ActivateTerminalToolWindow)
 
 """""""""""""""""""""""" MOVEMENTS """""""""""""""""""""""""""""
 map <A-j> <Action>(MoveStatementDown)
@@ -67,20 +78,66 @@ map <leader>fb <Action>(RecentFiles)
 map <leader>fs <Action>(FindInPath)
 map <leader>f<S-s> <Action>(GotoSymbol)
 map K <Action>(QuickJavaDoc)
+map <c-s>I <Action>(QuickImplementations)
 map <leader>f? <Action>(GotoAction)
 map <leader>s <Action>(FileStructurePopup)
 map <leader>q <Action>(Exit)
 map <leader>/ <Action>(CommentByLineComment)
+
+"""""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
 map <leader>pe :NERDTreeToggle<CR>
+let g:WhichKeyDesc_explorer  = "<leader>pe open explorer"
 map <leader>po :NERDTreeFind<CR>
-map <leader>pr <Action>(ManageRecentProjects)
+let g:WhichKeyDesc_focus_in_explorer  = "<leader>po focus in explorer"
+map <leader>pl <Action>(ManageRecentProjects)
+let g:WhichKeyDesc_recent_projects_list  = "<leader>pl recent projects"
+map <leader>pm <Action>(Maven.ExecuteGoal)
+let g:WhichKeyDesc_project_execute_maven  = "<leader>pm execute maven goal"
+map <leader>pr <Action>(ExternalSystem.ProjectRefreshAction)
+let g:WhichKeyDesc_project_refresh  = "<leader>pr refresh project"
 
 """""""""""""""""""""""" LSP MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_lsp        = "<leader>l LSP"
 map <leader>lf <Action>(ReformatCode)
 map <leader>lo <Action>(OptimizeImports)
 map <leader>lg <Action>(Generate)
+map <leader>lm <Action>(OverrideMethods)
+
+"""""""""""""""""""""""" DEBUG MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_debug        = "<leader>d Debug"
+map <leader>dt <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_toggle_breakpoint  = "<leader>dt toggle breakpoint"
+map <leader>dv <Action>(StepOver)
+let g:WhichKeyDesc_step_over  = "<leader>dv step over"
+map <leader>di <Action>(StepInto)
+let g:WhichKeyDesc_step_into  = "<leader>di step into"
+map <leader>du <Action>(StepOut)
+let g:WhichKeyDesc_step_out  = "<leader>du step out"
+map <leader>de <Action>(EvaluateExpression)
+let g:WhichKeyDesc_evaluate_expression  = "<leader>de evaluate expression"
+map <leader>dr <Action>(Resume)
+let g:WhichKeyDesc_resume  = "<leader>dr resume execution"
+
+"""""""""""""""""""""""" TEST MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_test        = "<leader>t Test"
+map <leader>tc <Action>(RunClass)
+let g:WhichKeyDesc_run_current_test  = "<leader>tc run current test"
+map <leader>tr <Action>(RerunTests)
+let g:WhichKeyDesc_rerun_test  = "<leader>tr rerun tests"
+map <leader>tf <Action>(RerunFailedTests)
+let g:WhichKeyDesc_rerun_failed_test  = "<leader>tf rerun failed tests"
+map <leader>td <Action>(DebugClass)
+let g:WhichKeyDesc_debug_current_test  = "<leader>td debug current test"
+
+"""""""""""""""""""""""" TEST MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_test        = "<leader>t Test"
+map <leader>tc <Action>(RunClass)
+let g:WhichKeyDesc_run_current_test  = "<leader>tc run current test"
+map <leader>tr <Action>(Run)
+let g:WhichKeyDesc_last_test  = "<leader>tl rerun last test"
+map <leader>td <Action>(DebugClass)
+let g:WhichKeyDesc_debug_current_test  = "<leader>td debug current test"
 
 """""""""""""""""""""""" REFACTOR MAPPINGS """""""""""""""""""""""""""""
 map <leader>rr <Action>(RenameElement)
@@ -105,7 +162,9 @@ let g:WhichKeyDesc_refactor_quick_popup  = "<leader>rq show refactor popup"
 map <leader>rs <Action>(SurroundWith)
 let g:WhichKeyDesc_surround_with  = "<leader>rs surround with"
 map <leader>ru <Action>(Unwrap)
-let g:WhichKeyDesc_unwrap  = "<leader>rs unwrap"
+let g:WhichKeyDesc_unwrap  = "<leader>ru unwrap"
+map <leader>rt <Action>(Move)
+let g:WhichKeyDesc_transport_object  = "<leader>rt transport"
 
 """""""""""""""""""""""" GIT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_git        = "<leader>g  Git"
@@ -126,6 +185,8 @@ nmap gr <Action>(GotoDeclaration)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap gt <Action>(GotoTest)
+nmap gs <Action>(ParameterInfo)
+nmap gl <Action>(ShowErrorDescription)
 nmap g; <Action>(JumpToLastChange)
 nmap g, <Action>(JumpToNextChange)
 
@@ -134,16 +195,34 @@ nmap ]f <Action>(MethodDown)
 map [f <Action>(MethodUp)
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
+map ]g <Action>(VcsShowNextChangeMarker)
+map [g <Action>(VcsShowPrevChangeMarker)
 nnoremap ]<space> mpo<Esc>`p
 nnoremap [<space> mpO<Esc>`p
 
 """""""""""""""""""""""" MULTIPLE CURSOR MAPPINGS """""""""""""""""""""""""""""
-map <c-n> <Action>(SelectNextOccurrence)
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+nmap <C-x> <Plug>SkipOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+nmap <C-p> <Plug>RemoveOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+nmap <S-A-C-n> <Plug>AllWholeOccurrences
+xmap <S-A-C-n> <Plug>AllWholeOccurrences
+nmap g<S-C-n> <Plug>AllOccurrences
+xmap g<S-C-n> <Plug>AllOccurrences
+"map <c-n> <Action>(SelectNextOccurrence)
 " intellij nie ma takiej akcji!
 "map <c-s-N> <Action>(SelectPreviousOccurrence)
 map <a-n> <Action>(EditorCloneCaretBelow)
 map <a-s-N> <Action>(EditorCloneCaretAbove)
-map <c-s-a-n> <Action>(SelectAllOccurrences)
+"map <c-s-a-n> <Action>(SelectAllOccurrences)
 
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
 map s <Plug>(easymotion-s)
@@ -185,7 +264,8 @@ cnoremap <C-l> <Right>
 " Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
 function! Invert(calledFromVisual)
   let antonyms = ['true', 'false', 'after', 'before', 'start', 'end', 'left', 'right', 'first', 'last',
-                 \'True', 'False', 'After', 'Before', 'Start', 'End', 'Left', 'Right', 'First', 'Last']
+                 \'True', 'False', 'After', 'Before', 'Start', 'End', 'Left', 'Right', 'First', 'Last',
+                 \'private', 'public']
 
   if a:calledFromVisual
     normal gv"wy

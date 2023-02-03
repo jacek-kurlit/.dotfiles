@@ -70,6 +70,11 @@ return packer.startup(function(use)
 	use("moll/vim-bbye")
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
+	use("folke/todo-comments.nvim")
+	use({ -- dim unused variables
+		"narutoxy/dim.lua",
+		requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
+	})
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

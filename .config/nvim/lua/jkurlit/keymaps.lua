@@ -67,6 +67,10 @@ keymap("i", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts())
 keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts("Next diagnostic"))
 keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts("Prev diagnostic"))
 
+-- todo comments
+keymap("n", "]t", "<cmd>lua require('todo-comments').jump_next()<cr>", opts("Next todo comment"))
+keymap("n", "[t", "<cmd>lua require('todo-comments').jump_prev()<cr>", opts("Prev todo comment"))
+
 -- subsitute
 keymap("n", "cr", "<cmd>lua require('substitute').operator()<cr>", opts("Replace with register"))
 keymap("n", "crr", "<cmd>lua require('substitute').line()<cr>", opts("Replace line with register"))

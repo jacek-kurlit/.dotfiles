@@ -24,8 +24,8 @@ local opts = {
 
 			-- overrriding for rust
 			-- its not working and lsp code action are better...
-			vim.keymap.set({ "n", "v" }, "<Leader>a", rust_tools.hover_actions.hover_actions, keymap_opts)
-			vim.keymap.set({ "n", "v" }, "<C-space>", rust_tools.code_action_group.code_action_group, keymap_opts)
+			-- vim.keymap.set({ "n", "v" }, "<Leader>a", rust_tools.hover_actions.hover_actions, keymap_opts)
+			-- vim.keymap.set({ "n", "v" }, "<C-space>", rust_tools.code_action_group.code_action_group, keymap_opts)
 			vim.keymap.set("n", "<Leader>cr", "<cmd>RustRunnables<cr>", keymap_opts)
 			vim.keymap.set("n", "<Leader>cd", "<cmd>RustDebuggables<cr>", keymap_opts)
 		end,
