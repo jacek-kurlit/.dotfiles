@@ -1,17 +1,55 @@
 local ok, rust_tools = pcall(require, "rust-tools")
-local diagnostic = require("vim.diagnostic")
 
 if not ok then
 	return
 end
 
 local capabilities = require("jkurlit.plugins.lsp.handlers").capabilities
+local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
+local codelldb_adapter = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = mason_path .. "packages/codelldb/extension/adapter/codelldb",
+		args = { "--port", "${port}" },
+		-- On windows you may have to uncomment this:
+		-- detached = false,
+	},
+}
+
+local dap_ok, dap = pcall(require, "dap")
+if dap_ok then
+	dap.adapters.codelldb = codelldb_adapter
+	dap.configurations.rust = {
+		{
+			name = "Launch file",
+			type = "codelldb",
+			request = "launch",
+			program = function()
+				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+			end,
+			cwd = "${workspaceFolder}",
+			stopOnEntry = false,
+		},
+	}
+end
 
 local opts = {
 	tools = {
 		hover_actions = {
 			auto_focus = true,
 		},
+		runnables = {
+			use_telescope = true,
+		},
+		on_initialized = function()
+			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+				pattern = { "*.rs" },
+				callback = function()
+					local _, _ = pcall(vim.lsp.codelens.refresh)
+				end,
+			})
+		end,
 	},
 
 	-- all the opts to send to nvim-lspconfig
@@ -19,7 +57,7 @@ local opts = {
 	-- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
 	server = {
 		on_attach = function(client, bufnr)
-			local on_attach = require("jkurlit.plugins.lsp.handlers").on_attach(client, bufnr)
+			require("jkurlit.plugins.lsp.handlers").on_attach(client, bufnr)
 			local keymap_opts = { noremap = true, silent = true, buffer = bufnr }
 
 			-- overrriding for rust
@@ -29,11 +67,15 @@ local opts = {
 			vim.keymap.set("n", "<Leader>cr", "<cmd>RustRunnables<cr>", keymap_opts)
 			vim.keymap.set("n", "<Leader>cd", "<cmd>RustDebuggables<cr>", keymap_opts)
 		end,
+		capabilities = capabilities,
 		settings = {
 			["rust-analyzer"] = {
 				assist = {
 					importEnforceGranularity = true,
 					importPrefix = "crate",
+				},
+				lens = {
+					enable = true,
 				},
 				cargo = {
 					allFeatures = true,
@@ -56,11 +98,7 @@ local opts = {
 	},
 	-- debugging stuff
 	dap = {
-		adapter = {
-			type = "executable",
-			command = "lldb-vscode",
-			name = "rt_lldb",
-		},
+		adapter = codelldb_adapter,
 	},
 }
 

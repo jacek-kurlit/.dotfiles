@@ -121,10 +121,16 @@ return packer.startup(function(use)
 	-- git
 	use("lewis6991/gitsigns.nvim")
 
+  -- debug
+  use("mfussenegger/nvim-dap")
+
+
 	-- programming tools
 	use("simrat39/rust-tools.nvim")
-	use("mfussenegger/nvim-dap")
-
+	use({
+		"saecki/crates.nvim",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	-- additional functions
 	use("numToStr/Comment.nvim") -- Adds comments with commands
 	use("kylechui/nvim-surround") -- Add/Delete/Change surroudings with commands
@@ -133,6 +139,13 @@ return packer.startup(function(use)
 	use("xiyaowong/link-visitor.nvim") -- open links
 	use("mg979/vim-visual-multi")
 	use("ggandor/leap.nvim")
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
 	use({
 		"Wansmer/treesj",
 		requires = { "nvim-treesitter" },

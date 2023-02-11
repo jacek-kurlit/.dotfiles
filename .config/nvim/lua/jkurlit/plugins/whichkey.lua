@@ -32,7 +32,7 @@ local mappings = {
 	["o"] = { "<cmd>NvimTreeFindFile<cr>", "Focus in Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Write buffer" },
 	["q"] = { "<cmd>qa<CR>", "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	["x"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["a"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 	f = {
@@ -80,7 +80,7 @@ local mappings = {
 		},
 	},
 
-	x = {
+	z = {
 		name = "Open link",
 		b = { "<cmd>VisitLinkInBuffer<cr>", "in buffer" },
 		c = { "<cmd>VisitLinkNearCursor<cr>", "near cursor" },

@@ -1,5 +1,6 @@
 require("jkurlit.plugins.lualine")
 require("jkurlit.plugins.lsp")
+require("jkurlit.plugins.crates")
 require("jkurlit.plugins.cmp")
 require("jkurlit.plugins.telescope")
 require("jkurlit.plugins.nvim-tree")

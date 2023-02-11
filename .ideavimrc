@@ -82,14 +82,14 @@ map <c-s>I <Action>(QuickImplementations)
 map <leader>f? <Action>(GotoAction)
 map <leader>s <Action>(FileStructurePopup)
 map <leader>q <Action>(Exit)
+map <leader>e :NERDTreeToggle<CR>
+let g:WhichKeyDesc_explorer  = "<leader>p open explorer"
+map <leader>o :NERDTreeFind<CR>
+let g:WhichKeyDesc_focus_in_explorer  = "<leader>o focus in explorer"
 map <leader>/ <Action>(CommentByLineComment)
 
 """""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
-map <leader>pe :NERDTreeToggle<CR>
-let g:WhichKeyDesc_explorer  = "<leader>pe open explorer"
-map <leader>po :NERDTreeFind<CR>
-let g:WhichKeyDesc_focus_in_explorer  = "<leader>po focus in explorer"
 map <leader>pl <Action>(ManageRecentProjects)
 let g:WhichKeyDesc_recent_projects_list  = "<leader>pl recent projects"
 map <leader>pm <Action>(Maven.ExecuteGoal)

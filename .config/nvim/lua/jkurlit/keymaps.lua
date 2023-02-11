@@ -5,6 +5,9 @@ end
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
+-- autosave when leaving insert mode
+keymap("i", "<esc>", "<esc>:update<cr>", opts())
+
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts())
 vim.g.mapleader = " "
@@ -64,10 +67,12 @@ keymap("n", "<C-A-S-n>", "<Plug>(VM-Select-All)", opts())
 -- lsp
 keymap("n", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts())
 keymap("i", "<C-p>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts())
+
+-- uniparied
+keymap("n", "]<space>", "mpo<Esc>`p", opts("Add new line below"))
+keymap("n", "[<space>", "mpO<Esc>`p", opts("Add new line above"))
 keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts("Next diagnostic"))
 keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts("Prev diagnostic"))
-
--- todo comments
 keymap("n", "]t", "<cmd>lua require('todo-comments').jump_next()<cr>", opts("Next todo comment"))
 keymap("n", "[t", "<cmd>lua require('todo-comments').jump_prev()<cr>", opts("Prev todo comment"))
 
@@ -81,6 +86,8 @@ keymap("n", "cxx", "<cmd>lua require('substitute.exchange').line()<cr>", opts("E
 keymap("x", "X", "<cmd>lua require('substitute.exchange').visual()<cr>", opts("Exchange selection"))
 
 -- more textobjects to target
+vim.keymap.set({ "o", "x" }, "ae", "<cmd>lua require('various-textobjs').entireBuffer()<cr>")
+vim.keymap.set({ "o", "x" }, "au", "<cmd>lua require('various-textobjs').url()<cr>")
 vim.keymap.set({ "o", "x" }, "an", "<cmd>lua require('various-textobjs').number(false)<cr>")
 vim.keymap.set({ "o", "x" }, "in", "<cmd>lua require('various-textobjs').number(true)<cr>")
 vim.keymap.set({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value(false)<cr>")
