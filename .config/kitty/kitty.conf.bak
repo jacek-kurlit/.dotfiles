@@ -1,12 +1,10 @@
 # BEGIN_KITTY_THEME
-# Tokyo Night
+# 1984 Light
 include current-theme.conf
 # END_KITTY_THEME
 shell /usr/bin/fish
 editor /usr/bin/nvim
 
-tab_bar_edge top
-tab_bar_style powerline
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
 #: list-fonts` command. By default they are derived automatically, by
@@ -16,15 +14,15 @@ font_family      JetBrainsMono Nerd Font Mono
 bold_font        JetBrainsMono Nerd Font Mono ExtraBold
 bold_italic_font JetBrainsMono Nerd Font Mono ExtraBold Italic
 
-adjust_line_height  120%
+adjust_line_height  160%
 modify_font strikethrough_position 16px
 
 symbol_map U+f101-U+f21d nonicons
 #: The cursor shape can be one of (block, beam, underline)
 cursor_shape beam
-cursor_beam_thickness 1.2
+cursor_beam_thickness 1.4
 cursor_blink_interval 0
-#: shell_integration no-cursor
+shell_integration no-cursor
 
 #: Number of lines of history to keep in memory for scrolling back.
 #: Memory is allocated on demand. Negative numbers are (effectively)
@@ -60,17 +58,15 @@ inactive_text_alpha 0.65
 kitty_mod ctrl+shift
 #: Scrolling {{{
 
-map kitty_mod+up scroll_line_up
-map kitty_mod+down scroll_line_down
+map kitty_mod+k scroll_line_up
+map kitty_mod+j scroll_line_down
 map kitty_mod+u scroll_page_up
 map kitty_mod+d scroll_page_down
 #: }}}
 #: Window management {{{
 
-map kitty_mod+l neighboring_window right
-map kitty_mod+h neighboring_window left
-map kitty_mod+k neighboring_window up
-map kitty_mod+j neighboring_window down
+map kitty_mod+l next_window
+map kitty_mod+h previous_window
 
 map kitty_mod+s launch --location=hsplit --cwd=current
 map kitty_mod+a launch --location=vsplit --cwd=current
@@ -79,5 +75,4 @@ map kitty_mod+a launch --location=vsplit --cwd=current
 #: Tab management {{{
 map shift+alt+l     next_tab
 map shift+alt+h     previous_tab
-map kitty_mod+t new_tab_with_cwd
 #: }}}
