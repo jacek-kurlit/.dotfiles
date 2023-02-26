@@ -30,24 +30,4 @@ return {
       },
     },
   },
-  {
-    "ahmedkhalf/project.nvim",
-    name = "project_nvim",
-    opts = {
-      on_config_done = nil,
-      ---@usage patterns used to detect root dir, when **"pattern"** is in detection_methods
-      patterns = {
-        ".git",
-        "_darcs",
-        ".hg",
-        ".bzr",
-        ".svn",
-        "Makefile",
-        "package.json",
-        "Cargo.toml",
-        "pom.xml",
-        ".nvim_project",
-      },
-    },
-  },
 }

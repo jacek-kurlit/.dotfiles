@@ -28,7 +28,6 @@ return {
       if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) then
         vim.notify("multi loaded")
         require("lazy").load({ plugins = { "vim-visual-multi" } })
-        vim.keymap.set("n", lhs, rhs, opts)
       end
     end,
   },

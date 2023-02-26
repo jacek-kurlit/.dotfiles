@@ -77,7 +77,27 @@ return {
     },
     {
       "ahmedkhalf/project.nvim",
+      lazy = false,
       config = function()
+        local proj = require("project_nvim")
+        proj.setup({
+          -- on_config_done = nil,
+          ---@usage patterns used to detect root dir, when **"pattern"** is in detection_methods
+          detection_methods = { "lsp", "pattern" },
+          patterns = {
+            ".git",
+            "_darcs",
+            ".hg",
+            ".bzr",
+            ".svn",
+            "Makefile",
+            "package.json",
+            "Cargo.toml",
+            "pom.xml",
+            ".nvim_project",
+          },
+        })
+        proj.get_recent_projects()
         require("telescope").load_extension("projects")
       end,
     },

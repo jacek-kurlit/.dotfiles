@@ -1,5 +1,5 @@
-set -gx EDITOR /usr/bin/nvim
-set -gx VISUAL /usr/bin/nvim
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 set -gx SHELL /usr/bin/fish
 set fish_greeting
 
