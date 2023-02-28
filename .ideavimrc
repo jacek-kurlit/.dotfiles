@@ -68,6 +68,7 @@ map <S-L> <Action>(NextTab)
 map <S-H> <Action>(PreviousTab)
 nmap <C-i> <Action>(Forward)
 nmap <C-o> <Action>(Back)
+nmap <C-h> :NERDTreeFocus<CR>
 
 """""""""""""""""""""""" LEADER MAPPINGS """""""""""""""""""""""""""""
 map <leader>a <Action>(ShowIntentionActions)
@@ -97,12 +98,12 @@ let g:WhichKeyDesc_project_execute_maven  = "<leader>pm execute maven goal"
 map <leader>pr <Action>(ExternalSystem.ProjectRefreshAction)
 let g:WhichKeyDesc_project_refresh  = "<leader>pr refresh project"
 
-"""""""""""""""""""""""" LSP MAPPINGS """""""""""""""""""""""""""""
-let g:WhichKeyDesc_lsp        = "<leader>l LSP"
-map <leader>lf <Action>(ReformatCode)
-map <leader>lo <Action>(OptimizeImports)
-map <leader>lg <Action>(Generate)
-map <leader>lm <Action>(OverrideMethods)
+"""""""""""""""""""""""" CODE MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_code        = "<leader>c Code"
+map <leader>cf <Action>(ReformatCode)
+map <leader>co <Action>(OptimizeImports)
+map <leader>cg <Action>(Generate)
+map <leader>cm <Action>(OverrideMethods)
 
 """""""""""""""""""""""" DEBUG MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_debug        = "<leader>d Debug"

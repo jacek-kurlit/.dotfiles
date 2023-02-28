@@ -3,8 +3,20 @@
 -- Add any additional keymaps here
 
 local function map(mode, lhs, rhs, description)
-  local opts = { noremap = true, silent = true, desc = description }
+  local opts = { noremap = false, silent = true, desc = description }
   vim.keymap.set(mode, lhs, rhs, opts)
+end
+
+local intelligent_semicolon = function()
+  local current_line_index, _ = unpack(vim.api.nvim_win_get_cursor(0))
+  local current_line = vim.api.nvim_get_current_line()
+  local current_line_len = current_line:len()
+  vim.api.nvim_win_set_cursor(0, { current_line_index, current_line_len })
+  local last_char = current_line:sub(current_line_len, current_line_len)
+  if last_char == ";" then
+    return
+  end
+  vim.api.nvim_put({ ";" }, "c", true, true)
 end
 
 -- insert mode
@@ -14,6 +26,8 @@ map("i", "<C-h>", "<left>", "move letf")
 map("i", "<C-l>", "<right>", "move right")
 map("i", "<S-Enter>", "<esc>$a", "jump to end of line")
 map("i", "<C-v>", "<C-o>p", "paste in insert mode")
+map("i", ";", intelligent_semicolon, "smart semicolon")
+map("i", "<c-;>", ";", "insert semicolon")
 
 -- unipaired
 map("n", "]<space>", "mpo<Esc>`p", "Add new line below")

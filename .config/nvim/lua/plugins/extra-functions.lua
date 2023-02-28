@@ -38,7 +38,7 @@ return {
       use_default_keymaps = false,
     },
     keys = {
-      { "<leader>rs", ":TSJToggle<cr>", desc = "Toggle split/join variable definition" },
+      { "<leader>rj", ":TSJToggle<cr>", desc = "Toggle join/split variable definition" },
     },
   },
   {
