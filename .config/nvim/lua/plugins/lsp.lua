@@ -25,5 +25,5 @@ return {
   { import = "plugins.extras.lang.rust" },
   { import = "plugins.extras.lang.python" },
   { import = "plugins.extras.lang.nodejs" },
-  { import = "plugins.extras.tabnine" },
+  -- { import = "plugins.extras.tabnine" },
 }
