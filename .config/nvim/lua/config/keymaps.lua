@@ -3,7 +3,8 @@
 -- Add any additional keymaps here
 
 local function map(mode, lhs, rhs, description)
-  local opts = { noremap = false, silent = true, desc = description }
+  local desc = description or ""
+  local opts = { noremap = false, silent = true, desc = desc }
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
@@ -47,3 +48,9 @@ map("x", "cr", "<cmd>lua require('substitute').visual()<cr>", "Replace with regi
 map("n", "cx", "<cmd>lua require('substitute.exchange').operator()<cr>", "Exchange content")
 map("n", "cxx", "<cmd>lua require('substitute.exchange').line()<cr>", "Exchange line content")
 map("x", "X", "<cmd>lua require('substitute.exchange').visual()<cr>", "Exchange selection")
+
+-- Better window navigation
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
