@@ -9,7 +9,7 @@ return {
       -- add a keymap
       keys[#keys + 1] = { "gl", vim.diagnostic.open_float, mode = "n", desc = "Show line diagnostic" }
       keys[#keys + 1] = { "<leader>rr", vim.lsp.buf.rename, mode = "n", desc = "Rename variable" }
-      keys[#keys + 1] = { "<leader>a", vim.lsp.buf.code_action, mode = "n", desc = "Action code" }
+      keys[#keys + 1] = { "<leader>a", vim.lsp.buf.code_action, mode = { "n", "v" }, desc = "Action code" }
       keys[#keys + 1] =
         { "<c-p>", vim.lsp.buf.signature_help, mode = { "i", "n" }, desc = "Signature Help", has = "signatureHelp" }
     end,
@@ -25,5 +25,5 @@ return {
   { import = "plugins.extras.lang.rust" },
   { import = "plugins.extras.lang.python" },
   { import = "plugins.extras.lang.nodejs" },
-  -- { import = "plugins.extras.tabnine" },
+  { import = "plugins.extras.tabnine" },
 }
