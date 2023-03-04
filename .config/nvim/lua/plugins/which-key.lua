@@ -27,6 +27,7 @@ return {
         ["<leader>rs"] = { name = "+swap" },
         ["<leader>s"] = { name = "+search" },
         ["<leader>t"] = { name = "+test" },
+        ["<leader>to"] = { name = "+output" },
         ["<leader>u"] = { name = "+ui" },
         ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },

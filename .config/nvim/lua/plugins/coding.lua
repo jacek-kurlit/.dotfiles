@@ -6,6 +6,48 @@ return {
     config = true,
   },
   {
+    "nvim-neotest/neotest",
+    config = function()
+      require("neotest").setup({
+        output = {
+          enabled = true,
+          open_on_run = true,
+        },
+        adapters = {
+          require("neotest-rust"),
+        },
+      })
+    end,
+    keys = {
+      --      nnoremap <silent>[n <cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>
+      -- nnoremap <silent>]n <cmd>lua require("neotest").jump.next({ status = "failed" })<CR>
+      { "<leader>tt", "<cmd>lua require('neotest').run.run()<cr>", desc = "Run nearest test" },
+      { "<leader>ts", "<cmd>lua require('neotest').run.stop()<cr>", desc = "Stop nearest test" },
+      { "<leader>td", "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "Debug nearest test" },
+      { "<leader>ta", "<cmd>lua require('neotest').run.attach()<cr>", desc = "Attach to nearest test" },
+      { "<leader>tos", "<cmd>lua require('neotest').summary.toggle()<cr>", desc = "Toggle test summary" },
+      { "<leader>too", "<cmd>lua require('neotest').output.open({ enter = true })<cr>", desc = "Open test result" },
+      { "<leader>tot", "<cmd>lua require('neotest').output_panel.toggle()<cr>", desc = "Toggle output panel" },
+      {
+        "<leader>toh",
+        "<cmd>lua require('neotest').output_panel.open({ open_win = function() vim.cmd('vsplit') end })<cr>",
+        desc = "Open output panel as horizontal split",
+      },
+      {
+        "<leader>tf",
+        "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
+        desc = "Run test in current file",
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      -- this requires cargo-nextest
+      "rouge8/neotest-rust",
+    },
+  },
+  {
     "L3MON4D3/LuaSnip",
     keys = function()
       return {}
@@ -111,6 +153,23 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
+      local compare = require("cmp.config.compare")
+      opts.sorting = {
+        priority_weight = 1.0,
+        comparators = {
+          -- compare.score_offset, -- not good at all
+          compare.locality,
+          compare.recently_used,
+          compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+          -- compare.kind,
+          compare.offset,
+          compare.order,
+          -- compare.exact,
+          -- compare.scopes, -- what?
+          -- compare.sort_text,
+          -- compare.length, -- useless
+        },
+      }
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
