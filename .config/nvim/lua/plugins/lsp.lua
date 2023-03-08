@@ -19,6 +19,22 @@ return {
       },
     },
   },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = {
+      {
+        "williamboman/mason.nvim",
+        opts = function(_, opts)
+          vim.list_extend(opts.ensure_installed, { "cspell" })
+        end,
+      },
+    },
+    opts = function(_, opts)
+      local nls = require("null-ls")
+      opts.fallback_severity = vim.diagnostic.severity.WARN
+      vim.list_extend(opts.sources, { nls.builtins.diagnostics.cspell, nls.builtins.code_actions.cspell })
+    end,
+  },
   { import = "lazyvim.plugins.extras.lang.typescript" },
   { import = "lazyvim.plugins.extras.lang.json" },
   { import = "plugins.extras.lang.java" },

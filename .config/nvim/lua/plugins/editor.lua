@@ -30,4 +30,11 @@ return {
       },
     },
   },
+  {
+    "ellisonleao/glow.nvim",
+    config = true,
+    keys = {
+      { "<leader>um", "<cmd>Glow<cr>", desc = "Preview markdown" },
+    },
+  },
 }
