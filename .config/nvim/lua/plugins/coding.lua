@@ -197,7 +197,13 @@ return {
       })
     end,
   },
-
+  {
+    -- might cause problems with super tab
+    -- my intelligent ; may be better
+    "abecodes/tabout.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
+    config = true,
+  },
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
