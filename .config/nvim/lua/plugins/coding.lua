@@ -13,14 +13,19 @@ return {
           enabled = true,
           open_on_run = true,
         },
+        icons = {
+          failed = "",
+          passed = "",
+          running = "",
+          skipped = "",
+          unknown = "",
+        },
         adapters = {
           require("neotest-rust"),
         },
       })
     end,
     keys = {
-      --      nnoremap <silent>[n <cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>
-      -- nnoremap <silent>]n <cmd>lua require("neotest").jump.next({ status = "failed" })<CR>
       { "<leader>tt", "<cmd>lua require('neotest').run.run()<cr>", desc = "Run nearest test" },
       { "<leader>ts", "<cmd>lua require('neotest').run.stop()<cr>", desc = "Stop nearest test" },
       { "<leader>td", "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "Debug nearest test" },

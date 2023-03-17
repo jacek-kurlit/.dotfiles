@@ -33,6 +33,8 @@ map("i", "<c-;>", ";", "insert semicolon")
 -- unipaired
 map("n", "]<space>", "mpo<Esc>`p", "Add new line below")
 map("n", "[<space>", "mpO<Esc>`p", "Add new line above")
+-- nnoremap <silent>[n <cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>
+-- nnoremap <silent>]n <cmd>lua require("neotest").jump.next({ status = "failed" })<CR>
 
 -- multiselect
 -- <C-n>/<C-N> to select next/previous word at cursor
