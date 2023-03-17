@@ -46,9 +46,16 @@ return {
             if client.name == "rust_analyzer" then
               vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
               vim.keymap.set("n", "<leader>ct", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run Test" })
-              vim.keymap.set("n", "<leader>cr", ":!cargo run<cr>", {buffer= buffer, desc="Cargo run"} )
+              vim.keymap.set("n", "<leader>ca", "<CMD>lua require('rust-tools').code_action_group.code_action_group()<cr>", { buffer = buffer, desc = "Code Actions" })
+              vim.keymap.set("n", "<leader>ch", "<CMD>lua require('rust-tools').hover_actions.hover_actions()<cr>", { buffer = buffer, desc = "Hover Actions" })
+              vim.keymap.set("n", "<leader>cr", "<cmd>TermExec cmd='cargo run'<cr>", {buffer= buffer, desc="Cargo run"} )
+              vim.keymap.set("n", "<leader>cb", "<cmd>TermExec cmd='cargo build'<cr>", {buffer= buffer, desc="Cargo build"} )
               vim.keymap.set("n", "<leader>dr", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run" })
-              vim.keymap.set("n", "<A-d>r", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run Debug" })
+
+              vim.keymap.set("n", "<leader>pr", "<cmd>TermExec cmd='cargo run'<cr>", {buffer= buffer, desc="Project run"} )
+              vim.keymap.set("n", "<leader>pb", "<cmd>TermExec cmd='cargo build'<cr>", {buffer= buffer, desc="Project build"} )
+              vim.keymap.set("n", "<leader>pc", "<cmd>TermExec cmd='cargo clean'<cr>", {buffer= buffer, desc="Project clean"} )
+              vim.keymap.set("n", "<leader>pt", "<cmd>TermExec cmd='cargo test'<cr>", {buffer= buffer, desc="Project test all"} )
             end
           end)
           local mason_registry = require("mason-registry")

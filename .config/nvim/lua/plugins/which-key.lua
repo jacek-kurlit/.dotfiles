@@ -29,6 +29,7 @@ return {
         ["<leader>t"] = { name = "+test" },
         ["<leader>to"] = { name = "+output" },
         ["<leader>u"] = { name = "+ui" },
+        ["<leader>p"] = { name = "+project" },
         ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
       }

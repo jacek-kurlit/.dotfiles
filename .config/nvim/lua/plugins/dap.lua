@@ -23,20 +23,19 @@ return {
       })
       require("which-key").register({
         ["<leader>db"] = { name = "+breakpoints" },
-        ["<leader>ds"] = { name = "+steps" },
         ["<leader>dv"] = { name = "+views" },
       })
     end,
     keys = {
       {
-        "<leader>dbc",
+        "<leader>dt",
         function()
-          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+          require("dap").toggle_breakpoint()
         end,
-        desc = "Conditional Breakpoint",
+        desc = "Toggle Breakpoint",
       },
       {
-        "<leader>dbl",
+        "<leader>dl",
         function()
           require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message"))
         end,
@@ -51,11 +50,11 @@ return {
       },
       { "<leader>dbs", "<CMD>Telescope dap list_breakpoints<CR>", desc = "Show All" },
       {
-        "<leader>dbt",
+        "<leader>dbc",
         function()
-          require("dap").toggle_breakpoint()
+          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
         end,
-        desc = "Toggle Breakpoint",
+        desc = "Conditional Breakpoint",
       },
       {
         "<leader>dc",
@@ -81,14 +80,14 @@ return {
       },
       { "<leader>dr", "<CMD>Telescope dap configurations<CR>", desc = "Run" },
       {
-        "<leader>dsb",
+        "<A-d>b",
         function()
           require("dap").step_back()
         end,
         desc = "Step Back",
       },
       {
-        "<leader>dsc",
+        "<A-d>p",
         function()
           require("dap").run_to_cursor()
         end,
@@ -143,27 +142,6 @@ return {
           require("dap").terminate()
         end,
         desc = "Terminate",
-      },
-      {
-        "<leader>dsi",
-        function()
-          require("dap").step_into()
-        end,
-        desc = "Step Into",
-      },
-      {
-        "<leader>dso",
-        function()
-          require("dap").step_over()
-        end,
-        desc = "Step Over",
-      },
-      {
-        "<leader>dsx",
-        function()
-          require("dap").step_out()
-        end,
-        desc = "Step Out",
       },
       {
         "<leader>dx",

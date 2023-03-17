@@ -1,2 +1,3 @@
-TODO
-- Use tree sitter for smart ; words
+# TODO
+- [] Use tree sitter for smart ; words
+- [] Implement helix pipe function 
