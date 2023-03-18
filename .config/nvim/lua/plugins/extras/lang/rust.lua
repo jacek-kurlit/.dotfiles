@@ -40,14 +40,14 @@ return {
     opts = {
       -- make sure mason installs the server
       setup = {
+        -- FIXME:
+        -- This definition is wrong it should not use nvim-lspconfig but rust-tools directly because it probably causes problems with goto_definition command!
         rust_analyzer = function(_, opts)
           require("lazyvim.util").on_attach(function(client, buffer)
             -- stylua: ignore
             if client.name == "rust_analyzer" then
               vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
               vim.keymap.set("n", "<leader>ct", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run Test" })
-              vim.keymap.set("n", "<leader>ca", "<CMD>lua require('rust-tools').code_action_group.code_action_group()<cr>", { buffer = buffer, desc = "Code Actions" })
-              vim.keymap.set("v", "<leader>ca", "<CMD>lua require('rust-tools').code_action_group.code_action_group()<cr>", { buffer = buffer, desc = "Code Actions" })
               vim.keymap.set("n", "<leader>ch", "<CMD>lua require('rust-tools').hover_actions.hover_actions()<cr>", { buffer = buffer, desc = "Hover Actions" })
               vim.keymap.set("n", "<leader>cr", "<cmd>TermExec cmd='cargo run'<cr>", {buffer= buffer, desc="Cargo run"} )
               vim.keymap.set("n", "<leader>cb", "<cmd>TermExec cmd='cargo build'<cr>", {buffer= buffer, desc="Cargo build"} )

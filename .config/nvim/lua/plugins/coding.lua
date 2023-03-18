@@ -1,9 +1,43 @@
 return {
   {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
+    "glepnir/lspsaga.nvim",
+    event = "BufRead",
+    opts = {
+      lightbulb = {
+        enable = false,
+      },
+      callhierarchy = {
+        show_detail = true,
+      },
+      symbol_in_winbar = {
+        enable = false,
+      },
+    },
+    keys = {
+      { "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Symbol usages" },
+      { "]D", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next diagnostic with action" },
+      { "[D", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous diagnostic with action" },
+      -- breaks <C-o> & <C-i>
+      -- FIXME: uncomment when jumplist bug is fixed
+      -- { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek definition" },
+      -- { "gP", "<cmd>Lspsaga peek_type_definition<CR>", desc = "Peek type definition" },
+      { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show line diagnostic" },
+      { "<leader>a", mode = { "n", "v" }, "<cmd>Lspsaga code_action<CR>", desc = "Code action" },
+      { "<leader>rr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
+      { "<leader>cs", "<cmd>Lspsaga outline<CR>", desc = "Code structure" },
+      { "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", desc = "Incoming calls" },
+      { "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", desc = "Outgoing calls" },
+    },
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      {
+        "nvim-treesitter/nvim-treesitter",
+        opts = function(_, opts)
+          vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline" })
+        end,
+      },
+    },
   },
   {
     "nvim-neotest/neotest",
