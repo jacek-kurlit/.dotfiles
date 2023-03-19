@@ -9,9 +9,6 @@ return {
       callhierarchy = {
         show_detail = true,
       },
-      symbol_in_winbar = {
-        enable = false,
-      },
     },
     keys = {
       { "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Symbol usages" },
