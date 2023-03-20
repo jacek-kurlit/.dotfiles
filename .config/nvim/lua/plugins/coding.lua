@@ -194,13 +194,13 @@ return {
         priority_weight = 1.0,
         comparators = {
           -- compare.score_offset, -- not good at all
+          compare.exact,
           compare.locality,
           compare.recently_used,
           compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
           -- compare.kind,
           compare.offset,
           compare.order,
-          -- compare.exact,
           -- compare.scopes, -- what?
           -- compare.sort_text,
           -- compare.length, -- useless
@@ -232,13 +232,6 @@ return {
         end, { "i", "s" }),
       })
     end,
-  },
-  {
-    -- might cause problems with super tab
-    -- my intelligent ; may be better
-    "abecodes/tabout.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
-    config = true,
   },
   {
     "ThePrimeagen/refactoring.nvim",
