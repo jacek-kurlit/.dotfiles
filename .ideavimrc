@@ -228,7 +228,6 @@ map <a-s-N> <Action>(EditorCloneCaretAbove)
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
 map s <Plug>(easymotion-s)
 map <leader>w <Plug>(easymotion-bd-w)
-map <leader>e <Plug>(easymotion-bd-e)
 
 """""""""""""""""""""""" ReplaceWithRegister """""""""""""""""""""""""""""
 nmap cr <Plug>ReplaceWithRegisterOperator
