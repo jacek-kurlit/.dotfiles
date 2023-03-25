@@ -21,6 +21,8 @@ export EDITOR='/usr/bin/nvim'
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+alias ls="lsd"
+alias cd="z"
 alias sldev="saml2aws login -a developers --force"
 alias sll3="saml2aws login -a l3support --force"
 alias xcc='xclip -sel clipboard'
