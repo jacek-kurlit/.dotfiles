@@ -33,98 +33,121 @@ return {
     end,
   },
 
+  -- FIXME: going into rust builtin library functions causes lsp to exit with code 101
+  -- after starting lsp again with LspStart and using go definition again does not break lsp
+  {
+    "simrat39/rust-tools.nvim",
+    config = function()
+      local mason_registry = require("mason-registry")
+      -- rust tools configuration for debugging support
+      local codelldb = mason_registry.get_package("codelldb")
+      local extension_path = codelldb:get_install_path() .. "/extension/"
+      local codelldb_path = extension_path .. "adapter/codelldb"
+      local liblldb_path = vim.fn.has("mac") == 1 and extension_path .. "lldb/lib/liblldb.dylib"
+        or extension_path .. "lldb/lib/liblldb.so"
+      local rust_tools_opts = {
+        dap = {
+          adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+        },
+        tools = {
+          hover_actions = {
+            auto_focus = true,
+          },
+          inlay_hints = {
+            auto = true,
+            show_parameter_hints = true,
+          },
+          on_initialized = function()
+            vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+              pattern = { "*.rs" },
+              callback = function()
+                local _, _ = pcall(vim.lsp.codelens.refresh)
+              end,
+            })
+          end,
+        },
+        server = {
+          on_attach = function(_, buffer)
+            vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
+            vim.keymap.set("n", "<leader>ct", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run Test" })
+            vim.keymap.set("n", "<leader>ca", "<CMD>RustCodeAction<CR>", { buffer = buffer, desc = "Code action" })
+            vim.keymap.set(
+              "n",
+              "<leader>ch",
+              "<CMD>lua require('rust-tools').hover_actions.hover_actions()<cr>",
+              { buffer = buffer, desc = "Hover Actions" }
+            )
+            vim.keymap.set("n", "<leader>dr", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run" })
+
+            vim.keymap.set(
+              "n",
+              "<leader>pr",
+              "<cmd>TermExec cmd='cargo run'<cr>",
+              { buffer = buffer, desc = "Project run" }
+            )
+            vim.keymap.set(
+              "n",
+              "<leader>pb",
+              "<cmd>TermExec cmd='cargo build'<cr>",
+              { buffer = buffer, desc = "Project build" }
+            )
+            vim.keymap.set(
+              "n",
+              "<leader>pc",
+              "<cmd>TermExec cmd='cargo clean'<cr>",
+              { buffer = buffer, desc = "Project clean" }
+            )
+            vim.keymap.set(
+              "n",
+              "<leader>pt",
+              "<cmd>TermExec cmd='cargo test'<cr>",
+              { buffer = buffer, desc = "Project test all" }
+            )
+          end,
+          settings = {
+            ["rust-analyzer"] = {
+              lens = {
+                enable = true,
+              },
+              inlayhints = {
+                locationlinks = false,
+              },
+              assist = {
+                importenforcegranularity = true,
+                importprefix = "crate",
+              },
+              cargo = {
+                features = "all",
+              },
+              -- add clippy lints for rust.
+              checkonsave = true,
+              check = {
+                command = "clippy",
+                features = "all",
+              },
+              procmacro = {
+                enable = true,
+              },
+            },
+            inlayhints = {
+              lifetimeelisionhints = {
+                enable = true,
+                useparameternames = true,
+              },
+            },
+          },
+        },
+      }
+      require("rust-tools").setup(rust_tools_opts)
+      return true
+    end,
+  },
   -- correctly setup lspconfig
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "simrat39/rust-tools.nvim" },
     opts = {
       -- make sure mason installs the server
       setup = {
-        -- FIXME:
-        -- This definition is wrong it should not use nvim-lspconfig but rust-tools directly because it probably causes problems with goto_definition command!
-        rust_analyzer = function(_, opts)
-          require("lazyvim.util").on_attach(function(client, buffer)
-            -- stylua: ignore
-            if client.name == "rust_analyzer" then
-              vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
-              vim.keymap.set("n", "<leader>ct", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run Test" })
-              vim.keymap.set("n", "<leader>ch", "<CMD>lua require('rust-tools').hover_actions.hover_actions()<cr>", { buffer = buffer, desc = "Hover Actions" })
-              vim.keymap.set("n", "<leader>cr", "<cmd>TermExec cmd='cargo run'<cr>", {buffer= buffer, desc="Cargo run"} )
-              vim.keymap.set("n", "<leader>cb", "<cmd>TermExec cmd='cargo build'<cr>", {buffer= buffer, desc="Cargo build"} )
-              vim.keymap.set("n", "<leader>dr", "<CMD>RustDebuggables<CR>", { buffer = buffer, desc = "Run" })
-
-              vim.keymap.set("n", "<leader>pr", "<cmd>TermExec cmd='cargo run'<cr>", {buffer= buffer, desc="Project run"} )
-              vim.keymap.set("n", "<leader>pb", "<cmd>TermExec cmd='cargo build'<cr>", {buffer= buffer, desc="Project build"} )
-              vim.keymap.set("n", "<leader>pc", "<cmd>TermExec cmd='cargo clean'<cr>", {buffer= buffer, desc="Project clean"} )
-              vim.keymap.set("n", "<leader>pt", "<cmd>TermExec cmd='cargo test'<cr>", {buffer= buffer, desc="Project test all"} )
-            end
-          end)
-          local mason_registry = require("mason-registry")
-          -- rust tools configuration for debugging support
-          local codelldb = mason_registry.get_package("codelldb")
-          local extension_path = codelldb:get_install_path() .. "/extension/"
-          local codelldb_path = extension_path .. "adapter/codelldb"
-          local liblldb_path = vim.fn.has("mac") == 1 and extension_path .. "lldb/lib/liblldb.dylib"
-            or extension_path .. "lldb/lib/liblldb.so"
-          local rust_tools_opts = vim.tbl_deep_extend("force", opts, {
-            dap = {
-              adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-            },
-            tools = {
-              hover_actions = {
-                auto_focus = true,
-              },
-              inlay_hints = {
-                auto = true,
-                show_parameter_hints = true,
-              },
-              on_initialized = function()
-                vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
-                  pattern = { "*.rs" },
-                  callback = function()
-                    local _, _ = pcall(vim.lsp.codelens.refresh)
-                  end,
-                })
-              end,
-            },
-            server = {
-              settings = {
-                ["rust-analyzer"] = {
-                  lens = {
-                    enable = true,
-                  },
-                  inlayHints = {
-                    locationLinks = false,
-                  },
-                  assist = {
-                    importEnforceGranularity = true,
-                    importPrefix = "crate",
-                  },
-                  cargo = {
-                    features = "all",
-                  },
-                  -- Add clippy lints for Rust.
-                  checkOnSave = true,
-                  check = {
-                    command = "clippy",
-                    features = "all",
-                  },
-                  procMacro = {
-                    enable = true,
-                  },
-                },
-                inlayHints = {
-                  lifetimeElisionHints = {
-                    enable = true,
-                    useParameterNames = true,
-                  },
-                },
-              },
-            },
-          })
-          require("rust-tools").setup(rust_tools_opts)
-          return true
-        end,
         taplo = function(_, _)
           local function show_documentation()
             if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then

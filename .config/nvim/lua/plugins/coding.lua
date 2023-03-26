@@ -14,10 +14,8 @@ return {
       { "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Symbol usages" },
       { "]D", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next diagnostic with action" },
       { "[D", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous diagnostic with action" },
-      -- breaks <C-o> & <C-i>
-      -- FIXME: uncomment when jumplist bug is fixed
-      -- { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek definition" },
-      -- { "gP", "<cmd>Lspsaga peek_type_definition<CR>", desc = "Peek type definition" },
+      { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek definition" },
+      { "gP", "<cmd>Lspsaga peek_type_definition<CR>", desc = "Peek type definition" },
       { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show line diagnostic" },
       { "<leader>a", mode = { "n", "v" }, "<cmd>Lspsaga code_action<CR>", desc = "Code action" },
       { "<leader>rr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
