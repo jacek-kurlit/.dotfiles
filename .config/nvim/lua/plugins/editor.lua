@@ -37,21 +37,4 @@ return {
       { "<leader>um", "<cmd>Glow<cr>", desc = "Preview markdown" },
     },
   },
-  -- FIXME: setup is not working I dont see mapping zR with description that I have probided
-  -- also folds are not created by default
-  -- {
-  --   "kevinhwang91/nvim-ufo",
-  --   dependencies = { "kevinhwang91/promise-async" },
-  --   keys = {
-  --     { "zR", "<cmd>lua require('ufo').openAllFolds()<cr>", desc = "Open all foldsxx" },
-  --     { "zM", "<cmd>lua require('ufo').closeAllFolds()<cr>", desc = "Close all folds" },
-  --   },
-  --   config = function()
-  --     require("ufo").setup({
-  --       provider_selector = function(_, _, _)
-  --         return { "treesitter", "indent" }
-  --       end,
-  --     })
-  --   end,
-  -- },
 }
