@@ -3,9 +3,6 @@ return {
     "glepnir/lspsaga.nvim",
     event = "BufRead",
     opts = {
-      lightbulb = {
-        enable = false,
-      },
       callhierarchy = {
         show_detail = true,
       },
