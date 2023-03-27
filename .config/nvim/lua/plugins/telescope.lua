@@ -76,6 +76,15 @@ return {
       end,
     },
     {
+      "nvim-telescope/telescope-media-files.nvim",
+      config = function()
+        require("telescope").load_extension("media_files")
+      end,
+      keys = {
+        { "<leader>fi", "<cmd>Telescope media_files<cr>", desc = "Find images" },
+      },
+    },
+    {
       "ahmedkhalf/project.nvim",
       lazy = false,
       config = function()
