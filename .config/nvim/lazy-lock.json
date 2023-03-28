@@ -69,6 +69,7 @@
   "substitute.nvim": { "branch": "main", "commit": "14eea5563234424e9a732cba2e8acb2e4e1f9bb4" },
   "tabnine-nvim": { "branch": "master", "commit": "400ff67029a96d4974f5e742f855b588d4e0d479" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
+  "telescope-media-files.nvim": { "branch": "master", "commit": "0826c7a730bc4d36068f7c85cf4c5b3fd9fb570a" },
   "telescope.nvim": { "branch": "master", "commit": "942fe5faef47b21241e970551eba407bc10d9547" },
   "todo-comments.nvim": { "branch": "main", "commit": "0874bda6848ff6f3da3ffdf4bd8297a5c951c5d4" },
   "toggleterm.nvim": { "branch": "main", "commit": "a5638b2206c3930a16a24e5c184dddd572f8cd34" },
@@ -81,4 +82,3 @@
   "vim-startuptime": { "branch": "master", "commit": "6580cf539c33a212f4f5542068a3b4dd2b3ad834" },
   "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" },
   "which-key.nvim": { "branch": "main", "commit": "4b73390eec680b4c061ea175eb32c0ff3412271d" }
-}
