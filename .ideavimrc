@@ -81,13 +81,18 @@ map <leader>f<S-s> <Action>(GotoSymbol)
 map K <Action>(QuickJavaDoc)
 map <c-s>I <Action>(QuickImplementations)
 map <leader>f? <Action>(GotoAction)
-map <leader>s <Action>(FileStructurePopup)
+let g:WhichKeyDesc_search  = "<leader>s search"
 map <leader>q <Action>(Exit)
 map <leader>e :NERDTreeToggle<CR>
 let g:WhichKeyDesc_explorer  = "<leader>p open explorer"
 map <leader>o :NERDTreeFind<CR>
 let g:WhichKeyDesc_focus_in_explorer  = "<leader>o focus in explorer"
 map <leader>/ <Action>(CommentByLineComment)
+
+map <leader>ss <Action>(FileStructurePopup)
+let g:WhichKeyDesc_search_symbol  = "<leader>ss search symbol"
+map <leader>sg <Action>(FindInPath)
+let g:WhichKeyDesc_search_grep  = "<leader>sg search grep"
 
 """""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
