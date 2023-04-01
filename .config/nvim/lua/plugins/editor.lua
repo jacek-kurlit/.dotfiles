@@ -37,4 +37,10 @@ return {
       { "<leader>um", "<cmd>Glow<cr>", desc = "Preview markdown" },
     },
   },
+  {
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = true,
+  },
 }

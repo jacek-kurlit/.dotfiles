@@ -37,6 +37,7 @@ return {
   -- after starting lsp again with LspStart and using go definition again does not break lsp
   {
     "simrat39/rust-tools.nvim",
+    cmd = "LspStart",
     config = function()
       local mason_registry = require("mason-registry")
       -- rust tools configuration for debugging support
