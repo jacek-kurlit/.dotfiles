@@ -32,6 +32,7 @@ return {
   },
   {
     "ellisonleao/glow.nvim",
+    cmd = "Glow",
     config = true,
     keys = {
       { "<leader>um", "<cmd>Glow<cr>", desc = "Preview markdown" },
@@ -39,7 +40,6 @@ return {
   },
   {
     "sindrets/diffview.nvim",
-    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       keymaps = {
@@ -69,12 +69,19 @@ return {
         },
       },
     },
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     keys = {
       { "<leader>gdl", "<cmd>DiffviewOpen<cr>", desc = "Show local changes diff / resolve conflicts" },
       { "<leader>gdm", "<cmd>DiffviewOpen origin/main<cr>", desc = "Compare with origin/main" },
       { "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "Close diff" },
       { "<leader>gdh", "<cmd>DiffviewFileHistory %<cr>", desc = "Show current file history" },
       { "<leader>gdH", "<cmd>DiffviewFileHistory<cr>", desc = "Show project history" },
+    },
+  },
+  {
+    "mbbill/undotree",
+    keys = {
+      { "<leader>bu", "<cmd>UndotreeToggle<cr>", desc = "Toggle undotree" },
     },
   },
 }
