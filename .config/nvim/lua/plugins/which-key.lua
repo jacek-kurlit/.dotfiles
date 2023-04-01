@@ -22,6 +22,7 @@ return {
         ["<leader>f"] = { name = "+file/find" },
         ["<leader>g"] = { name = "+git" },
         ["<leader>gh"] = { name = "+hunks" },
+        ["<leader>gd"] = { name = "+diff" },
         ["<leader>q"] = { name = "+quit/session" },
         ["<leader>r"] = { name = "+refactor" },
         ["<leader>rs"] = { name = "+swap" },

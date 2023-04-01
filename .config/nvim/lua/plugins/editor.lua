@@ -41,6 +41,40 @@ return {
     "sindrets/diffview.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true,
+    opts = {
+      keymaps = {
+        disable_defaults = false, -- Disable the default keymaps
+        view = {
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diff" } },
+        },
+        diff1 = {
+          -- Mappings in single window diff layouts
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diff" } },
+        },
+        diff2 = {
+          -- Mappings in 2-way diff layouts
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diff" } },
+        },
+        diff3 = {
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diff" } },
+        },
+        diff4 = {
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diff" } },
+        },
+        file_panel = {
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diff" } },
+        },
+        file_history_panel = {
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diff" } },
+        },
+      },
+    },
+    keys = {
+      { "<leader>gdl", "<cmd>DiffviewOpen<cr>", desc = "Show local changes diff / resolve conflicts" },
+      { "<leader>gdm", "<cmd>DiffviewOpen origin/main<cr>", desc = "Compare with origin/main" },
+      { "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "Close diff" },
+      { "<leader>gdh", "<cmd>DiffviewFileHistory %<cr>", desc = "Show current file history" },
+      { "<leader>gdH", "<cmd>DiffviewFileHistory<cr>", desc = "Show project history" },
+    },
   },
 }
