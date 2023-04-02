@@ -4,6 +4,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPost", "BufNewFile" },
     opts = function(_, opts)
       opts.playground = {
         enable = true,
