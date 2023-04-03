@@ -87,6 +87,9 @@ return {
     {
       "ahmedkhalf/project.nvim",
       lazy = false,
+      keys = {
+        { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "Find images" },
+      },
       config = function()
         local proj = require("project_nvim")
         proj.setup({
