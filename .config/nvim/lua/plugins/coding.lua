@@ -183,6 +183,12 @@ return {
       end
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp", priority_weight = 1000 },
+        { name = "luasnip", priority_weight = 750 },
+        { name = "buffer", priority_weight = 500 },
+        { name = "path", priority_weight = 250 },
+      })
 
       local compare = require("cmp.config.compare")
       opts.sorting = {
@@ -190,9 +196,9 @@ return {
         comparators = {
           -- compare.score_offset, -- not good at all
           compare.exact,
+          compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
           compare.locality,
           compare.recently_used,
-          compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
           -- compare.kind,
           compare.offset,
           compare.order,
