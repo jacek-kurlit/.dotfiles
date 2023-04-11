@@ -23,10 +23,15 @@ export EDITOR='/usr/bin/nvim'
 # For a full list of active aliases, run `alias`.
 alias ls="lsd"
 alias cd="z"
-alias sldev="saml2aws login -a developers --force"
-alias sll3="saml2aws login -a l3support --force"
 alias xcc='xclip -sel clipboard'
 alias dsa='docker ps -q | xargs docker stop'
+
+# All config that should not be synced with git
+LOCAL_DEV_CONFIG_FILE="$HOME/.local_development.sh"
+
+if [ -f $LOCAL_DEV_CONFIG_FILE ]; then
+    source $LOCAL_DEV_CONFIG_FILE
+fi
 
 # local bin add to path
 export PATH=$HOME/.local/bin:$PATH
@@ -34,20 +39,8 @@ export PATH=$HOME/.local/bin:$PATH
 # STAR SHIP
 eval "$(starship init zsh)"
 
-# SAML2AWS
-eval "$(saml2aws --completion-script-zsh)"
-
 # ZOXIDE
 eval "$(zoxide init zsh)"
-
-# ENV CONFIG
-export RIGHTBITE_CODEARTIFACT_REPOSITORY_URL='https://rightbite-main-373297882832.d.codeartifact.eu-west-1.amazonaws.com/maven/mvn-artifacts/'
-# This is fix for aws vpn client
-export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-
-# Export variables to make downloading artifacts from s3 possible
-export AWS_PROFILE=kitopi-developers
-export AWS_REGION=eu-west-1
 
 # SDKMAN
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

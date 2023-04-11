@@ -1,2 +1,3 @@
 .config/JetBrains/*
 .config/nvim/plugin
+.local_development.sh
