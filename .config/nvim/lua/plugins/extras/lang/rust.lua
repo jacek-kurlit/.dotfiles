@@ -33,8 +33,6 @@ return {
     end,
   },
 
-  -- FIXME: going into rust builtin library functions causes lsp to exit with code 101
-  -- after starting lsp again with LspStart and using go definition again does not break lsp
   {
     "simrat39/rust-tools.nvim",
     event = "VeryLazy",

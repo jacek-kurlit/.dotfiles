@@ -84,4 +84,48 @@ return {
       { "<leader>bu", "<cmd>UndotreeToggle<cr>", desc = "Toggle undotree" },
     },
   },
+  {
+    "ThePrimeagen/harpoon",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>bv",
+        "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+        desc = "View harpoon marks",
+      },
+      {
+        "<leader>bm",
+        "<cmd>lua require('harpoon.mark').add_file()<cr>",
+        desc = "Mark harpoon",
+      },
+      {
+        "<M-h>",
+        "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
+        desc = "Previous harpoon",
+      },
+      {
+        "<M-l>",
+        "<cmd>lua require('harpoon.ui').nav_next()<cr>",
+        desc = "Next harpoon",
+      },
+      {
+        "<M-1>",
+        "<cmd>lua require('harpoon.ui').nav_file(1)<cr>",
+        desc = "Go to 1 harpoon mark",
+      },
+      {
+
+        "<M-2>",
+        "<cmd>lua require('harpoon.ui').nav_file(2)<cr>",
+        desc = "Go to 2 harpoon mark",
+      },
+      {
+
+        "<M-3>",
+        "<cmd>lua require('harpoon.ui').nav_file(3)<cr>",
+        desc = "Go to 3 harpoon mark",
+      },
+    },
+    config = true,
+  },
 }
