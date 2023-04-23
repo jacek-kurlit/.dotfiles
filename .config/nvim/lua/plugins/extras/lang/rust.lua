@@ -32,7 +32,6 @@ return {
       vim.list_extend(opts.ensure_installed, { "codelldb", "rust-analyzer", "taplo" })
     end,
   },
-
   {
     "simrat39/rust-tools.nvim",
     event = "VeryLazy",
