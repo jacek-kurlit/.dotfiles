@@ -26,6 +26,18 @@ alias cd="z"
 alias xcc='xclip -sel clipboard'
 alias dsa='docker ps -q | xargs docker stop'
 
+# nvim switcher
+function nvims() {
+  items=("default(LazyVim)" "NvChad" "AstroNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default(LazyVim)" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
 # All config that should not be synced with git
 LOCAL_DEV_CONFIG_FILE="$HOME/.local_development.sh"
 
