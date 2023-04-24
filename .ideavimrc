@@ -111,19 +111,19 @@ map <leader>cg <Action>(Generate)
 map <leader>cm <Action>(OverrideMethods)
 
 """""""""""""""""""""""" DEBUG MAPPINGS """""""""""""""""""""""""""""
-let g:WhichKeyDesc_debug        = "<leader>d Debug"
-map <leader>dt <Action>(ToggleLineBreakpoint)
-let g:WhichKeyDesc_toggle_breakpoint  = "<leader>dt toggle breakpoint"
-map <leader>dv <Action>(StepOver)
-let g:WhichKeyDesc_step_over  = "<leader>dv step over"
-map <leader>di <Action>(StepInto)
-let g:WhichKeyDesc_step_into  = "<leader>di step into"
-map <leader>du <Action>(StepOut)
-let g:WhichKeyDesc_step_out  = "<leader>du step out"
-map <leader>de <Action>(EvaluateExpression)
-let g:WhichKeyDesc_evaluate_expression  = "<leader>de evaluate expression"
-map <leader>dr <Action>(Resume)
-let g:WhichKeyDesc_resume  = "<leader>dr resume execution"
+let g:WhichKeyDesc_debug        = "<M-d> Debug"
+map <M-d>t <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_toggle_breakpoint  = "<M-d>t toggle breakpoint"
+map <M-d>o <Action>(StepOver)
+let g:WhichKeyDesc_step_over  = "<M-d>o step over"
+map <M-d>i <Action>(StepInto)
+let g:WhichKeyDesc_step_into  = "<M-d>i step into"
+map <M-d>u <Action>(StepOut)
+let g:WhichKeyDesc_step_out  = "<M-d>u step out"
+map <M-d>e <Action>(EvaluateExpression)
+let g:WhichKeyDesc_evaluate_expression  = "<M-d>e evaluate expression"
+map <M-d>c <Action>(Resume)
+let g:WhichKeyDesc_resume  = "<M-d>c resume execution"
 
 """""""""""""""""""""""" TEST MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_test        = "<leader>t Test"
@@ -133,15 +133,6 @@ map <leader>tr <Action>(RerunTests)
 let g:WhichKeyDesc_rerun_test  = "<leader>tr rerun tests"
 map <leader>tf <Action>(RerunFailedTests)
 let g:WhichKeyDesc_rerun_failed_test  = "<leader>tf rerun failed tests"
-map <leader>td <Action>(DebugClass)
-let g:WhichKeyDesc_debug_current_test  = "<leader>td debug current test"
-
-"""""""""""""""""""""""" TEST MAPPINGS """""""""""""""""""""""""""""
-let g:WhichKeyDesc_test        = "<leader>t Test"
-map <leader>tc <Action>(RunClass)
-let g:WhichKeyDesc_run_current_test  = "<leader>tc run current test"
-map <leader>tr <Action>(Run)
-let g:WhichKeyDesc_last_test  = "<leader>tl rerun last test"
 map <leader>td <Action>(DebugClass)
 let g:WhichKeyDesc_debug_current_test  = "<leader>td debug current test"
 
@@ -177,7 +168,7 @@ let g:WhichKeyDesc_git        = "<leader>g  Git"
 map <leader>gu <Action>(Vcs.UpdateProject)
 map <leader>gp <Action>(Vcs.Push)
 map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
-map <leader>gc <Action>(CheckinProject)
+map <leader>gg <Action>(CheckinProject)
 map <leader>gf <Action>(Git.Fetch)
 map <leader>gn <Action>(Git.CreateNewBranch)
 map <leader>gl <Action>(Git.Branches)
@@ -232,7 +223,6 @@ map <a-s-N> <Action>(EditorCloneCaretAbove)
 
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
 map s <Plug>(easymotion-s)
-map <leader>w <Plug>(easymotion-bd-w)
 
 """""""""""""""""""""""" ReplaceWithRegister """""""""""""""""""""""""""""
 nmap cr <Plug>ReplaceWithRegisterOperator
