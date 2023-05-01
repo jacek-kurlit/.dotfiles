@@ -11,11 +11,11 @@ set highlightedyank
 set ReplaceWithRegister
 set sneak
 set surround
+set multiple-cursors
 set exchange
 set ideajoin
 set quickscope
 " set easymotion sneak is less overwhelming in case of cognitive overload
-set multiple-cursors
 set textobj-entire
 set matchit
 " removing mappings
@@ -25,7 +25,7 @@ nunmap grr
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
 " System clipboard fix
 
-" set clipboard^=unnamedplus,unnamed
+set clipboard^=unnamedplus,unnamed
 
 " Turning off error bells
 set noerrorbells
@@ -93,6 +93,8 @@ map <leader>ss <Action>(FileStructurePopup)
 let g:WhichKeyDesc_search_symbol  = "<leader>ss search symbol"
 map <leader>sg <Action>(FindInPath)
 let g:WhichKeyDesc_search_grep  = "<leader>sg search grep"
+map <leader>sw mpviw:<Action>(FindInPath)<CR>`p
+let g:WhichKeyDesc_search_word  = "<leader>sw search word"
 
 """""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
@@ -127,8 +129,8 @@ let g:WhichKeyDesc_resume  = "<M-d>c resume execution"
 
 """""""""""""""""""""""" TEST MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_test        = "<leader>t Test"
-map <leader>tc <Action>(RunClass)
-let g:WhichKeyDesc_run_current_test  = "<leader>tc run current test"
+map <leader>tt <Action>(RunClass)
+let g:WhichKeyDesc_run_current_test  = "<leader>tt run current test"
 map <leader>tr <Action>(RerunTests)
 let g:WhichKeyDesc_rerun_test  = "<leader>tr rerun tests"
 map <leader>tf <Action>(RerunFailedTests)
