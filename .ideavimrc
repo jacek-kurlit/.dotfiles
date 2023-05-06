@@ -131,7 +131,7 @@ let g:WhichKeyDesc_resume  = "<M-d>c resume execution"
 let g:WhichKeyDesc_test        = "<leader>t Test"
 map <leader>tt <Action>(RunClass)
 let g:WhichKeyDesc_run_current_test  = "<leader>tt run current test"
-map <leader>tr <Action>(RerunTests)
+map <leader>tr <Action>(Run)
 let g:WhichKeyDesc_rerun_test  = "<leader>tr rerun tests"
 map <leader>tf <Action>(RerunFailedTests)
 let g:WhichKeyDesc_rerun_failed_test  = "<leader>tf rerun failed tests"
