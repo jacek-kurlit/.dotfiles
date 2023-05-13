@@ -95,6 +95,9 @@ map <leader>sg <Action>(FindInPath)
 let g:WhichKeyDesc_search_grep  = "<leader>sg search grep"
 map <leader>sw mpviw:<Action>(FindInPath)<CR>`p
 let g:WhichKeyDesc_search_word  = "<leader>sw search word"
+map <leader>sr <Action>(ReplaceInPath)
+let g:WhichKeyDesc_search_replace  = "<leader>sr search and replace"
+
 
 """""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
@@ -231,6 +234,10 @@ nmap cr <Plug>ReplaceWithRegisterOperator
 nmap crr <Plug>ReplaceWithRegisterLine
 xmap cr <Plug>ReplaceWithRegisterVisual
 
+"""""""""""""""""""""""" SURROUND MAP """""""""""""""""""""""""""""
+nmap ma <Plug>YSurround
+nmap md <Plug>DSurround
+xmap mc <Plug>CSurround
 
 """""""""""""""""""""""" Other """""""""""""""""""""""""""""
 nmap <C-\> <Action>(ActivateTerminalToolWindow)
