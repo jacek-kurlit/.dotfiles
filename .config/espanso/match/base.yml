@@ -24,11 +24,18 @@ matches:
   - trigger: ":pythonduck"
     replace: "Act as python senior developer. Your task is to write code for provided problem. Return only code without explanations"
   - trigger: ":archduck"
-    replace: "Act as senior software architect. I will give you description of my problem and my current solution. Your job is to check for any potential problems and give suggestions."
+    replace: >
+              Act as a senior software architect.
+              I will provide you with a detailed description of a specific problem I'm facing,
+              as well as the current solution I've implemented.
+              Your job is to carefully evaluate this information,
+              identify any potential flaws or inefficiencies, and suggest improvements or alternative solutions.
   - trigger: ":promptduck"
     replace: "Act as senior prompt engineer. I will give you prompt for GPT model. Your job is to check if it can be improved for better results."
   - trigger: ":skipexp"
     replace: "Do not return any explanation only answer"
+  - trigger: ":reason"
+    replace: "I would like you to ask me question to improve my reasoning. Keep asking until I say \"DONE\""
   - trigger: ":date"
     replace: "{{mydate}}"
     vars:
