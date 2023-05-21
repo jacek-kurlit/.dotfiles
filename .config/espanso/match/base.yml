@@ -1,0 +1,49 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":espanso"
+    replace: "Hi there!"
+
+  # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
+
+  # But matches can also be dynamic:
+
+  # Print the current date
+  - trigger: ":javaduck"
+    replace: "Act as java senior developer. Your task is to write code for provided problem. Return only code without explanations"
+  - trigger: ":rustduck"
+    replace: "Act as rust senior developer. Your task is to write code for provided problem. Return only code without explanations"
+  - trigger: ":pythonduck"
+    replace: "Act as python senior developer. Your task is to write code for provided problem. Return only code without explanations"
+  - trigger: ":archduck"
+    replace: "Act as senior software architect. I will give you description of my problem and my current solution. Your job is to check for any potential problems and give suggestions."
+  - trigger: ":promptduck"
+    replace: "Act as senior prompt engineer. I will give you prompt for GPT model. Your job is to check if it can be improved for better results."
+  - trigger: ":skipexp"
+    replace: "Do not return any explanation only answer"
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # Print the output of a shell command
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/
