@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 return {
    -- font
-   font = wezterm.font("JetBrainsMono"),
+   font = wezterm.font("JetBrainsMono Nerd Font"),
 
    -- theme
    color_scheme = "tokyonight",
@@ -25,7 +25,7 @@ return {
    },
    window_frame = {
       active_titlebar_bg = "#090909",
-      font = wezterm.font("JetBrainsMono"),
+      font = wezterm.font("JetBrainsMono Nerd Font"),
       font_size = 9,
    },
    window_background_image = wezterm.config_dir .. "/backdrops/astro-jelly.jpg",

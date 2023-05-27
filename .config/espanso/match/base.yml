@@ -8,34 +8,46 @@
 # Matches are substitution rules: when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
-  # Simple text replacement
-  - trigger: ":espanso"
-    replace: "Hi there!"
-
   # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
 
   # But matches can also be dynamic:
 
   # Print the current date
-  - trigger: ":javaduck"
+  - trigger: ":jd:"
     replace: "Act as java senior developer. Your task is to write code for provided problem. Return only code without explanations"
-  - trigger: ":rustduck"
+  - trigger: ":rd:"
     replace: "Act as rust senior developer. Your task is to write code for provided problem. Return only code without explanations"
-  - trigger: ":pythonduck"
+  - trigger: ":pd:"
     replace: "Act as python senior developer. Your task is to write code for provided problem. Return only code without explanations"
-  - trigger: ":archduck"
+  - trigger: ":archd:"
     replace: >
               Act as a senior software architect.
               I will provide you with a detailed description of a specific problem I'm facing,
               as well as the current solution I've implemented.
               Your job is to carefully evaluate this information,
               identify any potential flaws or inefficiencies, and suggest improvements or alternative solutions.
-  - trigger: ":promptduck"
+  - trigger: ":aid:"
     replace: "Act as senior prompt engineer. I will give you prompt for GPT model. Your job is to check if it can be improved for better results."
-  - trigger: ":skipexp"
+  - trigger: ":sk:"
     replace: "Do not return any explanation only answer"
-  - trigger: ":reason"
+  - trigger: ":reason:"
     replace: "I would like you to ask me question to improve my reasoning. Keep asking until I say \"DONE\""
+  - trigger: ":flt:"
+    replace: "(╯°□°）╯︵ ┻━┻"
+  - trigger: ":fit:"
+    replace: "┬─┬ノ( º _ ºノ)"
+  - trigger: ":faktura:"
+    replace: |
+              Hej,
+              Przesyłam fakturę za {{dt}}
+
+              Pozdrawiam,
+              Jacek Kurlit
+    vars:
+      - name: dt
+        type: date
+        params:
+          format: "%m.%Y"
   - trigger: ":date"
     replace: "{{mydate}}"
     vars:
