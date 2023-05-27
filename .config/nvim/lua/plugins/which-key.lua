@@ -9,8 +9,6 @@ return {
         ["<leader>gd"] = { name = "+diff" },
         ["<leader>r"] = { name = "+refactor" },
         ["<leader>rs"] = { name = "+swap" },
-        ["<leader>t"] = { name = "+test" },
-        ["<leader>to"] = { name = "+output" },
         ["<leader>p"] = { name = "+project" },
       },
     },
