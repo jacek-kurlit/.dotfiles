@@ -133,10 +133,10 @@ let g:WhichKeyDesc_resume  = "<M-d>c resume execution"
 
 """""""""""""""""""""""" TEST MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_test        = "<leader>t Test"
-map <leader>tt <Action>(RunClass)
+map <leader>tr <Action>(RunClass)
 let g:WhichKeyDesc_run_current_test  = "<leader>tt run current test"
-map <leader>tr <Action>(Run)
-let g:WhichKeyDesc_rerun_test  = "<leader>tr rerun tests"
+map <leader>tl <Action>(Run)
+let g:WhichKeyDesc_run_last_test  = "<leader>tl run last test"
 map <leader>tf <Action>(RerunFailedTests)
 let g:WhichKeyDesc_rerun_failed_test  = "<leader>tf rerun failed tests"
 map <leader>td <Action>(DebugClass)

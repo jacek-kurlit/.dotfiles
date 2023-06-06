@@ -13,6 +13,8 @@ matches:
   # But matches can also be dynamic:
 
   # Print the current date
+  - trigger: ":la:"
+    replace: "Act as senior linux administrator. Your task is to guide user with linux commands that can help to solve his problems"
   - trigger: ":jd:"
     replace: "Act as java senior developer. Your task is to write code for provided problem. Return only code without explanations"
   - trigger: ":rd:"
