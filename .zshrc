@@ -25,6 +25,8 @@ alias ls="lsd"
 alias cd="z"
 alias xcc='xclip -sel clipboard'
 alias dsa='docker ps -q | xargs docker stop'
+alias xkoj2c="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's/\"//g'"
+
 
 # nvim switcher
 function nvims() {

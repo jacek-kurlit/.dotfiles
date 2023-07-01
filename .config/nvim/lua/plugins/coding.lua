@@ -32,26 +32,6 @@ return {
     },
   },
   {
-    "nvim-neotest/neotest",
-    opts = {
-      icons = {
-        failed = "",
-        passed = "",
-        running = "",
-        skipped = "",
-        unknown = "",
-      },
-      adapters = {
-        ["neotest-rust"] = {},
-      },
-    },
-    dependencies = {
-      "antoinemadec/FixCursorHold.nvim",
-      -- this requires cargo-nextest
-      "rouge8/neotest-rust",
-    },
-  },
-  {
     "L3MON4D3/LuaSnip",
     keys = function()
       return {}

@@ -179,8 +179,11 @@ map <leader>gf <Action>(Git.Fetch)
 map <leader>gn <Action>(Git.CreateNewBranch)
 map <leader>gl <Action>(Git.Branches)
 map <leader>gm <Action>(Git.Merge)
+map <leader>gb <Action>(Git.Rebase)
 map <leader>g= <Action>(Git.CompareWithBranch)
 map <leader>gr <Action>(ChangesView.Revert)
+map <leader>gq <Action>(Vcs.QuickListPopupAction)
+
 
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
 nmap gd <Action>(GotoDeclaration)
@@ -238,7 +241,7 @@ xmap cr <Plug>ReplaceWithRegisterVisual
 """""""""""""""""""""""" SURROUND MAP """""""""""""""""""""""""""""
 nmap ma <Plug>YSurround
 nmap md <Plug>DSurround
-xmap mc <Plug>CSurround
+nmap mc <Plug>CSurround
 
 """""""""""""""""""""""" Other """""""""""""""""""""""""""""
 nmap <C-\> <Action>(ActivateTerminalToolWindow)
