@@ -25,7 +25,9 @@ alias ls="lsd"
 alias cd="z"
 alias xcc='xclip -sel clipboard'
 alias dsa='docker ps -q | xargs docker stop'
-alias xkoj2c="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's/\"//g'"
+alias json_to_csv="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's/\"//g'"
+alias decode_jwt="xclip -o | jq -R 'split(\".\") | .[0],.[1] | @base64d | fromjson'"
+alias java_native="/home/jacek.kurlit/graalvm-ce-java17-22.3.1/bin/native-image"
 
 
 # nvim switcher
