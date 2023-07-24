@@ -32,53 +32,6 @@ return {
     },
   },
   {
-    "nvim-neotest/neotest",
-    config = function()
-      require("neotest").setup({
-        output = {
-          enabled = true,
-          open_on_run = "short",
-        },
-        icons = {
-          failed = "",
-          passed = "",
-          running = "",
-          skipped = "",
-          unknown = "",
-        },
-        adapters = {
-          require("neotest-rust"),
-        },
-      })
-    end,
-    keys = {
-      { "<leader>tt", "<cmd>lua require('neotest').run.run()<cr>", desc = "Run nearest test" },
-      { "<leader>ts", "<cmd>lua require('neotest').run.stop()<cr>", desc = "Stop nearest test" },
-      { "<leader>td", "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "Debug nearest test" },
-      { "<leader>ta", "<cmd>lua require('neotest').run.attach()<cr>", desc = "Attach to nearest test" },
-      { "<leader>tos", "<cmd>lua require('neotest').summary.toggle()<cr>", desc = "Toggle test summary" },
-      { "<leader>too", "<cmd>lua require('neotest').output.open({ enter = true })<cr>", desc = "Open test result" },
-      { "<leader>tot", "<cmd>lua require('neotest').output_panel.toggle()<cr>", desc = "Toggle output panel" },
-      {
-        "<leader>toh",
-        "<cmd>lua require('neotest').output_panel.open({ open_win = function() vim.cmd('vsplit') end })<cr>",
-        desc = "Open output panel as horizontal split",
-      },
-      {
-        "<leader>tf",
-        "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
-        desc = "Run test in current file",
-      },
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-      -- this requires cargo-nextest
-      "rouge8/neotest-rust",
-    },
-  },
-  {
     "L3MON4D3/LuaSnip",
     keys = function()
       return {}

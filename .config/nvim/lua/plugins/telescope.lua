@@ -85,16 +85,6 @@ return {
       },
     },
     {
-      "gbprod/yanky.nvim",
-      keys = {
-        { "<leader>sy", "<cmd>Telescope yank_history<cr>", desc = "Search yank history" },
-      },
-      config = function()
-        require("yanky").setup({})
-        require("telescope").load_extension("yank_history")
-      end,
-    },
-    {
       "ahmedkhalf/project.nvim",
       lazy = false,
       keys = {

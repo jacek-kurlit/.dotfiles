@@ -3,15 +3,12 @@ return {
     "folke/which-key.nvim",
     opts = {
       defaults = {
-        ["]y"] = { name = "+yank" },
-        ["[y"] = { name = "+yank" },
         ["<leader>c"] = { name = "+code" },
         ["<leader>gd"] = { name = "+diff" },
         ["<leader>r"] = { name = "+refactor" },
         ["<leader>rs"] = { name = "+swap" },
-        ["<leader>t"] = { name = "+test" },
-        ["<leader>to"] = { name = "+output" },
-        ["<leader>p"] = { name = "+project" },
+        ["<leader>v"] = { name = "+virtual assistant" },
+        ["<leader>ve"] = { name = "+explain as" },
       },
     },
   },
