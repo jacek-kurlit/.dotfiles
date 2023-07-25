@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 return {
    -- font
-   font = wezterm.font("JetBrainsMono"),
+   font = wezterm.font("JetBrainsMono Nerd Font"),
 
    -- theme
    color_scheme = "tokyonight",
@@ -25,22 +25,22 @@ return {
    },
    window_frame = {
       active_titlebar_bg = "#090909",
-      font = wezterm.font("JetBrainsMono"),
+      font = wezterm.font("JetBrainsMono Nerd Font"),
       font_size = 9,
    },
-   window_background_image = wezterm.config_dir .. "/backdrops/astro-jelly.jpg",
-   window_background_opacity = 1.0,
-   window_background_image_hsb = {
+   -- window_background_image = wezterm.config_dir .. "/backdrops/astro-jelly.jpg",
+   -- window_background_opacity = 1.0,
+   -- window_background_image_hsb = {
       -- Darken the background image by reducing it to 1/3rd
-      brightness = 0.4,
+      -- brightness = 0.4,
 
       -- You can adjust the hue by scaling its value.
       -- a multiplier of 1.0 leaves the value unchanged.
-      hue = 1.0,
+      -- hue = 1.0,
 
       -- You can adjust the saturation also.
-      saturation = 1.0,
-   },
+     -- saturation = 1.0,
+   -- },
    window_close_confirmation = "NeverPrompt",
    automatically_reload_config = true,
    inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },

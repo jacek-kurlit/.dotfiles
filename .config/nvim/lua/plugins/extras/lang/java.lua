@@ -23,6 +23,20 @@ return {
     dependencies = { "mfussenegger/nvim-jdtls" },
     opts = {
       -- configure jdtls and attach to Java ft
+      servers = {
+        jdtls = {
+        -- stylua: ignore
+        keys = {
+          { "<leader>co", function() require("jdtls").organize_imports() end, desc = "Organize Imports", },
+          { "<leader>cR", function() require("jdtls").rename_file() end, desc = "Rename File", },
+          { "<leader>rv", function() require("jdtls").extract_variable() end, desc = "Extract Variable", },
+          { "<leader>rv", function() require("jdtls").extract_variable({ visual = true }) end, mode = "v", desc = "Extract Variable", },
+          { "<leader>rc", function() require("jdtls").extract_constant() end, desc = "Extract Constant", },
+          { "<leader>rc", function() require("jdtls").extract_constant({ visual = true }) end, mode = "v", desc = "Extract Constant", },
+          { "<leader>rm", function() require("jdtls").extract_method({ visual = true }) end, mode = "v", desc = "Extract Method", },
+        },
+        },
+      },
       setup = {
         jdtls = function(_, opts)
           -- Determine OS
@@ -87,15 +101,11 @@ return {
                   require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
                   require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
                   -- custom keymaps
-                  vim.keymap.set("n", "<leader>co", function()
-                    require("jdtls").organize_imports()
-                  end, { buffer = buffer, desc = "Organize Imports" })
                   vim.keymap.set("n", "<leader>ct", function()
                     require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results })
                   end, { buffer = buffer, desc = "Run Test" })
                   require("jdtls").setup_dap({ hotcodereplace = "auto" })
                   require("jdtls.dap").setup_dap_main_class_configs()
-                  require("jdtls.setup").add_commands()
                 end,
                 cmd = {
                   jdtls_bin,

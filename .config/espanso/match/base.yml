@@ -1,0 +1,70 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
+
+  # But matches can also be dynamic:
+
+  # Print the current date
+  - trigger: ":la:"
+    replace: "Act as senior linux administrator. Your task is to guide user with linux commands that can help to solve his problems"
+  - trigger: ":jd:"
+    replace: "Act as java senior developer. Your task is to write code for provided problem. Return only code without explanations"
+  - trigger: ":rd:"
+    replace: "Act as rust senior developer. Your task is to write code for provided problem. Return only code without explanations"
+  - trigger: ":pd:"
+    replace: "Act as python senior developer. Your task is to write code for provided problem. Return only code without explanations"
+  - trigger: ":archd:"
+    replace: >
+              Act as a senior software architect.
+              I will provide you with a detailed description of a specific problem I'm facing,
+              as well as the current solution I've implemented.
+              Your job is to carefully evaluate this information,
+              identify any potential flaws or inefficiencies, and suggest improvements or alternative solutions.
+  - trigger: ":aid:"
+    replace: "Act as senior prompt engineer. I will give you prompt for GPT model. Your job is to check if it can be improved for better results."
+  - trigger: ":sk:"
+    replace: "Do not return any explanation only answer"
+  - trigger: ":reason:"
+    replace: "I would like you to ask me question to improve my reasoning. Keep asking until I say \"DONE\""
+  - trigger: ":flt:"
+    replace: "(╯°□°）╯︵ ┻━┻"
+  - trigger: ":fit:"
+    replace: "┬─┬ノ( º _ ºノ)"
+  - trigger: ":faktura:"
+    replace: |
+              Hej,
+              Przesyłam fakturę za {{dt}}
+
+              Pozdrawiam,
+              Jacek Kurlit
+    vars:
+      - name: dt
+        type: date
+        params:
+          format: "%m.%Y"
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # Print the output of a shell command
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/
