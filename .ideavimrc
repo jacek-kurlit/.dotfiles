@@ -268,6 +268,15 @@ cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 
+"""""""""""""""""""""""" HARPOON MAPPINGS """""""""""""""""""""""""""""
+nmap <M-1> :action GotoHarpoon1<cr>
+nmap <M-2> :action GotoHarpoon2<cr>
+nmap <M-3> :action GotoHarpoon3<cr>
+nmap <M-4> :action GotoHarpoon4<cr>
+
+nmap <M-v> :action ShowHarpoon<cr>
+nmap <M-a> :action AddToHarpoon<cr>
+
 """""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""
 " Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
 function! Invert(calledFromVisual)
