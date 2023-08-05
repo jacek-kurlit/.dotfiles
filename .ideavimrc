@@ -277,6 +277,12 @@ nmap <M-4> :action GotoHarpoon4<cr>
 nmap <M-v> :action ShowHarpoon<cr>
 nmap <M-a> :action AddToHarpoon<cr>
 
+"""""""""""""""""""""""" FOLDS MAPPINGS """""""""""""""""""""""""""""
+nmap zc :action CollapseRegion<cr>
+nmap zo :action ExpandRegion<cr>
+nmap zM :action CollapseAllRegions<cr>
+nmap zR :action ExpandAllRegions<cr>
+
 """""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""
 " Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
 function! Invert(calledFromVisual)

@@ -1,5 +1,22 @@
 return {
   {
+    "gbprod/yanky.nvim",
+    opts = function()
+      local mapping = require("yanky.telescope.mapping")
+      local mappings = mapping.get_defaults()
+      -- I'm using this for lspsaga
+      mappings.i["gp"] = nil
+      mappings.i["gP"] = nil
+      return {
+        picker = {
+          telescope = {
+            mappings = mappings,
+          },
+        },
+      }
+    end,
+  },
+  {
     "glepnir/lspsaga.nvim",
     event = "BufRead",
     opts = {
