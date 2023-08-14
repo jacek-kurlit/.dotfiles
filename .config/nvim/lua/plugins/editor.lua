@@ -89,12 +89,12 @@ return {
     event = "VeryLazy",
     keys = {
       {
-        "<leader>bv",
+        "<M-v>",
         "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
         desc = "View harpoon marks",
       },
       {
-        "<leader>bm",
+        "<M-a>",
         "<cmd>lua require('harpoon.mark').add_file()<cr>",
         desc = "Mark harpoon",
       },
