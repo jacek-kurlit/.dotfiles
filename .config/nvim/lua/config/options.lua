@@ -11,3 +11,6 @@ vim.o.foldenable = true
 
 -- Disable adding comment on nect line by removing 'cro'
 vim.opt.formatoptions = "jqlnt"
+
+-- GPT env
+vim.env.OPENAI_API_HOST = "api.openai.com"
