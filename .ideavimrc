@@ -283,6 +283,10 @@ nmap zo :action ExpandRegion<cr>
 nmap zM :action CollapseAllRegions<cr>
 nmap zR :action ExpandAllRegions<cr>
 
+"""""""""""""""""""""""" YANK MAPPINGS """""""""""""""""""""""""""""
+nmap <leader>y :%y+<cr>
+let g:WhichKeyDesc_yank_buffer  = "<leader>y yank entire buffer to clipboard"
+
 """""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""
 " Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
 function! Invert(calledFromVisual)
