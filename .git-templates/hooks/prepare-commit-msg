@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #
 # Inspects branch name and checks if it contains a Jira ticket number (i.e. ABC-123).
@@ -10,25 +10,30 @@
 
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
-
 # Ensure BRANCH_NAME is not empty and is not in a detached HEAD state (i.e. rebase).
 # SKIP_PREPARE_COMMIT_MSG may be used as an escape hatch to disable this hook,
 # while still allowing other githooks to run.
-if [ ! -z "$BRANCH_NAME" ] && [ "$BRANCH_NAME" != "HEAD" ] && [ "$SKIP_PREPARE_COMMIT_MSG" != 1 ]; then
 
-  CHANGE_TYPE_PATTERN='([feat|feature|fix|refactor|chore]+)/([A-Z]{2,5}-[0-9]+)+.*'
-  [[ $BRANCH_NAME =~ $CHANGE_TYPE_PATTERN ]]
-  CHANGE_TYPE=${BASH_REMATCH[1]}
-  TASK_NUMBER=${BASH_REMATCH[2]}
+if [ -z "$BRANCH_NAME" ] || [ "$BRANCH_NAME" == "HEAD" ] || [ "$SKIP_PREPARE_COMMIT_MSG" == 1 ]; then
+	# nothing to do, skipping
+	exit 0
+fi
 
-  PREFIX="$CHANGE_TYPE: $TASK_NUMBER"
+CHANGE_TYPE_PATTERN='([feat|feature|fix|refactor|chore]+)/([A-Z]{2,5}-[0-9]+)+.*'
+[[ $BRANCH_NAME =~ $CHANGE_TYPE_PATTERN ]]
+CHANGE_TYPE=${BASH_REMATCH[1]}
+TASK_NUMBER=${BASH_REMATCH[2]}
 
-  PREFIX_IN_COMMIT=$(grep -c "$PREFIX" $1)
+if [[ -z "$CHANGE_TYPE" ]] || [[ -z "$TASK_NUMBER" ]]; then
+	# nothing to do, skipping
+	exit 0
+fi
 
-  # Ensure PREFIX exists in BRANCH_NAME and is not already present in the commit message
-  if [[ -n "$PREFIX" ]] && ! [[ $PREFIX_IN_COMMIT -ge 1 ]]; then
-    # sed -i.bak -e "1s~$~ $PREFIX ~" $1 #suffix
-    sed -i.bak -e "1s~^~$PREFIX ~" $1 #prefix
-  fi
+PREFIX="$CHANGE_TYPE: $TASK_NUMBER"
+PREFIX_IN_COMMIT=$(grep -c "$PREFIX" "$1")
 
+# Ensure PREFIX exists in BRANCH_NAME and is not already present in the commit message
+if ! [[ $PREFIX_IN_COMMIT -ge 1 ]]; then
+	# sed -i.bak -e "1s~$~ $PREFIX ~" $1 #suffix
+	sed -i.bak -e "1s~^~$PREFIX ~" "$1" #prefix
 fi
