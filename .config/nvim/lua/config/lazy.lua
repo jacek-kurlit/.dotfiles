@@ -25,6 +25,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
     -- coding
     { import = "lazyvim.plugins.extras.coding.yanky" },
+    { import = "lazyvim.plugins.extras.formatting.conform" },
     -- import/override with your plugins
     { import = "plugins" },
   },
