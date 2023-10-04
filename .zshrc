@@ -28,6 +28,7 @@ alias dsa='docker ps -q | xargs docker stop'
 alias json_to_csv="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's/\"//g'"
 alias decode_jwt="xclip -o | jq -R 'split(\".\") | .[0],.[1] | @base64d | fromjson'"
 alias java_native="/home/jacek.kurlit/graalvm-ce-java17-22.3.1/bin/native-image"
+alias json_beaty='xclip -o | jq . | xclip -sel clipboard'
 
 
 # nvim switcher

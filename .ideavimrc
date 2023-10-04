@@ -107,6 +107,8 @@ map <leader>pm <Action>(Maven.ExecuteGoal)
 let g:WhichKeyDesc_project_execute_maven  = "<leader>pm execute maven goal"
 map <leader>pr <Action>(ExternalSystem.ProjectRefreshAction)
 let g:WhichKeyDesc_project_refresh  = "<leader>pr refresh project"
+map <leader>ps <Action>(ShowProjectStructureSettings)
+let g:WhichKeyDesc_project_structure  = "<leader>ps project structure"
 
 """""""""""""""""""""""" CODE MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_code        = "<leader>c Code"
@@ -117,9 +119,13 @@ map <leader>cm <Action>(OverrideMethods)
 map <leader>ch <Action>(TypeHierarchy)
 
 """""""""""""""""""""""" DEBUG MAPPINGS """""""""""""""""""""""""""""
-let g:WhichKeyDesc_debug        = "<M-d> Debug"
-map <M-d>t <Action>(ToggleLineBreakpoint)
-let g:WhichKeyDesc_toggle_breakpoint  = "<M-d>t toggle breakpoint"
+let g:WhichKeyDesc_debug        = "<leader>d Debug"
+map <leader>db <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_toggle_breakpoint_leader  = "<leader>db toggle breakpoint"
+map <leader>dc <Action>(Resume)
+let g:WhichKeyDesc_resume_leader  = "<leader>dc resume execution"
+map <M-d>b <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_toggle_breakpoint  = "<M-d>b toggle breakpoint"
 map <M-d>o <Action>(StepOver)
 let g:WhichKeyDesc_step_over  = "<M-d>o step over"
 map <M-d>i <Action>(StepInto)
@@ -134,7 +140,7 @@ let g:WhichKeyDesc_resume  = "<M-d>c resume execution"
 """""""""""""""""""""""" TEST MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_test        = "<leader>t Test"
 map <leader>tr <Action>(RunClass)
-let g:WhichKeyDesc_run_current_test  = "<leader>tt run current test"
+let g:WhichKeyDesc_run_current_test  = "<leader>tr run closest test"
 map <leader>tl <Action>(Run)
 let g:WhichKeyDesc_run_last_test  = "<leader>tl run last test"
 map <leader>tf <Action>(RerunFailedTests)
