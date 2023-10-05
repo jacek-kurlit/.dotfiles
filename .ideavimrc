@@ -59,8 +59,6 @@ set smartcase
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
-nmap <C-\> <Action>(ActivateTerminalToolWindow)
-
 """""""""""""""""""""""" MOVEMENTS """""""""""""""""""""""""""""
 map <A-j> <Action>(MoveStatementDown)
 map <A-k> <Action>(MoveStatementUp)
@@ -98,6 +96,14 @@ let g:WhichKeyDesc_search_word  = "<leader>sw search word"
 map <leader>sr <Action>(ReplaceInPath)
 let g:WhichKeyDesc_search_replace  = "<leader>sr search and replace"
 
+"""""""""""""""""""""""" WINDOW MAPPINGS """""""""""""""""""""""""""""
+nmap <C-\> <Action>(ActivateTerminalToolWindow)
+nmap <C-w>q <Action>(CloseContent)
+
+"""""""""""""""""""""""" BUFFER MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_buffers  = "<leader>b buffer"
+nmap <leader>bd <Action>(CloseContent)
+let g:WhichKeyDesc_buffer_delete = "<leader>bd delete buffer"
 
 """""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
@@ -106,6 +112,8 @@ let g:WhichKeyDesc_recent_projects_list  = "<leader>pl recent projects"
 map <leader>pm <Action>(Maven.ExecuteGoal)
 let g:WhichKeyDesc_project_execute_maven  = "<leader>pm execute maven goal"
 map <leader>pr <Action>(ExternalSystem.ProjectRefreshAction)
+let g:WhichKeyDesc_project_analyze_dependencies  = "<leader>pd analyze maven dependencies"
+map <leader>pd <Action>(Maven.ProjectViewDependencyAnalyzer)
 let g:WhichKeyDesc_project_refresh  = "<leader>pr refresh project"
 map <leader>ps <Action>(ShowProjectStructureSettings)
 let g:WhichKeyDesc_project_structure  = "<leader>ps project structure"
@@ -250,7 +258,6 @@ nmap md <Plug>DSurround
 nmap mc <Plug>CSurround
 
 """""""""""""""""""""""" Other """""""""""""""""""""""""""""
-nmap <C-\> <Action>(ActivateTerminalToolWindow)
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
