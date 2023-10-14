@@ -1,6 +1,8 @@
 {
   "extras": [
-
+    "lazyvim.plugins.extras.editor.aerial",
+    "lazyvim.plugins.extras.formatting.black",
+    "lazyvim.plugins.extras.ui.edgy"
   ],
   "news": {
     "NEWS.md": "2123"

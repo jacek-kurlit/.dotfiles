@@ -13,7 +13,6 @@ require("lazy").setup({
     -- import any extras modules here
     -- ui
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    { import = "lazyvim.plugins.extras.ui.edgy" },
     -- testing & debugging
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.test.core" },
@@ -25,7 +24,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
     -- coding
     { import = "lazyvim.plugins.extras.coding.yanky" },
-    { import = "lazyvim.plugins.extras.formatting.conform" },
     -- import/override with your plugins
     { import = "plugins" },
   },
