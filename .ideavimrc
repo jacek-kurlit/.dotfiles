@@ -107,16 +107,24 @@ let g:WhichKeyDesc_buffer_delete = "<leader>bd delete buffer"
 
 """""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
-map <leader>pl <Action>(ManageRecentProjects)
 let g:WhichKeyDesc_recent_projects_list  = "<leader>pl recent projects"
-map <leader>pm <Action>(Maven.ExecuteGoal)
+map <leader>pl <Action>(ManageRecentProjects)
+
 let g:WhichKeyDesc_project_execute_maven  = "<leader>pm execute maven goal"
-map <leader>pr <Action>(ExternalSystem.ProjectRefreshAction)
+map <leader>pm <Action>(Maven.ExecuteGoal)
+
 let g:WhichKeyDesc_project_analyze_dependencies  = "<leader>pd analyze maven dependencies"
 map <leader>pd <Action>(Maven.ProjectViewDependencyAnalyzer)
-let g:WhichKeyDesc_project_refresh  = "<leader>pr refresh project"
-map <leader>ps <Action>(ShowProjectStructureSettings)
+
+let g:WhichKeyDesc_project_refresh  = "<leader>pr refresh dependencies"
+map <leader>pr <Action>(ExternalSystem.ProjectRefreshAction)
+
 let g:WhichKeyDesc_project_structure  = "<leader>ps project structure"
+map <leader>ps <Action>(ShowProjectStructureSettings)
+
+let g:WhichKeyDesc_project_tree  = "<leader>pt project dependency tree"
+map <leader>pt <Action>(ShowUmlDiagramPopup)
+
 
 """""""""""""""""""""""" CODE MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_code        = "<leader>c Code"
