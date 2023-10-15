@@ -33,7 +33,6 @@ return {
       { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show line diagnostic" },
       { "<leader>a", mode = { "n", "v" }, "<cmd>Lspsaga code_action<CR>", desc = "Code action" },
       { "<leader>rr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
-      { "<leader>cs", "<cmd>Lspsaga outline<CR>", desc = "Code structure" },
       { "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", desc = "Incoming calls" },
       { "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", desc = "Outgoing calls" },
     },
