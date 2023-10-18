@@ -35,15 +35,4 @@ return {
       },
     },
   },
-  {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function(_, dashboard)
-      table.insert(
-        dashboard.config.center,
-        1,
-        { action = "Telescope projects", desc = " Recent projects", icon = " ", key = "p" }
-      )
-    end,
-  },
 }
