@@ -128,4 +128,23 @@ return {
     },
     config = true,
   },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {
+      highlight = {
+        backdrop = false,
+      },
+      label = {
+        style = "inline",
+      },
+      modes = {
+        char = {
+          jump_labels = true,
+          highlight = { backdrop = false },
+        },
+      },
+    },
+  },
 }
