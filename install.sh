@@ -22,6 +22,7 @@ flatpak install com.getpostman.Postman
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # probably it is good to also install this https://nexte.st/book/pre-built-binaries.html
+
 # starship
 curl -sS https://starship.rs/install.sh | sh
 
@@ -39,6 +40,8 @@ sudo dnf install -y neovim python3-neovim
 sudo dnf install -y stow
 # fuzzy finder
 sudo dnf install -y fzf
+# pass terminal password manager
+sudo yum install pass
 
 # lazygit
 sudo dnf copr enable atim/lazygit -y
