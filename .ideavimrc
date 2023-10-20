@@ -68,42 +68,57 @@ nmap <C-i> <Action>(Forward)
 nmap <C-o> <Action>(Back)
 nmap <C-h> :NERDTreeFocus<CR>
 
+"""""""""""""""""""""""" LEADER FILE/FIND MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_find_files_menu  = "<leader>f Find/Files"
+map <leader>ff <Action>(GotoFile)
+let g:WhichKeyDesc_find_files  = "<leader>ff find files"
+map <leader>fc <Action>(GotoClass)
+let g:WhichKeyDesc_find_class  = "<leader>fc find class"
+map <leader>fb <Action>(RecentFiles)
+let g:WhichKeyDesc_find_buffers  = "<leader>fb find buffers"
+map K <Action>(QuickJavaDoc)
+map <leader>f? <Action>(GotoAction)
+let g:WhichKeyDesc_find_actions  = "<leader>f? find actions"
+map <leader>fs <Action>(NewScratchFile)
+let g:WhichKeyDesc_file_scratch  = "<leader>fs new scratch file"
+
+
 """""""""""""""""""""""" LEADER MAPPINGS """""""""""""""""""""""""""""
 map <leader>a <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_actions        = "<leader>a Show actions"
-map <leader>ff <Action>(GotoFile)
-map <leader>fc <Action>(GotoClass)
-map <leader>fb <Action>(RecentFiles)
-map <leader>fs <Action>(FindInPath)
-map <leader>f<S-s> <Action>(GotoSymbol)
-map K <Action>(QuickJavaDoc)
-map <c-s>I <Action>(QuickImplementations)
-map <leader>f? <Action>(GotoAction)
-let g:WhichKeyDesc_search  = "<leader>s search"
 map <leader>q <Action>(Exit)
+let g:WhichKeyDesc_quit  = "<leader>q Quit"
 map <leader>e :NERDTreeToggle<CR>
-let g:WhichKeyDesc_explorer  = "<leader>p open explorer"
+let g:WhichKeyDesc_explorer  = "<leader>e Open explorer"
 map <leader>o :NERDTreeFind<CR>
-let g:WhichKeyDesc_focus_in_explorer  = "<leader>o focus in explorer"
+let g:WhichKeyDesc_focus_in_explorer  = "<leader>o Focus in explorer"
 map <leader>/ <Action>(CommentByLineComment)
+let g:WhichKeyDesc_comment_line  = "<leader>/ Comment line"
 
+"""""""""""""""""""""""" LEADER SEARCH MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_search  = "<leader>s Search"
 map <leader>ss <Action>(FileStructurePopup)
 let g:WhichKeyDesc_search_symbol  = "<leader>ss search symbol"
 map <leader>sg <Action>(FindInPath)
 let g:WhichKeyDesc_search_grep  = "<leader>sg search grep"
 map <leader>sw mpviw:<Action>(FindInPath)<CR>`p
 let g:WhichKeyDesc_search_word  = "<leader>sw search word"
-map <leader>sr <Action>(ReplaceInPath)
+map <leader>sr <Action>(Replace)
 let g:WhichKeyDesc_search_replace  = "<leader>sr search and replace"
+map <leader>sR <Action>(ReplaceInPath)
+let g:WhichKeyDesc_search_replace_in_workspace  = "<leader>sR search and replace in workspace"
 
 """""""""""""""""""""""" WINDOW MAPPINGS """""""""""""""""""""""""""""
 nmap <C-\> <Action>(ActivateTerminalToolWindow)
 nmap <C-w>q <Action>(CloseContent)
 
 """""""""""""""""""""""" BUFFER MAPPINGS """""""""""""""""""""""""""""
-let g:WhichKeyDesc_buffers  = "<leader>b buffer"
+let g:WhichKeyDesc_buffers  = "<leader>b Buffer"
 nmap <leader>bd <Action>(CloseContent)
 let g:WhichKeyDesc_buffer_delete = "<leader>bd delete buffer"
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+let g:WhichKeyDesc_buffer_delete_others = "<leader>bo delete other buffers"
+
 
 """""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
@@ -306,7 +321,7 @@ nmap zR :action ExpandAllRegions<cr>
 
 """""""""""""""""""""""" YANK MAPPINGS """""""""""""""""""""""""""""
 nmap <leader>y :%y+<cr>
-let g:WhichKeyDesc_yank_buffer  = "<leader>y yank entire buffer to clipboard"
+let g:WhichKeyDesc_yank_buffer  = "<leader>y Yank entire buffer to clipboard"
 
 """""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""
 " Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
