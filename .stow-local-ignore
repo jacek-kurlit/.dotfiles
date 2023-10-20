@@ -1,5 +1,6 @@
 \.git
 idea_vim_key_mappings.txt
 tools_to_install.txt
+install.sh
 README.md
 \.config\nvim\plugin
