@@ -3,6 +3,7 @@ return {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     opts = {
+      api_key_cmd = "pass openai/api_key",
       chat = {
         keymaps = {
           close = { "<C-c>" },
