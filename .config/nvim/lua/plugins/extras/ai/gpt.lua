@@ -1,7 +1,7 @@
 return {
   {
     "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
+    cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions" },
     opts = {
       api_key_cmd = "pass openai/api_key",
       chat = {
