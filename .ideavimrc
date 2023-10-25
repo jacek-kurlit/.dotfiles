@@ -15,9 +15,7 @@ set multiple-cursors
 set exchange
 set ideajoin
 set quickscope
-" set easymotion sneak is less overwhelming in case of cognitive overload
 set textobj-entire
-set matchit
 " removing mappings
 nunmap gr
 nunmap grr
@@ -278,7 +276,7 @@ xmap cr <Plug>ReplaceWithRegisterVisual
 """""""""""""""""""""""" SURROUND MAP """""""""""""""""""""""""""""
 nmap ma <Plug>YSurround
 nmap md <Plug>DSurround
-nmap mc <Plug>CSurround
+nmap mr <Plug>CSurround
 
 """""""""""""""""""""""" Other """""""""""""""""""""""""""""
 
