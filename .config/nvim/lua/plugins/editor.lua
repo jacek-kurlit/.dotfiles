@@ -31,14 +31,6 @@ return {
     },
   },
   {
-    "ellisonleao/glow.nvim",
-    cmd = "Glow",
-    config = true,
-    keys = {
-      { "<leader>um", "<cmd>Glow<cr>", desc = "Preview markdown" },
-    },
-  },
-  {
     "sindrets/diffview.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {

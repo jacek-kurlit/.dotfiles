@@ -1,69 +1,7 @@
 return {
   {
-    "nvim-treesitter/playground",
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
-    opts = function(_, opts)
-      opts.playground = {
-        enable = true,
-        disable = {},
-        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-        persist_queries = false, -- Whether the query persists across vim sessions
-        keybindings = {
-          toggle_query_editor = "o",
-          toggle_hl_groups = "i",
-          toggle_injected_languages = "t",
-          toggle_anonymous_nodes = "a",
-          toggle_language_display = "I",
-          focus_language = "f",
-          unfocus_language = "F",
-          update = "R",
-          goto_node = "<cr>",
-          show_help = "?",
-        },
-      }
-      opts.textobjects = {
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            ["]f"] = { query = "@function.outer", desc = "Next method start" },
-            ["]p"] = { query = "@parameter.outer", desc = "Next parameter start" },
-          },
-          goto_next_end = {
-            ["]F"] = { query = "@function.outer", desc = "Next method end" },
-            ["]P"] = { query = "@parameter.outer", desc = "Next parameter end" },
-          },
-          goto_previous_start = {
-            ["[f"] = { query = "@function.outer", desc = "Prev method start" },
-            ["[p"] = { query = "@parameter.outer", desc = "Prev parameter start" },
-          },
-          goto_previous_end = {
-            ["[F"] = { query = "@function.outer", desc = "Prev method end" },
-            ["[P"] = { query = "@parameter.outer", desc = "Prev parameter end" },
-          },
-        },
-        swap = {
-          enable = true,
-          swap_next = {
-            ["<leader>rsf"] = { query = "@function.outer", desc = "Swap with next function" },
-            ["<leader>rsp"] = { query = "@parameter.inner", desc = "Swap with next parameter" },
-          },
-          swap_previous = {
-            ["<leader>rsF"] = { query = "@function.outer", desc = "Swap with previous function" },
-            ["<leader>rsP"] = { query = "@parameter.inner", desc = "Swap with previous parameter" },
-          },
-        },
-      }
-      local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-      vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
-      vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
-    end,
-  },
-  {
     "echasnovski/mini.ai",
+    event = "VeryLazy",
     opts = function()
       local ai = require("mini.ai")
       return {
