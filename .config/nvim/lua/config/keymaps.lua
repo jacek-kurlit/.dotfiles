@@ -56,6 +56,7 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
+map("n", "<leader>o", "<cmd>Neotree action=focus<cr>", "Focus on current file in explorer")
 
 -- Yank
 map("n", "<leader>y", "<cmd>%y+<cr>", "Yank entire buffer to clipboard")

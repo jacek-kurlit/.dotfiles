@@ -28,8 +28,8 @@ return {
         submit_n = "<Enter>",
       },
       openai_params = {
-        model = "gpt-4",
-        max_tokens = 400,
+        model = "gpt-4-1106-preview",
+        max_tokens = 1000,
       },
     },
     -- stylua: ignore
