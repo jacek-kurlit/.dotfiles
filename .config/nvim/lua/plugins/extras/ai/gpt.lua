@@ -28,7 +28,7 @@ return {
         submit_n = "<Enter>",
       },
       openai_params = {
-        model = "gpt-4",
+        model = "gpt-4-1106-preview",
         max_tokens = 1000,
       },
     },
