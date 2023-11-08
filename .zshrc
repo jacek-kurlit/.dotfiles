@@ -29,6 +29,7 @@ alias json_to_csv="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's
 alias decode_jwt="xclip -o | jq -R 'split(\".\") | .[0],.[1] | @base64d | fromjson'"
 alias java_native="/home/jacek.kurlit/graalvm-ce-java17-22.3.1/bin/native-image"
 alias json_beaty='xclip -o | jq . | xclip -sel clipboard'
+alias neo='neovide --size=3000x3000'
 
 
 # nvim switcher
