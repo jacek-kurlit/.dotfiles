@@ -1,5 +1,10 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 
+wezterm.on("gui-startup", function()
+   local _, _, window = mux.spawn_window({})
+   window:gui_window():maximize()
+end)
 return {
    -- font
    font = wezterm.font("JetBrainsMono Nerd Font"),
@@ -31,15 +36,15 @@ return {
    -- window_background_image = wezterm.config_dir .. "/backdrops/astro-jelly.jpg",
    -- window_background_opacity = 1.0,
    -- window_background_image_hsb = {
-      -- Darken the background image by reducing it to 1/3rd
-      -- brightness = 0.4,
+   -- Darken the background image by reducing it to 1/3rd
+   -- brightness = 0.4,
 
-      -- You can adjust the hue by scaling its value.
-      -- a multiplier of 1.0 leaves the value unchanged.
-      -- hue = 1.0,
+   -- You can adjust the hue by scaling its value.
+   -- a multiplier of 1.0 leaves the value unchanged.
+   -- hue = 1.0,
 
-      -- You can adjust the saturation also.
-     -- saturation = 1.0,
+   -- You can adjust the saturation also.
+   -- saturation = 1.0,
    -- },
    window_close_confirmation = "NeverPrompt",
    automatically_reload_config = true,
