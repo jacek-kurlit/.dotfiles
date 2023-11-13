@@ -1,5 +1,5 @@
 
-theme = "spacebones_light"
+theme = "catppuccin_latte"
 
 [editor]
 line-number = "relative"
