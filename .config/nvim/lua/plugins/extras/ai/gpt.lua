@@ -31,6 +31,9 @@ return {
         model = "gpt-4-1106-preview",
         max_tokens = 1000,
       },
+      openai_edit_params = {
+        model = "gpt-4-1106-preview",
+      },
     },
     -- stylua: ignore
     keys = {
@@ -41,8 +44,16 @@ return {
         "<leader>vp", "<cmd>ChatGPTActAs<CR>", desc = "Awesome prompts",
       },
       {
-        "<leader>ve", "<cmd>ChatGPTEditWithInstructions<CR>", mode = "v", desc = "Edit selected",
-      }
+        "<leader>ve", "<cmd>ChatGPTEditWithInstructions<CR>", mode = { "n","v" }, desc = "Edit selected",
+     },
+    {"<leader>vg", "<cmd>ChatGPTRun grammar_correction<CR>",desc= "Grammar Correction", mode = { "n", "v" } },
+    {"<leader>vt", "<cmd>ChatGPTRun translate<CR>",desc= "Translate", mode = { "n", "v" } },
+    {"<leader>vd", "<cmd>ChatGPTRun docstring<CR>",desc= "Docstring", mode = { "n", "v" } },
+    {"<leader>vt", "<cmd>ChatGPTRun add_tests<CR>",desc= "Add Tests", mode = { "n", "v" } },
+    {"<leader>vo", "<cmd>ChatGPTRun optimize_code<CR>",desc= "Optimize Code", mode = { "n", "v" } },
+    {"<leader>vs", "<cmd>ChatGPTRun summarize<CR>",desc= "Summarize", mode = { "n", "v" } },
+    {"<leader>vb", "<cmd>ChatGPTRun fix_bugs<CR>",desc= "Fix Bugs", mode = { "n", "v" } },
+    {"<leader>vx", "<cmd>ChatGPTRun explain_code<CR>",desc= "Explain Code", mode = { "n", "v" } },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
