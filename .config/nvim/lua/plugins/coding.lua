@@ -1,22 +1,5 @@
 return {
   {
-    "gbprod/yanky.nvim",
-    opts = function()
-      local mapping = require("yanky.telescope.mapping")
-      local mappings = mapping.get_defaults()
-      -- I'm using this for lspsaga
-      mappings.i["gp"] = nil
-      mappings.i["gP"] = nil
-      return {
-        picker = {
-          telescope = {
-            mappings = mappings,
-          },
-        },
-      }
-    end,
-  },
-  {
     "glepnir/lspsaga.nvim",
     event = "BufRead",
     opts = {
@@ -28,8 +11,8 @@ return {
       { "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Symbol usages" },
       { "]D", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next diagnostic with action" },
       { "[D", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous diagnostic with action" },
-      { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek definition" },
-      { "gP", "<cmd>Lspsaga peek_type_definition<CR>", desc = "Peek type definition" },
+      { "gv", "<cmd>Lspsaga peek_definition<CR>", desc = "View definition" },
+      { "gV", "<cmd>Lspsaga peek_type_definition<CR>", desc = "View type definition" },
       { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show line diagnostic" },
       { "<leader>a", mode = { "n", "v" }, "<cmd>Lspsaga code_action<CR>", desc = "Code action" },
       { "<leader>rr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
