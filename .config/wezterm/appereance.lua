@@ -9,6 +9,7 @@ function M.setup(config)
    end)
 
    config.font = wezterm.font("JetBrainsMono Nerd Font")
+   config.font_size = 13.0
 
    -- theme
    config.color_scheme = "tokyonight"
@@ -31,7 +32,6 @@ function M.setup(config)
    config.window_frame = {
       active_titlebar_bg = "#090909",
       font = wezterm.font("JetBrainsMono Nerd Font"),
-      font_size = 9,
    }
 
    config.window_close_confirmation = "NeverPrompt"
