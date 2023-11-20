@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rust zsh-autosuggestions web-search)
+plugins=(rust zsh-autosuggestions zsh-syntax-highlighting web-search zsh-interactive-cd aliases zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -66,4 +66,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export JAVA_HOME=~/.sdkman/candidates/java/current
 
-source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
