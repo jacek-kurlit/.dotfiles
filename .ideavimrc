@@ -152,7 +152,9 @@ let g:WhichKeyDesc_debug        = "<leader>d Debug"
 map <leader>db <Action>(ToggleLineBreakpoint)
 let g:WhichKeyDesc_toggle_breakpoint_leader  = "<leader>db toggle breakpoint"
 map <leader>dc <Action>(Resume)
-let g:WhichKeyDesc_resume_leader  = "<leader>dc resume execution"
+let g:WhichKeyDesc_resume_debug  = "<leader>dc resume execution"
+map <leader>ds <Action>(Debug)
+let g:WhichKeyDesc_start_debug  = "<leader>ds start debug"
 map <M-d>b <Action>(ToggleLineBreakpoint)
 let g:WhichKeyDesc_toggle_breakpoint  = "<M-d>b toggle breakpoint"
 map <M-d>o <Action>(StepOver)

@@ -1,14 +1,19 @@
 return {
   {
     "glepnir/lspsaga.nvim",
-    event = "BufRead",
+    event = "LspAttach",
     opts = {
       callhierarchy = {
         show_detail = true,
       },
+      rename = {
+        keys = {
+          quit = "<C-c>",
+        },
+      }
     },
     keys = {
-      { "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Symbol usages" },
+      { "gh", "<cmd>Lspsaga finder<CR>", desc = "Symbol usages" },
       { "]D", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next diagnostic with action" },
       { "[D", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous diagnostic with action" },
       { "gv", "<cmd>Lspsaga peek_definition<CR>", desc = "View definition" },

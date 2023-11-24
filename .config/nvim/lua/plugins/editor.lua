@@ -71,12 +71,6 @@ return {
     },
   },
   {
-    "mbbill/undotree",
-    keys = {
-      { "<leader>bu", "<cmd>UndotreeToggle<cr>", desc = "Toggle undotree" },
-    },
-  },
-  {
     "ThePrimeagen/harpoon",
     event = "VeryLazy",
     keys = {
@@ -125,18 +119,18 @@ return {
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
-      highlight = {
-        backdrop = false,
-      },
+      -- highlight = {
+      --   backdrop = false,
+      -- },
       label = {
         style = "inline",
       },
-      modes = {
-        char = {
-          -- jump_labels = true,
-          highlight = { backdrop = false },
-        },
-      },
+      -- modes = {
+      --   char = {
+      --     -- jump_labels = true,
+      --     highlight = { backdrop = false },
+      --   },
+      -- },
     },
   },
 }
