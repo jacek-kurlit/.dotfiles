@@ -1,0 +1,10 @@
+[manager]
+layout = [1, 4, 3]
+sort_by = "natural"
+sort_sensitive = false
+linemode = "size"
+show_hidden = true
+show_symlink = true
+
+[plugins]
+preload = ["~/.config/yazi/ui.lua"]
