@@ -23,6 +23,8 @@ return {
       { "<leader>nw", "<cmd>Neorg workspace work<cr>", desc = "Open work notes" },
       { "<leader>np", "<cmd>Neorg workspace personal<cr>", desc = "Open personal notes" },
       { "<leader>nc", "<cmd>Neorg return<cr>", desc = "Closes notes" },
+      -- TODO: override default Neorg bindings because they require localleader to use
+      -- bind them here under <leader>n
     },
   },
 }
