@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rust zsh-autosuggestions zsh-syntax-highlighting web-search zsh-interactive-cd aliases zsh-vi-mode)
+plugins=(rust zsh-autosuggestions zsh-syntax-highlighting web-search aliases zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -26,8 +26,7 @@ alias xcc='xclip -sel clipboard'
 alias dsa='docker ps -q | xargs docker stop'
 alias json_to_csv="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's/\"//g'"
 alias decode_jwt="xclip -o | jq -R 'split(\".\") | .[0],.[1] | @base64d | fromjson'"
-alias java_native="/home/jacek.kurlit/graalvm-ce-java17-22.3.1/bin/native-image"
-alias json_beaty='xclip -o | jq . | xclip -sel clipboard'
+alias json_beauty='xclip -o | jq . | xclip -sel clipboard'
 alias neo='neovide --size=3000x3000'
 
 # nvim switcher
@@ -59,7 +58,7 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 # yazi with cwd
-function ya() {
+function yc() {
 	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then

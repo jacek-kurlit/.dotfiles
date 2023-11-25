@@ -49,6 +49,8 @@ sudo dnf install -y stow
 sudo dnf install -y fzf
 # pass terminal password manager
 sudo yum install pass
+# yazi file manager
+cargo install --locked yazi-fm
 
 # lazygit
 sudo dnf copr enable atim/lazygit -y
