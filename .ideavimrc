@@ -245,27 +245,17 @@ nnoremap [<space> mpO<Esc>`p
 
 """""""""""""""""""""""" MULTIPLE CURSOR MAPPINGS """""""""""""""""""""""""""""
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
-nmap <C-n> <Plug>NextWholeOccurrence
-xmap <C-n> <Plug>NextWholeOccurrence
-nmap g<C-n> <Plug>NextOccurrence
-xmap g<C-n> <Plug>NextOccurrence
-nmap <C-x> <Plug>SkipOccurrence
-xmap <C-x> <Plug>SkipOccurrence
-nmap <C-p> <Plug>RemoveOccurrence
-xmap <C-p> <Plug>RemoveOccurrence
+nmap <C-n> <Plug>NextOccurrence
+xmap <C-n> <Plug>NextOccurrence
 
 " Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
 " <A-n> is used to enter accented text e.g. ñ
 nmap <S-A-C-n> <Plug>AllWholeOccurrences
 xmap <S-A-C-n> <Plug>AllWholeOccurrences
-nmap g<S-C-n> <Plug>AllOccurrences
-xmap g<S-C-n> <Plug>AllOccurrences
-"map <c-n> <Action>(SelectNextOccurrence)
 " intellij nie ma takiej akcji!
 "map <c-s-N> <Action>(SelectPreviousOccurrence)
 map <a-n> <Action>(EditorCloneCaretBelow)
 map <a-s-N> <Action>(EditorCloneCaretAbove)
-"map <c-s-a-n> <Action>(SelectAllOccurrences)
 
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
 map s <Plug>(easymotion-s)
