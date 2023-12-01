@@ -9,7 +9,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rust zsh-autosuggestions zsh-syntax-highlighting web-search aliases zsh-vi-mode)
+# fzf not working with vim plugin.... seems like I should use either 
+plugins=(rust zsh-autosuggestions zsh-syntax-highlighting web-search aliases fzf)
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -28,6 +30,7 @@ alias json_to_csv="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's
 alias decode_jwt="xclip -o | jq -R 'split(\".\") | .[0],.[1] | @base64d | fromjson'"
 alias json_beauty='xclip -o | jq . | xclip -sel clipboard'
 alias neo='neovide --size=3000x3000'
+alias fzfp='fzf --preview "bat --color=always --style=numbers {}"'
 
 # nvim switcher
 function nvims() {
@@ -72,4 +75,3 @@ function yc() {
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export JAVA_HOME=~/.sdkman/candidates/java/current
-
