@@ -36,7 +36,7 @@ function M.setup(config)
 
    config.window_close_confirmation = "NeverPrompt"
    config.automatically_reload_config = true
-   config.inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 }
+   config.inactive_pane_hsb = { saturation = 0.9, brightness = 0.8 }
 end
 
 return M
