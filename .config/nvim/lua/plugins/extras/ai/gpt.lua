@@ -6,7 +6,7 @@ return {
       api_key_cmd = "pass openai/api_key",
       chat = {
         keymaps = {
-          close = { "<C-c>" },
+          close = "<C-c>",
           yank_last = "<C-y>",
           yank_last_code = "<C-k>",
           scroll_up = "<C-u>",
