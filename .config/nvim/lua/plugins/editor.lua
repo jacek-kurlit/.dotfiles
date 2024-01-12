@@ -81,16 +81,19 @@ return {
       },
       {
         "<M-a>",
-        "<cmd>lua require('harpoon.mark').add_file()<cr>",
+        function()
+          require("harpoon.mark").add_file()
+          vim.notify("󰲕 Added", "info", { title = "Harpoon" })
+        end,
         desc = "Mark harpoon",
       },
       {
-        "<M-h>",
+        "<S-Tab>",
         "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
         desc = "Previous harpoon",
       },
       {
-        "<M-l>",
+        "<Tab>",
         "<cmd>lua require('harpoon.ui').nav_next()<cr>",
         desc = "Next harpoon",
       },
@@ -119,18 +122,9 @@ return {
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
-      -- highlight = {
-      --   backdrop = false,
-      -- },
       label = {
         style = "inline",
       },
-      -- modes = {
-      --   char = {
-      --     -- jump_labels = true,
-      --     highlight = { backdrop = false },
-      --   },
-      -- },
     },
   },
 }
