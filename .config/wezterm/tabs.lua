@@ -11,7 +11,7 @@ local BACKGROUND_ACTIVE = "#7aa2f7"
 local FOREGROUND_ACTIVE = "#1f2335"
 
 local function dir_description(tab_info)
-   local dir = tab_info.active_pane.current_working_dir
+   local dir = tab_info.active_pane.current_working_dir.file_path
    if utils.ends_with(dir, wezterm.home_dir) then
       return utils.icons.home
    end

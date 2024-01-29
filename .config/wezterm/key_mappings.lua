@@ -5,6 +5,7 @@ local M = {}
 function M.setup(config)
    config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
    config.keys = {
+      { key = "L", mods = "CTRL", action = wezterm.action.ShowDebugOverlay },
       { key = "UpArrow", mods = "SHIFT", action = act.ScrollToPrompt(-1) },
       { key = "DownArrow", mods = "SHIFT", action = act.ScrollToPrompt(1) },
       {
