@@ -254,8 +254,8 @@ nmap <S-A-C-n> <Plug>AllWholeOccurrences
 xmap <S-A-C-n> <Plug>AllWholeOccurrences
 " intellij nie ma takiej akcji!
 "map <c-s-N> <Action>(SelectPreviousOccurrence)
-map <a-n> <Action>(EditorCloneCaretBelow)
-map <a-s-N> <Action>(EditorCloneCaretAbove)
+nmap <a-n> <Action>(EditorCloneCaretBelow)
+nmap <a-s-N> <Action>(EditorCloneCaretAbove)
 
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
 map s <Plug>(easymotion-s)

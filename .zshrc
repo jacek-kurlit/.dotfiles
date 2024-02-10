@@ -25,6 +25,8 @@ export EDITOR='/usr/bin/nvim'
 # For a full list of active aliases, run `alias`.
 alias ls="lsd"
 alias xcc='xclip -sel clipboard'
+alias cout='xclip -sel clipboard'
+alias cin='xclip -i -sel clipboard'
 alias dsa='docker ps -q | xargs docker stop'
 alias json_to_csv="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's/\"//g'"
 alias decode_jwt="xclip -o | jq -R 'split(\".\") | .[0],.[1] | @base64d | fromjson'"
