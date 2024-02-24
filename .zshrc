@@ -54,7 +54,7 @@ if [ -f $LOCAL_DEV_CONFIG_FILE ]; then
 fi
 
 # local bin add to path
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/go/bin:$PATH
 
 # STAR SHIP
 eval "$(starship init zsh)"

@@ -24,9 +24,13 @@ CHANGE_TYPE_PATTERN='([feat|feature|fix|refactor|chore]+)/([A-Z]{2,5}-[0-9]+)+.*
 CHANGE_TYPE=${BASH_REMATCH[1]}
 TASK_NUMBER=${BASH_REMATCH[2]}
 
-if [[ -z "$CHANGE_TYPE" ]] || [[ -z "$TASK_NUMBER" ]]; then
+if [[ -z "$CHANGE_TYPE" ]]; then
 	# nothing to do, skipping
 	exit 0
+fi
+
+if [[ -z "$TASK_NUMBER" ]]; then
+	TASK_NUMBER=""
 fi
 
 PREFIX="$CHANGE_TYPE: $TASK_NUMBER"
