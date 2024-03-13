@@ -19,6 +19,8 @@ return {
       { "gv", "<cmd>Lspsaga peek_definition<CR>", desc = "View definition" },
       { "gV", "<cmd>Lspsaga peek_type_definition<CR>", desc = "View type definition" },
       { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show line diagnostic" },
+      { "gi", "<cmd>Lspsaga finder imp<CR>", desc = "Show impelentations" },
+      --
       { "<leader>a", mode = { "n", "v" }, "<cmd>Lspsaga code_action<CR>", desc = "Code action" },
       { "<leader>rr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
       { "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", desc = "Incoming calls" },
