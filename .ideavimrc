@@ -56,6 +56,9 @@ set smartcase
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
+"""""""""""""""""""""""" BETTER INDENTS """""""""""""""""""""""""""""
+vmap  < <gv
+vmap  > >gv
 
 """""""""""""""""""""""" MOVEMENTS """""""""""""""""""""""""""""
 map <A-j> <Action>(MoveStatementDown)
@@ -258,7 +261,7 @@ nmap <A-n> <Action>(EditorCloneCaretBelow)
 nmap <A-S-N> <Action>(EditorCloneCaretAbove)
 
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
-map s <Plug>(easymotion-s)
+"map s <Plug>(easymotion-s)
 
 """""""""""""""""""""""" ReplaceWithRegister """""""""""""""""""""""""""""
 nmap cr <Plug>ReplaceWithRegisterOperator
@@ -269,20 +272,6 @@ xmap cr <Plug>ReplaceWithRegisterVisual
 nmap ma <Plug>YSurround
 nmap md <Plug>DSurround
 nmap mr <Plug>CSurround
-
-"""""""""""""""""""""""" Other """""""""""""""""""""""""""""
-
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map  <Action>(ReformatCode)
-
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
-
-" In insert or command mode, move by using Ctrl
 
 """""""""""""""""""""""" INSERT MODE MAPPINGS """""""""""""""""""""""""""""
 inoremap <C-h> <Left>
@@ -295,23 +284,26 @@ cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 
 """""""""""""""""""""""" HARPOON MAPPINGS """""""""""""""""""""""""""""
-nmap <M-1> :action GotoHarpoon1<cr>
-nmap <M-2> :action GotoHarpoon2<cr>
-nmap <M-3> :action GotoHarpoon3<cr>
-nmap <M-4> :action GotoHarpoon4<cr>
+nmap <M-1> <Action> GotoHarpoon1<cr>
+nmap <M-2> <Action> GotoHarpoon2<cr>
+nmap <M-3> <Action> GotoHarpoon3<cr>
+nmap <M-4> <Action> GotoHarpoon4<cr>
 
-nmap <M-v> :action ShowHarpoon<cr>
-nmap <M-a> :action AddToHarpoon<cr>
+nmap <M-v> <Action> ShowHarpoon<cr>
+nmap <M-a> <Action> AddToHarpoon<cr>
 
 """""""""""""""""""""""" FOLDS MAPPINGS """""""""""""""""""""""""""""
-nmap zc :action CollapseRegion<cr>
-nmap zo :action ExpandRegion<cr>
-nmap zM :action CollapseAllRegions<cr>
-nmap zR :action ExpandAllRegions<cr>
+nmap zc <Action> CollapseRegion<cr>
+nmap zo <Action> ExpandRegion<cr>
+nmap zM <Action> CollapseAllRegions<cr>
+nmap zR <Action> ExpandAllRegions<cr>
 
 """""""""""""""""""""""" YANK MAPPINGS """""""""""""""""""""""""""""
 nmap <leader>y :%y+<cr>
 let g:WhichKeyDesc_yank_buffer  = "<leader>y Yank entire buffer to clipboard"
+
+"""""""""""""""""""""""" VIRTUAL ASSISTANT MAPPINGS """""""""""""""""""""""""""""
+nmap <leader>vc <Action> ActivateGitHubCopilotChatToolWindow<cr>
 
 """""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""
 " Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
