@@ -48,48 +48,4 @@ return {
     "nacro90/numb.nvim",
     config = true,
   },
-  {
-    "monaqa/dial.nvim",
-    config = function()
-      local augend = require("dial.augend")
-      require("dial.config").augends:register_group({
-        default = {
-          augend.integer.alias.decimal,
-          augend.integer.alias.hex,
-          augend.constant.alias.bool,
-          augend.constant.new({
-            elements = { "and", "or" },
-            word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
-            cyclic = true, -- "or" is incremented into "and".
-          }),
-          augend.constant.new({
-            elements = { "&&", "||" },
-            word = false,
-            cyclic = true,
-          }),
-          augend.constant.new({
-            elements = { "<=", "=", ">=" },
-            word = true,
-            cyclic = true,
-          }),
-
-          augend.constant.new({
-            elements = { "private", "protected", "public" },
-            word = true,
-            cyclic = true,
-          }),
-          augend.date.alias["%d.%m.%Y"],
-          augend.date.alias["%d.%m."],
-          augend.date.alias["%H:%M"],
-        },
-      })
-      local opts = { noremap = true, silent = true }
-      vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), opts)
-      vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), opts)
-      vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), opts)
-      vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), opts)
-      vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), opts)
-      vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), opts)
-    end,
-  },
 }
