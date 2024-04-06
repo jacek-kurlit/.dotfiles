@@ -107,7 +107,7 @@ map <leader>sR <Action>(ReplaceInPath)
 let g:WhichKeyDesc_search_replace_in_workspace  = "<leader>sR search and replace in workspace"
 
 """""""""""""""""""""""" WINDOW MAPPINGS """""""""""""""""""""""""""""
-nmap <C-\> <Action>(ActivateTerminalToolWindow)
+nmap <C-/> <Action>(ActivateTerminalToolWindow)
 nmap <C-w>q <Action>(CloseContent)
 
 """""""""""""""""""""""" BUFFER MAPPINGS """""""""""""""""""""""""""""
