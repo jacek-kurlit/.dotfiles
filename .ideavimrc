@@ -9,13 +9,14 @@ set commentary
 set argtextobj
 set highlightedyank
 set ReplaceWithRegister
-set sneak
+set easymotion
 set surround
 set multiple-cursors
 set exchange
 set ideajoin
 set quickscope
 set textobj-entire
+
 " removing mappings
 nunmap gr
 nunmap grr
@@ -87,8 +88,11 @@ let g:WhichKeyDesc_file_scratch  = "<leader>fs new scratch file"
 """""""""""""""""""""""" LEADER MAPPINGS """""""""""""""""""""""""""""
 map <leader>a <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_actions        = "<leader>a Show actions"
-map <leader>q <Action>(Exit)
-let g:WhichKeyDesc_quit  = "<leader>q Quit"
+let g:WhichKeyDesc_quit  = "<leader>q Quit+"
+let g:WhichKeyDesc_quit_ide  = "<leader>qq Quit All"
+map <leader>qq <Action>(Exit)
+lActionseActionst g:WhichKeyDesc_quit_project  = "<leader>qp Quit Project"
+map <leader>qp <Action>(CloseProject)
 map <leader>e :NERDTreeToggle<CR>
 let g:WhichKeyDesc_explorer  = "<leader>e Open explorer"
 map <leader>o :NERDTreeFind<CR>
@@ -120,7 +124,6 @@ let g:WhichKeyDesc_buffer_delete = "<leader>bd delete buffer"
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
 let g:WhichKeyDesc_buffer_delete_others = "<leader>bo delete other buffers"
 
-
 """""""""""""""""""""""" PROJECT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_project        = "<leader>p Project"
 let g:WhichKeyDesc_recent_projects_list  = "<leader>pl recent projects"
@@ -132,14 +135,17 @@ map <leader>pm <Action>(Maven.ExecuteGoal)
 let g:WhichKeyDesc_project_analyze_dependencies  = "<leader>pd analyze maven dependencies"
 map <leader>pd <Action>(Maven.ProjectViewDependencyAnalyzer)
 
-let g:WhichKeyDesc_project_refresh  = "<leader>pr refresh dependencies"
-map <leader>pr <Action>(ExternalSystem.ProjectRefreshAction)
+let g:WhichKeyDesc_project_run_config  = "<leader>pr run configurations"
+map <leader>pr <Action>(ChooseRunConfiguration)
 
-let g:WhichKeyDesc_project_structure  = "<leader>ps project structure"
+let g:WhichKeyDesc_project_structure  = "<leader>ps project settings"
 map <leader>ps <Action>(ShowProjectStructureSettings)
 
 let g:WhichKeyDesc_project_tree  = "<leader>pt project dependency tree"
 map <leader>pt <Action>(ShowUmlDiagramPopup)
+
+let g:WhichKeyDesc_project_ideavim  = "<leader>pi reload ideavimrc"
+map <leader>pi <Action>(IdeaVim.ReloadVimRc.reload)
 
 
 """""""""""""""""""""""" CODE MAPPINGS """""""""""""""""""""""""""""
@@ -181,6 +187,9 @@ map <leader>tf <Action>(RerunFailedTests)
 let g:WhichKeyDesc_rerun_failed_test  = "<leader>tf rerun failed tests"
 map <leader>td <Action>(DebugClass)
 let g:WhichKeyDesc_debug_current_test  = "<leader>td debug current test"
+map <leader>tv <Action>(ShowRecentTests)
+let g:WhichKeyDesc_view_recent_tests  = "<leader>tv view recent tests"
+
 
 """""""""""""""""""""""" REFACTOR MAPPINGS """""""""""""""""""""""""""""
 map <leader>rr <Action>(RenameElement)
@@ -208,6 +217,12 @@ map <leader>ru <Action>(Unwrap)
 let g:WhichKeyDesc_unwrap  = "<leader>ru unwrap"
 map <leader>rt <Action>(Move)
 let g:WhichKeyDesc_transport_object  = "<leader>rt transport"
+
+"""""""""""""""""""""""" DIAGNOSTICS MAPPINGS """""""""""""""""""""""""""""
+map <leader>xt <Action>(RenameElement)
+let g:WhichKeyDesc_diagnostics        = "<leader>x diagnostics"
+let g:WhichKeyDesc_diagnostics        = "<leader>xt todo"
+nmap <leader>xt <Action>(ActivateTODOToolWindow)
 
 """""""""""""""""""""""" GIT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_git        = "<leader>g  Git"
@@ -273,6 +288,9 @@ nmap ma <Plug>YSurround
 nmap md <Plug>DSurround
 nmap mr <Plug>CSurround
 
+""""""""""""""""""""""" EASY MOTION MAP """""""""""""""""""""""""""""
+nmap s <Plug>(easymotion-s)
+
 """""""""""""""""""""""" INSERT MODE MAPPINGS """""""""""""""""""""""""""""
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
@@ -283,27 +301,18 @@ cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 
-"""""""""""""""""""""""" HARPOON MAPPINGS """""""""""""""""""""""""""""
-nmap <M-1> <Action> GotoHarpoon1<cr>
-nmap <M-2> <Action> GotoHarpoon2<cr>
-nmap <M-3> <Action> GotoHarpoon3<cr>
-nmap <M-4> <Action> GotoHarpoon4<cr>
-
-nmap <M-v> <Action> ShowHarpoon<cr>
-nmap <M-a> <Action> AddToHarpoon<cr>
-
 """""""""""""""""""""""" FOLDS MAPPINGS """""""""""""""""""""""""""""
-nmap zc <Action> CollapseRegion<cr>
-nmap zo <Action> ExpandRegion<cr>
-nmap zM <Action> CollapseAllRegions<cr>
-nmap zR <Action> ExpandAllRegions<cr>
+nmap zc <Action>(CollapseRegion)
+nmap zo <Action>(ExpandRegion)
+nmap zM <Action>(CollapseAllRegions)
+nmap zR <Action>(ExpandAllRegions)
 
 """""""""""""""""""""""" YANK MAPPINGS """""""""""""""""""""""""""""
 nmap <leader>y :%y+<cr>
 let g:WhichKeyDesc_yank_buffer  = "<leader>y Yank entire buffer to clipboard"
 
 """""""""""""""""""""""" VIRTUAL ASSISTANT MAPPINGS """""""""""""""""""""""""""""
-nmap <leader>vc <Action> ActivateGitHubCopilotChatToolWindow<cr>
+nmap <leader>vc <Action>(ActivateGitHubCopilotChatToolWindow)
 
 """""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""
 " Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
