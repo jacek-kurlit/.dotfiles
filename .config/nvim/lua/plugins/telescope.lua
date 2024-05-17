@@ -1,6 +1,9 @@
 return {
   {
     "telescope.nvim",
+    keys = {
+      { "<C-e>", "<Cmd>Telescope buffers sort_mru=true ignore_current_buffer=true<CR>", "Recent files" },
+    },
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
@@ -19,15 +22,6 @@ return {
         end,
         keys = {
           { "<leader>bu", "<cmd>Telescope undo<cr>", desc = "Undo list" },
-        },
-      },
-      {
-        "nvim-telescope/telescope-frecency.nvim",
-        config = function()
-          require("telescope").load_extension("frecency")
-        end,
-        keys = {
-          { "<C-e>", "<Cmd>Telescope frecency workspace=CWD<CR>", "Recent files" },
         },
       },
     },
