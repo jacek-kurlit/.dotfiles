@@ -11,3 +11,7 @@ vim.opt.formatoptions = "jqlnt"
 -- GPT env
 vim.env.OPENAI_API_HOST = "api.openai.com"
 
+-- Flickering comes from setting this to "yes". Signcolumn is redrawn for example because of lspsaga to show lightbulb icon
+-- This causes mass fliockering maybe this is some kind of bug?
+-- FIXME: fix lsp saga, maybe turn off lightbulb icon?
+vim.opt.signcolumn = "no"
