@@ -38,12 +38,6 @@ return {
     },
   },
   {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-  },
-  {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -192,57 +186,5 @@ return {
         end, { "i", "s" }),
       })
     end,
-  },
-  {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-treesitter/nvim-treesitter" },
-    },
-    keys = {
-      {
-        "<leader>rm",
-        [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
-        mode = "v",
-        desc = "Extract method",
-        { noremap = true, silent = true, expr = false },
-      },
-      {
-        "<leader>rM",
-        [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
-        mode = "v",
-        desc = "Extract method to file",
-        { noremap = true, silent = true, expr = false },
-      },
-      {
-        "<leader>rv",
-        [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
-        mode = "v",
-        desc = "Extract variable",
-        { noremap = true, silent = true, expr = false },
-      },
-      {
-        "<leader>rb",
-        [[ <Cmd>lua require('refactoring').refactor('Extract Block')<CR>]],
-        mode = { "n" },
-        desc = "Extract block",
-        { noremap = true, silent = true, expr = false },
-      },
-      {
-        "<leader>rB",
-        [[ <Cmd>lua require('refactoring').refactor('Extract Block To File')<CR>]],
-        mode = { "n" },
-        desc = "Extract block to file",
-        { noremap = true, silent = true, expr = false },
-      },
-      {
-        "<leader>ri",
-        [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
-        mode = "n",
-        desc = "Inline variable",
-        { noremap = true, silent = true, expr = false },
-      },
-    },
-    config = true,
   },
 }

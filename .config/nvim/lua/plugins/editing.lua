@@ -31,16 +31,6 @@ return {
     end,
   },
   {
-    "Wansmer/treesj",
-    dependencies = { "nvim-treesitter" },
-    opts = {
-      use_default_keymaps = false,
-    },
-    keys = {
-      { "<leader>rj", ":TSJToggle<cr>", desc = "Toggle join/split variable definition" },
-    },
-  },
-  {
     "gbprod/substitute.nvim",
     config = true,
   },
