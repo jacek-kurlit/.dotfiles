@@ -16,10 +16,6 @@ map("i", "<C-l>", "<right>", "move right")
 map("i", "<S-Enter>", "<esc>$a", "jump to end of line")
 map("i", "<C-v>", "<C-o>p", "paste in insert mode")
 
--- unipaired
-map("n", "]<space>", "mpo<Esc>`p", "Add new line below")
-map("n", "[<space>", "mpO<Esc>`p", "Add new line above")
-
 -- multiselect
 map("n", "<A-n>", "<Plug>(VM-Add-Cursor-Down)", "Add cursor below")
 map("n", "<A-N>", "<Plug>(VM-Add-Cursor-Up)", "Add cursor above")
