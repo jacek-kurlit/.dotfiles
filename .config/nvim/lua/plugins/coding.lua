@@ -6,11 +6,16 @@ return {
       callhierarchy = {
         show_detail = true,
       },
+      lightbulb = {
+      -- Flickering comes from setting this to "enable". Signcolumn is redrawn for example because of lspsaga to show lightbulb icon
+      -- This causes mass fliockering maybe this is some kind of bug?
+        enable = false,
+      },
       rename = {
         keys = {
           quit = "<C-c>",
         },
-      }
+      },
     },
     keys = {
       { "gh", "<cmd>Lspsaga finder<CR>", desc = "Symbol usages" },

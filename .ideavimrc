@@ -129,8 +129,8 @@ let g:WhichKeyDesc_project        = "<leader>p Project"
 let g:WhichKeyDesc_recent_projects_list  = "<leader>pl recent projects"
 map <leader>pl <Action>(ManageRecentProjects)
 
-let g:WhichKeyDesc_project_execute_maven  = "<leader>pm execute maven goal"
-map <leader>pm <Action>(Maven.ExecuteGoal)
+let g:WhichKeyDesc_project_execute_maven  = "<leader>pe execute maven goal"
+map <leader>pe <Action>(Maven.ExecuteGoal)
 
 let g:WhichKeyDesc_project_analyze_dependencies  = "<leader>pd analyze maven dependencies"
 map <leader>pd <Action>(Maven.ProjectViewDependencyAnalyzer)
@@ -146,6 +146,9 @@ map <leader>pt <Action>(ShowUmlDiagramPopup)
 
 let g:WhichKeyDesc_project_ideavim  = "<leader>pi reload ideavimrc"
 map <leader>pi <Action>(IdeaVim.ReloadVimRc.reload)
+
+let g:WhichKeyDesc_project_maven_dependencies  = "<leader>pm reload maven dependencies"
+map <leader>pm <Action>(ExternalSystem.ProjectRefreshAction)
 
 
 """""""""""""""""""""""" CODE MAPPINGS """""""""""""""""""""""""""""
