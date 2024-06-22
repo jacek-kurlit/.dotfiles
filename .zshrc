@@ -63,7 +63,7 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 # yazi with cwd
-function yc() {
+function yy() {
 	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
