@@ -192,7 +192,8 @@ map <leader>td <Action>(DebugClass)
 let g:WhichKeyDesc_debug_current_test  = "<leader>td debug current test"
 map <leader>tv <Action>(ShowRecentTests)
 let g:WhichKeyDesc_view_recent_tests  = "<leader>tv view recent tests"
-
+map <leader>ts <Action>(Stop)
+let g:WhichKeyDesc_stop  = "<leader>ts stop"
 
 """""""""""""""""""""""" REFACTOR MAPPINGS """""""""""""""""""""""""""""
 map <leader>rr <Action>(RenameElement)
