@@ -127,4 +127,17 @@ return {
       },
     },
   },
+{
+  "stevearc/overseer.nvim",
+  -- stylua: ignore
+  keys = {
+    { "<leader>pr", "<cmd>OverseerRun<cr>",         desc = "Run task" },
+    { "<leader>pl", "<cmd>OverseerToggle<cr>",      desc = "Task list" },
+    { "<leader>pq", "<cmd>OverseerQuickAction<cr>", desc = "Action recent task" },
+    { "<leader>pi", "<cmd>OverseerInfo<cr>",        desc = "Overseer Info" },
+    { "<leader>pb", "<cmd>OverseerBuild<cr>",       desc = "Task builder" },
+    { "<leader>pt", "<cmd>OverseerTaskAction<cr>",  desc = "Task action" },
+    { "<leader>pc", "<cmd>OverseerClearCache<cr>",  desc = "Clear cache" },
+  },
+}
 }
