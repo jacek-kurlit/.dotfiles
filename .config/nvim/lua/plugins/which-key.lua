@@ -2,11 +2,11 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        ["<leader>gd"] = { name = "+diff" },
-        ["<leader>r"] = { name = "+refactor" },
-        ["<leader>v"] = { name = "+virtual assistant" },
-        ["<leader>p"] = { name = "+project" },
+      spec = {
+        { "<leader>gd", group = "diff" },
+        { "<leader>r", group = "refactor", icon = "󱁤" },
+        { "<leader>p", group = "project", icon = "󱁿" },
+        { "<leader>v", group = "virtual assistant", icon = "󰇅" },
       },
     },
   },
