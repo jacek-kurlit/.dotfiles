@@ -22,7 +22,7 @@ nunmap gr
 nunmap grr
 
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
-" System clipboard fix
+" System clipboard fi
 
 set clipboard^=unnamedplus,unnamed
 
