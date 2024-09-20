@@ -178,7 +178,7 @@ sudo dnf install ripgrep
 sudo dnf install fzf
 
 # RIP
-cargo install rm-improved
+cargo binstall rip2
 
 # LAZY GIT
 sudo dnf copr enable atim/lazygit -y
