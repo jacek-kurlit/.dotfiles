@@ -205,6 +205,8 @@ map <leader>rv <Action>(IntroduceVariable)
 let g:WhichKeyDesc_refactor_variable  = "<leader>rv extract variable"
 map <leader>rc <Action>(IntroduceConstant)
 let g:WhichKeyDesc_refactor_constant  = "<leader>rc extract constant"
+map <leader>rd <Action>(SafeDelete)
+let g:WhichKeyDesc_refactor_safe_delete  = "<leader>rd safe delete"
 map <leader>rf <Action>(IntroduceField)
 let g:WhichKeyDesc_refactor_field  = "<leader>rf extract field"
 map <leader>rp <Action>(IntroduceParameter)
@@ -276,8 +278,8 @@ nmap <S-A-C-n> <Plug>AllWholeOccurrences
 xmap <S-A-C-n> <Plug>AllWholeOccurrences
 " intellij nie ma takiej akcji!
 "map <c-s-N> <Action>(SelectPreviousOccurrence)
-nmap <A-n> <Action>(EditorCloneCaretBelow)
-nmap <A-S-N> <Action>(EditorCloneCaretAbove)
+nmap <M-n> <Action>(EditorCloneCaretBelow)
+nmap <M-S-N> <Action>(EditorCloneCaretAbove)
 
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
 "map s <Plug>(easymotion-s)
