@@ -1,6 +1,5 @@
 return {
   -- { import = "lazyvim.plugins.extras.coding.copilot" },
-  -- to work as tabnine
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
