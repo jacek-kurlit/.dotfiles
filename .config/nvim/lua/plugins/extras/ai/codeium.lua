@@ -27,17 +27,6 @@ return {
     end,
   },
   {
-    "hrsh7th/nvim-cmp",
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      table.insert(opts.sources, 1, {
-        name = "codeium",
-        group_index = 1,
-        priority = 100,
-      })
-    end,
-  },
-  {
     "nvim-lualine/lualine.nvim",
     optional = true,
     event = "VeryLazy",
