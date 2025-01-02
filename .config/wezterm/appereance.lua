@@ -8,7 +8,6 @@ function M.setup(config)
       window:gui_window():maximize()
    end)
 
-   config.enable_wayland = false
    config.font = wezterm.font("JetBrainsMono Nerd Font")
    config.font_size = 13.0
 
