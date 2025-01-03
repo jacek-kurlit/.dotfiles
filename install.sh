@@ -33,7 +33,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # starship
 curl -sS https://starship.rs/install.sh | sh
-
+# zoxide
+sudo dnf install zoxide
 # better grep
 sudo dnf install -y ripgrep
 # better cat
