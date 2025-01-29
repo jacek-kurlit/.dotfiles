@@ -54,6 +54,10 @@ return {
   },
   {
     "echasnovski/mini.pairs",
-    enabled = false,
+    enable = false,
+    -- opts = {
+    --   skip_next = [=[[%w%%%'%[%)%>%"%.%`%$]]=],
+    --   skip_ts = { "string", "self_parameter", "lifetime", "type", "reference_type" },
+    -- },
   },
 }

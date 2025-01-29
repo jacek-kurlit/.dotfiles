@@ -13,15 +13,6 @@ return {
     },
   },
   {
-    "xiyaowong/link-visitor.nvim",
-    opts = {
-      silent = true,
-    },
-    keys = {
-      { "<leader>fl", "<cmd>VisitLinkInBuffer<cr>", desc = "Links in buffer" },
-    },
-  },
-  {
     "mg979/vim-visual-multi",
     lazy = false,
     init = function()

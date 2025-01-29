@@ -71,53 +71,6 @@ return {
     },
   },
   {
-    "ThePrimeagen/harpoon",
-    event = "VeryLazy",
-    keys = {
-      {
-        "<M-v>",
-        "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-        desc = "View harpoon marks",
-      },
-      {
-        "<M-a>",
-        function()
-          require("harpoon.mark").add_file()
-          vim.notify("󰲕 Added", "info", { title = "Harpoon" })
-        end,
-        desc = "Mark harpoon",
-      },
-      {
-        "<S-Tab>",
-        "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
-        desc = "Previous harpoon",
-      },
-      {
-        "<Tab>",
-        "<cmd>lua require('harpoon.ui').nav_next()<cr>",
-        desc = "Next harpoon",
-      },
-      {
-        "<M-1>",
-        "<cmd>lua require('harpoon.ui').nav_file(1)<cr>",
-        desc = "Go to 1 harpoon mark",
-      },
-      {
-
-        "<M-2>",
-        "<cmd>lua require('harpoon.ui').nav_file(2)<cr>",
-        desc = "Go to 2 harpoon mark",
-      },
-      {
-
-        "<M-3>",
-        "<cmd>lua require('harpoon.ui').nav_file(3)<cr>",
-        desc = "Go to 3 harpoon mark",
-      },
-    },
-    config = true,
-  },
-  {
     "folke/flash.nvim",
     event = "VeryLazy",
     ---@type Flash.Config
@@ -139,6 +92,87 @@ return {
         { "<leader>pt", "<cmd>OverseerTaskAction<cr>", desc = "Task action" },
         { "<leader>pc", "<cmd>OverseerClearCache<cr>", desc = "Clear cache" },
       }
+    end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      filesystem = {
+        commands = {
+          -- over write default 'delete' command to 'trash'.
+          delete = function(state)
+            if vim.fn.executable("trash") == 0 then
+              vim.api.nvim_echo({
+                { "- Trash utility not installed. Make sure to install it first\n", nil },
+                { "- Or delete the `custom delete command` section in neo-tree", nil },
+              }, false, {})
+              return
+            end
+            local inputs = require("neo-tree.ui.inputs")
+            local path = state.tree:get_node().path
+            local msg = "Are you sure you want to trash " .. path
+            inputs.confirm(msg, function(confirmed)
+              if not confirmed then
+                return
+              end
+
+              vim.fn.system({ "trash", vim.fn.fnameescape(path) })
+              require("neo-tree.sources.manager").refresh(state.name)
+            end)
+          end,
+          -- Overwrite default 'delete_visual' command to 'trash' x n.
+          delete_visual = function(state, selected_nodes)
+            if vim.fn.executable("trash") == 0 then
+              vim.api.nvim_echo({
+                { "- Trash utility not installed. Make sure to install it first\n", nil },
+                { "- In macOS run `brew install trash`\n", nil },
+                { "- Or delete the `custom delete command` section in neo-tree", nil },
+              }, false, {})
+              return
+            end
+            local inputs = require("neo-tree.ui.inputs")
+
+            -- Function to get the count of items in a table
+            local function GetTableLen(tbl)
+              local len = 0
+              for _ in pairs(tbl) do
+                len = len + 1
+              end
+              return len
+            end
+
+            local count = GetTableLen(selected_nodes)
+            local msg = "Are you sure you want to trash " .. count .. " files?"
+            inputs.confirm(msg, function(confirmed)
+              if not confirmed then
+                return
+              end
+              for _, node in ipairs(selected_nodes) do
+                vim.fn.system({ "trash", vim.fn.fnameescape(node.path) })
+              end
+              require("neo-tree.sources.manager").refresh(state.name)
+            end)
+          end,
+        },
+      },
+    },
+  },
+  {
+    "echasnovski/mini.files",
+    opts = function(_, opts)
+      opts.windows = vim.tbl_deep_extend("force", opts.windows or {}, {
+        preview = true,
+        width_focus = 30,
+        width_preview = 80,
+      })
+
+      opts.options = vim.tbl_deep_extend("force", opts.options or {}, {
+        -- If set to false, files are moved to the trash directory
+        -- To get this dir run :echo stdpath('data')
+        -- ~/.local/share/neobean/mini.files/trash
+        permanent_delete = false,
+      })
+      return opts
     end,
   },
 }
