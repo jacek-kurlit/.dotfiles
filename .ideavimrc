@@ -136,6 +136,7 @@ let g:WhichKeyDesc_project_analyze_dependencies  = "<leader>pd analyze maven dep
 map <leader>pd <Action>(Maven.ProjectViewDependencyAnalyzer)
 
 let g:WhichKeyDesc_project_run_config  = "<leader>pr run configurations"
+
 map <leader>pr <Action>(ChooseRunConfiguration)
 
 let g:WhichKeyDesc_project_structure  = "<leader>ps project settings"
@@ -169,16 +170,16 @@ map <leader>ds <Action>(Debug)
 let g:WhichKeyDesc_start_debug  = "<leader>ds start debug"
 map <M-d>b <Action>(ToggleLineBreakpoint)
 let g:WhichKeyDesc_toggle_breakpoint  = "<M-d>b toggle breakpoint"
-map <M-d>o <Action>(StepOver)
-let g:WhichKeyDesc_step_over  = "<M-d>o step over"
-map <M-d>i <Action>(StepInto)
-let g:WhichKeyDesc_step_into  = "<M-d>i step into"
-map <M-d>u <Action>(StepOut)
-let g:WhichKeyDesc_step_out  = "<M-d>u step out"
-map <M-d>e <Action>(EvaluateExpression)
-let g:WhichKeyDesc_evaluate_expression  = "<M-d>e evaluate expression"
-map <M-d>c <Action>(Resume)
-let g:WhichKeyDesc_resume  = "<M-d>c resume execution"
+map <M-o> <Action>(StepOver)
+let g:WhichKeyDesc_step_over  = "<M-o> step over"
+map <M-i> <Action>(StepInto)
+let g:WhichKeyDesc_step_into  = "<M-i> step into"
+map <M-a> <Action>(StepOut)
+let g:WhichKeyDesc_step_out  = "<M-a> step out"
+map <M-e> <Action>(EvaluateExpression)
+let g:WhichKeyDesc_evaluate_expression  = "<M-e> evaluate expression"
+map <M-c> <Action>(Resume)
+let g:WhichKeyDesc_resume  = "<M-c> resume execution"
 
 """""""""""""""""""""""" TEST MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_test        = "<leader>t Test"
@@ -225,9 +226,8 @@ map <leader>rt <Action>(Move)
 let g:WhichKeyDesc_transport_object  = "<leader>rt transport"
 
 """""""""""""""""""""""" DIAGNOSTICS MAPPINGS """""""""""""""""""""""""""""
-map <leader>xt <Action>(RenameElement)
 let g:WhichKeyDesc_diagnostics        = "<leader>x diagnostics"
-let g:WhichKeyDesc_diagnostics        = "<leader>xt todo"
+let g:WhichKeyDesc_diagnostics_todo       = "<leader>xt todo"
 nmap <leader>xt <Action>(ActivateTODOToolWindow)
 
 """""""""""""""""""""""" GIT MAPPINGS """""""""""""""""""""""""""""
@@ -278,8 +278,8 @@ nmap <S-A-C-n> <Plug>AllWholeOccurrences
 xmap <S-A-C-n> <Plug>AllWholeOccurrences
 " intellij nie ma takiej akcji!
 "map <c-s-N> <Action>(SelectPreviousOccurrence)
-nmap <M-n> <Action>(EditorCloneCaretBelow)
-nmap <M-S-N> <Action>(EditorCloneCaretAbove)
+nmap <A-n> <Action>(EditorCloneCaretBelow)
+nmap <A-S-N> <Action>(EditorCloneCaretAbove)
 
 """""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
 "map s <Plug>(easymotion-s)
@@ -318,6 +318,8 @@ nmap <leader>y :%y+<cr>
 let g:WhichKeyDesc_yank_buffer  = "<leader>y Yank entire buffer to clipboard"
 
 """""""""""""""""""""""" VIRTUAL ASSISTANT MAPPINGS """""""""""""""""""""""""""""
+let g:WhichKeyDesc_virtual_assistant        = "<leader>v Virtual Assistant"
+let g:WhichKeyDesc_virtual_assistant_chat        = "<leader>vc Chat"
 nmap <leader>vc <Action>(ActivateGitHubCopilotChatToolWindow)
 
 """""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""

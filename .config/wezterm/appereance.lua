@@ -22,6 +22,10 @@ function M.setup(config)
       },
    }
 
+   config.enable_wayland = false
+   -- In mather of fact max_fps is ignored in wayland because it is up to composer to set frames
+   config.max_fps = 120
+
    config.status_update_interval = 2000
    config.window_padding = {
       left = 15,
@@ -34,6 +38,7 @@ function M.setup(config)
       font = wezterm.font("JetBrainsMono Nerd Font"),
    }
 
+   config.window_decorations = "NONE"
    config.window_close_confirmation = "NeverPrompt"
    config.automatically_reload_config = true
    config.inactive_pane_hsb = { saturation = 0.9, brightness = 0.8 }
