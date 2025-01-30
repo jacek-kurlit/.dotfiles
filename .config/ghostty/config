@@ -14,9 +14,9 @@ window-width = 4000
 window-height = 4000
 
 cursor-color = #3760bf
+shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = false
-shell-integration-features = no-cursor
 
 command = nu
 copy-on-select = clipboard
