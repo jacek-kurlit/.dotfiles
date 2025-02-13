@@ -1,0 +1,7 @@
+screen_size = { height = 20 } # use "fullscreen" to run pik in fullscreen
+use_icons = true
+
+# [ignore]
+# paths = []
+# other_users = true
+# threads = true
