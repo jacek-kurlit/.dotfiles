@@ -1,8 +1,9 @@
 return {
   {
     "Exafunction/codeium.nvim",
-    cmd = "Codeium",
-    build = ":Codeium Auth",
+    dependencies = {
+        "nvim-lua/plenary.nvim"
+    },
     config = function()
       require("codeium").setup({
         enable_cmp_source = false,
