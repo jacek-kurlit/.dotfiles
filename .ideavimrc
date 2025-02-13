@@ -129,8 +129,8 @@ let g:WhichKeyDesc_project        = "<leader>p Project"
 let g:WhichKeyDesc_recent_projects_list  = "<leader>pl recent projects"
 map <leader>pl <Action>(ManageRecentProjects)
 
-let g:WhichKeyDesc_project_execute_maven  = "<leader>pe execute maven goal"
-map <leader>pe <Action>(Maven.ExecuteGoal)
+let g:WhichKeyDesc_project_execute_maven  = "<leader>pe execute cmd"
+map <leader>pe <Action>(RunAnything)
 
 let g:WhichKeyDesc_project_analyze_dependencies  = "<leader>pd analyze maven dependencies"
 map <leader>pd <Action>(Maven.ProjectViewDependencyAnalyzer)
@@ -280,9 +280,6 @@ xmap <S-A-C-n> <Plug>AllWholeOccurrences
 "map <c-s-N> <Action>(SelectPreviousOccurrence)
 nmap <A-n> <Action>(EditorCloneCaretBelow)
 nmap <A-S-N> <Action>(EditorCloneCaretAbove)
-
-"""""""""""""""""""""""" EASY MOTION MAPPINGS """""""""""""""""""""""""""""
-"map s <Plug>(easymotion-s)
 
 """""""""""""""""""""""" ReplaceWithRegister """""""""""""""""""""""""""""
 nmap cr <Plug>ReplaceWithRegisterOperator
