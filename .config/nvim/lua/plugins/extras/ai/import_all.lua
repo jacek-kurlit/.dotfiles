@@ -6,5 +6,5 @@ end
 
 return {
   { import = ai_code_tool },
-  { import = "plugins.extras.ai.gpt" },
+  { import = "plugins.extras.ai.code_companion" },
 }
