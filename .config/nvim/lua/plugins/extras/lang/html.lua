@@ -9,6 +9,7 @@ return {
       -- make sure mason installs the server
       servers = {
         html = {},
+        cssls = {},
       },
     },
   },
