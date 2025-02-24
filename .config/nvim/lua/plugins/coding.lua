@@ -125,6 +125,16 @@ return {
     end,
   },
   {
+    "echasnovski/mini.splitjoin",
+    opts = {
+      mappings = {
+        toggle = "",
+        split = "<leader>rs",
+        join = "<leader>rj",
+      },
+    },
+  },
+  {
     "echasnovski/mini.pairs",
     enable = false,
     -- opts = {

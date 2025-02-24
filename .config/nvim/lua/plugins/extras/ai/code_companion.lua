@@ -9,6 +9,18 @@ return {
       strategies = {
         chat = {
           adapter = "anthropic",
+          slash_commands = {
+            ["file"] = {
+              opts = {
+                provider = "snacks",
+              },
+            },
+            ["buffer"] = {
+              opts = {
+                provider = "snacks",
+              },
+            },
+          },
         },
         inline = {
           adapter = "anthropic",
