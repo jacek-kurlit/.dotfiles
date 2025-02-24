@@ -244,7 +244,7 @@ map <leader>gb <Action>(Git.Rebase)
 map <leader>g= <Action>(Git.CompareWithBranch)
 map <leader>gr <Action>(ChangesView.Revert)
 map <leader>gq <Action>(Vcs.QuickListPopupAction)
-
+map <leader>ga <Action>(Annotate)
 
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
 nmap gd <Action>(GotoDeclaration)
