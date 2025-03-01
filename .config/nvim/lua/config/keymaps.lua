@@ -15,6 +15,8 @@ map("i", "<C-h>", "<left>", "move letf")
 map("i", "<C-l>", "<right>", "move right")
 map("i", "<S-Enter>", "<esc>$a", "jump to end of line")
 map("i", "<C-v>", "<C-o>p", "paste in insert mode")
+map("i", "<C-n>", "<C-o>o", "new line below")
+map("i", "<C-p>", "<C-o>O", "new line above")
 
 -- multiselect
 map("n", "<A-n>", "<Plug>(VM-Add-Cursor-Down)", "Add cursor below")
