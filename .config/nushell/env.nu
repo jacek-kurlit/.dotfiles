@@ -98,6 +98,13 @@ $env.NU_PLUGIN_DIRS = [
 # $env.PATH = ($env.PATH | uniq)
 $env.EDITOR = "nvim"
 
-# To load from a custom file you can use:
-# source ($nu.default-config-dir | path join 'custom.nu')
+const local_development_path = ($nu.default-config-dir | path join 'local_development.nu')
+if ($local_development_path | path exists) {
+  source $local_development_path
+}
+const npm_homedir = "~/.npm/bin"
+if ($npm_homedir | path exists) {
+  $env.PATH ++= [$npm_homedir]
+}
+source ($nu.default-config-dir | path join 'local_development.nu')
 zoxide init nushell | save -f ~/.zoxide.nu

@@ -1,4 +1,5 @@
 .config/JetBrains/*
 .config/nvim/plugin
 .local_development.sh
+.config/nushell/local_development.nu
 .config/nushell/history.txt
