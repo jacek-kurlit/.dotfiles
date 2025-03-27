@@ -69,6 +69,7 @@ map <S-H> <Action>(PreviousTab)
 nmap <C-i> <Action>(Forward)
 nmap <C-o> <Action>(Back)
 nmap <C-h> :NERDTreeFocus<CR>
+nmap <C-l> <Action>(ActivateCommitToolWindow) \| <Action>(EditorEscape)
 
 """""""""""""""""""""""" LEADER FILE/FIND MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_find_files_menu  = "<leader>f Find/Files"

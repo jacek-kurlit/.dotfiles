@@ -4,6 +4,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "j-hui/fidget.nvim",
     },
     opts = {
       strategies = {
@@ -27,12 +28,16 @@ return {
         },
       },
     },
+    init = function()
+      require("plugins.extras.ai.code_companion_spinner"):init()
+    end,
     keys = {
-      { "<leader>vc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat buffer", mode = { "n", "v" }},
-      { "<leader>vn", "<cmd>CodeCompanionChat<cr>", desc = "New chat buffer", mode = { "n", "v" }},
+      { "<leader>vc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat buffer", mode = { "n", "v" } },
+      { "<leader>vn", "<cmd>CodeCompanionChat<cr>", desc = "New chat buffer", mode = { "n", "v" } },
       { "<leader>vp", "<cmd>CodeCompanionChat Add<cr>", desc = "Put selection into chat buffer", mode = { "v" } },
       { "<leader>va", "<cmd>CodeCompanionActions<cr>", desc = "Actions", mode = { "n", "v" } },
-      { "<leader>vi", "<cmd>CodeCompanion<cr>", desc = "Inline prompt", mode = { "n", "v" } },
+      { "<leader>vi", "<cmd>CodeCompanion<cr>", desc = "Inline prompt", mode = { "n" } },
+      { "<leader>vi", ":'<,'>CodeCompanion<cr>", desc = "Inline prompt with selection", mode = { "v" } },
       { "<leader>vt", "<cmd>CodeCompanion /tests<cr>", desc = "Create tests for selection", mode = { "v" } },
       { "<leader>vf", "<cmd>CodeCompanion /fix<cr>", desc = "Fix selection", mode = { "v" } },
       { "<leader>ve", "<cmd>CodeCompanion /explain<cr>", desc = "Explain selection", mode = { "v" } },
