@@ -7,8 +7,22 @@ function M.setup(config)
       local _, _, window = mux.spawn_window(cmd or {})
       window:gui_window():maximize()
    end)
+   wezterm.font_with_fallback({
+      -- /home/jacek-kurlit/.local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf, FontConfig
+      -- AKA: "JetBrainsMono NF"
+      "JetBrainsMono Nerd Font",
 
-   config.font = wezterm.font("JetBrainsMono Nerd Font")
+      -- <built-in>, BuiltIn
+      "JetBrains Mono",
+
+      -- /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf, FontConfig
+      -- Assumed to have Emoji Presentation
+      -- Pixel sizes: [128]
+      "Noto Color Emoji",
+
+      -- <built-in>, BuiltIn
+      "Symbols Nerd Font Mono",
+   })
    config.font_size = 13.0
 
    -- theme

@@ -1,4 +1,11 @@
+# All config that should not be synced with git
+LOCAL_DEV_CONFIG_FILE="$HOME/.local_development.sh"
+
+if [ -f $LOCAL_DEV_CONFIG_FILE ]; then
+    source $LOCAL_DEV_CONFIG_FILE
+fi
 ZSH_THEME=""
+export FZF_BASE=`which fzf`
 export ZSH="$HOME/.oh-my-zsh"
 
 # Uncomment the following line to enable command auto-correction.
@@ -25,7 +32,7 @@ export EDITOR='/usr/bin/nvim'
 # For a full list of active aliases, run `alias`.
 alias ls="lsd"
 alias xcc='xclip -sel clipboard'
-alias cout='xclip -sel clipboard'
+alias cout='xclip -o selection clipboard'
 alias cin='xclip -i -sel clipboard'
 alias dsa='docker ps -q | xargs docker stop'
 alias json_to_csv="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's/\"//g'"
@@ -33,25 +40,6 @@ alias decode_jwt="xclip -o | jq -R 'split(\".\") | .[0],.[1] | @base64d | fromjs
 alias json_beauty='xclip -o | jq . | xclip -sel clipboard'
 alias neo='neovide --size=3000x3000'
 alias fzfp='fzf --preview "bat --color=always --style=numbers {}"'
-
-# nvim switcher
-function nvims() {
-  items=("default(LazyVim)" "NvChad" "AstroNvim")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default(LazyVim)" ]]; then
-    config=""
-  fi
-  NVIM_APPNAME=$config nvim $@
-}
-# All config that should not be synced with git
-LOCAL_DEV_CONFIG_FILE="$HOME/.local_development.sh"
-
-if [ -f $LOCAL_DEV_CONFIG_FILE ]; then
-    source $LOCAL_DEV_CONFIG_FILE
-fi
 
 # local bin add to path
 export PATH=$HOME/.local/bin:/usr/local/go/bin:$PATH
