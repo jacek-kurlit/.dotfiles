@@ -1,7 +1,24 @@
 screen_size = { height = 20 } # use "fullscreen" to run pik in fullscreen
-use_icons = true
 
 # [ignore]
 # paths = []
 # other_users = true
 # threads = true
+
+### UI Configuration ###
+[ui]
+use_icons = true
+
+[ui.process_table]
+title = { alignment = "Left", position = "Top" }
+border = { type = "Rounded", style = { fg = "#60A5FA" } }
+
+[ui.process_table.row]
+selected_symbol = ">"
+even = { fg = "#E2E8F0", bg = "#0F172A" }
+odd = { fg = "#E2E8F0", bg = "#020617" }
+selected = { fg = "#60A5FA", add_modifier = "REVERSED" }
+
+[ui.process_table.cell]
+# normal = { add_modifier = "BOLD" }
+highlighted = { bg = "Yellow", add_modifier = "ITALIC" }

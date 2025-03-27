@@ -8,7 +8,7 @@ return {
     opts = {
       -- make sure mason installs the server
       servers = {
-        html = {},
+        emmet_language_server = {},
         cssls = {},
       },
     },
