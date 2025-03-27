@@ -33,3 +33,5 @@ keybind = ctrl+shift+s=new_split:auto
 keybind = ctrl+shift+w=close_surface
 keybind = shift+up=jump_to_prompt:-1
 keybind = shift+down=jump_to_prompt:1
+keybind = performable:ctrl+v=paste_from_clipboard
+keybind = performable:ctrl+c=copy_to_clipboard
