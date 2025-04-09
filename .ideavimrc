@@ -92,7 +92,7 @@ let g:WhichKeyDesc_actions        = "<leader>a Show actions"
 let g:WhichKeyDesc_quit  = "<leader>q Quit+"
 let g:WhichKeyDesc_quit_ide  = "<leader>qq Quit All"
 map <leader>qq <Action>(Exit)
-lActionseActionst g:WhichKeyDesc_quit_project  = "<leader>qp Quit Project"
+let g:WhichKeyDesc_quit_project  = "<leader>qp Quit Project"
 map <leader>qp <Action>(CloseProject)
 map <leader>e :NERDTreeToggle<CR>
 let g:WhichKeyDesc_explorer  = "<leader>e Open explorer"
