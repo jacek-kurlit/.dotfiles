@@ -17,7 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # fzf not working with vim plugin.... seems like I should use either 
-plugins=(rust zsh-autosuggestions zsh-syntax-highlighting web-search aliases fzf)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting web-search aliases fzf)
 
 
 source $ZSH/oh-my-zsh.sh
