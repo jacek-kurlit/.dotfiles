@@ -63,6 +63,13 @@ return {
         end,
       },
       picker = {
+        -- layout = {
+        --   preset = "select",
+        --   -- position = "top"
+        -- },
+        matcher = {
+          frecency = true, -- frecency bonus
+        },
         win = {
           input = {
             keys = {
