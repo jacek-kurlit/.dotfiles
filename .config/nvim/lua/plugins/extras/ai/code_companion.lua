@@ -9,7 +9,7 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = "anthropic",
+          adapter = "gemini",
           slash_commands = {
             ["file"] = {
               opts = {
@@ -24,7 +24,7 @@ return {
           },
         },
         inline = {
-          adapter = "anthropic",
+          adapter = "gemini",
         },
       },
       prompt_library = {
