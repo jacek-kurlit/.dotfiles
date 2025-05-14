@@ -1,0 +1,4 @@
+model: gemini
+auto-commits: false
+analytics: false
+vim: true
