@@ -112,8 +112,8 @@ return {
             enabled = true,
             max_items = 3,
             module = "blink.cmp.sources.buffer",
-            min_keyword_length = 3,
-            score_offset = 30, -- the higher the number, the higher the priority
+            min_keyword_length = 2,
+            score_offset = 40, -- the higher the number, the higher the priority
           },
         },
       })
