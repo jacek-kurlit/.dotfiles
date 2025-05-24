@@ -96,9 +96,15 @@ $env.NU_PLUGIN_DIRS = [
 # path add ($env.CARGO_HOME | path join "bin")
 # path add ($env.HOME | path join ".local" "bin")
 # $env.PATH = ($env.PATH | uniq)
+use std "path add"
+
+# DOCKER
+path add ($env.HOME | path join "bin")
+$env.DOCKER_HOST = "unix:///run/user/1000/docker.sock"
+
 $env.EDITOR = "nvim"
 
-$env.JAVA_HOME = "~/.sdkman/candidates/java/current"
+$env.JAVA_HOME = $"($env.HOME)/.sdkman/candidates/java/current"
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
@@ -112,4 +118,4 @@ if ($npm_homedir | path exists) {
 }
 source ($nu.default-config-dir | path join 'local_development.nu')
 zoxide init nushell | save -f ~/.zoxide.nu
-source ~/.cargo/env.nu
+# source ~/.cargo/env.nu
