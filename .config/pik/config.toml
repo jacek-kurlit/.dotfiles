@@ -9,4 +9,3 @@ screen_size = { height = 20 } # use "fullscreen" to run pik in fullscreen
 [ui]
 # use_icons = true
 icons = "nerd_font_v3"
-
