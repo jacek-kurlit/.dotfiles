@@ -3,3 +3,4 @@
 .local_development.sh
 .config/nushell/local_development.nu
 .config/nushell/history.txt
+.config/fish/local_development.fish
