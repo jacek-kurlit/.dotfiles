@@ -4,6 +4,7 @@
 let mapleader = " "
 " plugins
 set which-key
+set switch
 set NERDTree
 set commentary
 set argtextobj
@@ -16,6 +17,9 @@ set exchange
 set ideajoin
 set quickscope
 set textobj-entire
+set mini-ai
+set functiontextobj
+set peekaboo
 
 " removing mappings
 nunmap gr
@@ -201,7 +205,7 @@ let g:WhichKeyDesc_stop  = "<leader>ts stop"
 map <leader>rr <Action>(RenameElement)
 let g:WhichKeyDesc_refactor        = "<leader>r Refactor"
 let g:WhichKeyDesc_refactor_rename = "<leader>rr rename"
-map <leader>rm <Action>(ExtractFunction)
+map <leader>rm <Action>(ExtractMethod)
 let g:WhichKeyDesc_refactor_method  = "<leader>rm extract method"
 map <leader>rv <Action>(IntroduceVariable)
 let g:WhichKeyDesc_refactor_variable  = "<leader>rv extract variable"
@@ -243,9 +247,13 @@ map <leader>gl <Action>(Git.Branches)
 map <leader>gm <Action>(Git.Merge)
 map <leader>gb <Action>(Git.Rebase)
 map <leader>g= <Action>(Git.CompareWithBranch)
-map <leader>gr <Action>(ChangesView.Revert)
 map <leader>gq <Action>(Vcs.QuickListPopupAction)
 map <leader>ga <Action>(Annotate)
+let g:WhichKeyDesc_rollback  = "<leader>gr rollback+"
+map <leader>grr <Action>(ChangesView.Revert)
+let g:WhichKeyDesc_rollback_file  = "<leader>grr file"
+map <leader>grl <Action>(Vcs.RollbackChangedLines)
+let g:WhichKeyDesc_rollback_line  = "<leader>grl line"
 
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
 nmap gd <Action>(GotoDeclaration)
@@ -270,17 +278,18 @@ nnoremap [<space> mpO<Esc>`p
 
 """""""""""""""""""""""" MULTIPLE CURSOR MAPPINGS """""""""""""""""""""""""""""
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
-nmap <C-n> <Plug>NextOccurrence
-xmap <C-n> <Plug>NextOccurrence
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
 
-" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
-" <A-n> is used to enter accented text e.g. ñ
-nmap <S-A-C-n> <Plug>AllWholeOccurrences
-xmap <S-A-C-n> <Plug>AllWholeOccurrences
-" intellij nie ma takiej akcji!
-"map <c-s-N> <Action>(SelectPreviousOccurrence)
+nmap g<C-n> <Plug>AllWholeOccurrences
+xmap g<C-n> <Plug>AllWholeOccurrences
+
 nmap <A-n> <Action>(EditorCloneCaretBelow)
+xmap <A-n> <Action>(EditorCloneCaretBelow)
 nmap <A-S-N> <Action>(EditorCloneCaretAbove)
+xmap <A-S-N> <Action>(EditorCloneCaretAbove)
 
 """""""""""""""""""""""" ReplaceWithRegister """""""""""""""""""""""""""""
 nmap cr <Plug>ReplaceWithRegisterOperator
@@ -290,7 +299,7 @@ xmap cr <Plug>ReplaceWithRegisterVisual
 """""""""""""""""""""""" SURROUND MAP """""""""""""""""""""""""""""
 nmap ma <Plug>YSurround
 nmap md <Plug>DSurround
-nmap mr <Plug>CSurround
+nmap mc <Plug>CSurround
 
 """"""""""""""""""""""" EASY MOTION MAP """""""""""""""""""""""""""""
 nmap s <Plug>(easymotion-s)
@@ -321,32 +330,18 @@ let g:WhichKeyDesc_virtual_assistant        = "<leader>v Virtual Assistant"
 let g:WhichKeyDesc_virtual_assistant_chat        = "<leader>vc Chat"
 nmap <leader>vc <Action>(ActivateGitHubCopilotChatToolWindow)
 
-"""""""""""""""""""""""" CUSTOM FUNCTIONS MAPPINGS """""""""""""""""""""""""""""
-" Stolen from https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
-function! Invert(calledFromVisual)
-  let antonyms = ['true', 'false', 'after', 'before', 'start', 'end', 'left', 'right', 'first', 'last',
-                 \'True', 'False', 'After', 'Before', 'Start', 'End', 'Left', 'Right', 'First', 'Last',
-                 \'private', 'public']
+"""""""""""""""""""""""" VIM SWITCH MAPPINGS """""""""""""""""""""""""""""
+" Enable all patterns from multiple groups
+let g:switch_definitions = 'group:basic,group:java,group:rspec,group:rust'
+nnoremap ! :Switch<CR>
 
-  if a:calledFromVisual
-    normal gv"wy
-  else
-    normal "wyiw
-  endif
-  let wordUnderCaret = @w
-
-  let eraseWord = a:calledFromVisual ? 'gvc' : 'ciw'
-  let count = 0
-  while (count < len(antonyms))
-    if (antonyms[count] ==# wordUnderCaret)
-      let antonym = (count % 2 ==? 0) ? antonyms[count + 1] : antonyms[count - 1]
-      execute 'normal ' .. eraseWord .. antonym
-      break
-    endif
-    let count += 1
-  endwhile
+"""""""""""""""""""""""" CUSTOM MAPPINGS """""""""""""""""""""""""""""
+function! FoldArguments()
+    substitute@,\s*@,\r@ge
+    normal vi(=
 endfunction
-nnoremap ! :call Invert(0)<CR>
-vnoremap ! :<C-u>call Invert(1)<CR>
+
+nnoremap <C-f> :call FoldArguments()<CR>
+inoremap <C-f> <Esc>:call FoldArguments()<CR>%i
 
 " Find more examples here: https://jb.gg/share-ideavimrc
