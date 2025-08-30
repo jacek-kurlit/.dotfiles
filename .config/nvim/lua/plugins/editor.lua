@@ -80,4 +80,14 @@ return {
       return opts
     end,
   },
+  -- FIXME: This can be removed after lazyvim fix this
+  {
+    "akinsho/bufferline.nvim",
+    init = function()
+      local bufline = require("catppuccin.groups.integrations.bufferline")
+      function bufline.get()
+        return bufline.get_theme()
+      end
+    end,
+  },
 }

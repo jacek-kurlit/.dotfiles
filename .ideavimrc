@@ -234,6 +234,8 @@ let g:WhichKeyDesc_transport_object  = "<leader>rt transport"
 let g:WhichKeyDesc_diagnostics        = "<leader>x diagnostics"
 let g:WhichKeyDesc_diagnostics_todo       = "<leader>xt todo"
 nmap <leader>xt <Action>(ActivateTODOToolWindow)
+let g:WhichKeyDesc_diagnostics_download_sources       = "<leader>xd download sources"
+nmap <leader>xd <Action>(Maven.DownloadAllSources)
 
 """""""""""""""""""""""" GIT MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_git        = "<leader>g  Git"
