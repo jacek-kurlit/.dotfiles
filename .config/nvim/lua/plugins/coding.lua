@@ -82,7 +82,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.splitjoin",
+    "nvim-mini/mini.splitjoin",
     opts = {
       mappings = {
         toggle = "",
@@ -99,7 +99,7 @@ return {
     -- this is equivalent to setup({}) function
   },
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     enable = false,
   },
 }

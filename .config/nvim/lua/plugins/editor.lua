@@ -63,7 +63,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.files",
+    "nvim-mini/mini.files",
     opts = function(_, opts)
       opts.windows = vim.tbl_deep_extend("force", opts.windows or {}, {
         preview = true,
@@ -78,16 +78,6 @@ return {
         permanent_delete = false,
       })
       return opts
-    end,
-  },
-  -- FIXME: This can be removed after lazyvim fix this
-  {
-    "akinsho/bufferline.nvim",
-    init = function()
-      local bufline = require("catppuccin.groups.integrations.bufferline")
-      function bufline.get()
-        return bufline.get_theme()
-      end
     end,
   },
 }
