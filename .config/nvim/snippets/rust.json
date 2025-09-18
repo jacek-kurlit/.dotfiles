@@ -1,0 +1,56 @@
+{
+  "psfn": {
+    "prefix": "psfn",
+    "body": [
+      "pub fn ${1:name}(&self) -> ${2:RetType} {",
+      "    ${3:todo!();}",
+      "}"
+    ],
+    "description": "pub fn …(&self) -> … { … }"
+  },
+  "psvfn": {
+    "prefix": "psvfn",
+    "body": [
+      "pub fn ${1:name}(&self) {",
+      "    ${2:todo!();}",
+      "}"
+    ],
+    "description": "pub fn …(&self) { … }"
+  },
+  "psafn": {
+    "prefix": "psafn",
+    "body": [
+      "pub fn ${1:name}(&self, ${2:arg}: ${3:Type}) -> ${4:RetType} {",
+      "    ${5:todo!();}",
+      "}"
+    ],
+    "description": "pub fn …(&self, …) -> … { … }"
+  },
+  "psmfn": {
+    "prefix": "psmfn",
+    "body": [
+      "pub fn ${1:name}(&mut self) -> ${2:RetType} {",
+      "    ${3:todo!();}",
+      "}"
+    ],
+    "description": "pub fn …(&mut self) -> … { … }"
+  },
+  "psmvfn": {
+    "prefix": "psmvfn",
+    "body": [
+      "pub fn ${1:name}(&mut self) {",
+      "    ${2:todo!();}",
+      "}"
+    ],
+    "description": "pub fn …(&mut self) { … }"
+  },
+  "psmafn": {
+    "prefix": "psmafn",
+    "body": [
+      "pub fn ${1:name}(&mut self, ${2:arg}: ${3:Type}) -> ${4:RetType} {",
+      "    ${5:todo!();}",
+      "}"
+    ],
+    "description": "pub fn …(&mut self, …) -> … { … }"
+  }
+}
