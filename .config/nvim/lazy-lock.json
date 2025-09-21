@@ -8,6 +8,7 @@
   "clangd_extensions.nvim": { "branch": "main", "commit": "b67cc417d9020fb4b83d46662351b4d16894905e" },
   "codecompanion.nvim": { "branch": "main", "commit": "61b2ab5f4f534c1c5625a1d57ab1e071cc81d2fc" },
   "conform.nvim": { "branch": "master", "commit": "b4aab989db276993ea5dcb78872be494ce546521" },
+  "copilot.lua": { "branch": "master", "commit": "f7732213e41995439171f35bdd2bf1c809f8e8e7" },
   "crates.nvim": { "branch": "main", "commit": "ac9fa498a9edb96dc3056724ff69d5f40b898453" },
   "dial.nvim": { "branch": "master", "commit": "f0404ec1f83a03f2c3457e60087c6331d1cbb83f" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
