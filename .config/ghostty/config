@@ -1,8 +1,9 @@
 font-family = JetBrainsMono Nerd Font
 font-size = 13
-theme = tokyonight
+theme = TokyoNight
 
 # Window
+maximize = true
 window-theme = ghostty
 gtk-single-instance = true
 gtk-tabs-location = bottom
@@ -10,8 +11,6 @@ gtk-wide-tabs = true
 window-padding-y = 2,0
 window-padding-balance = true
 window-decoration = true
-window-width = 4000
-window-height = 4000
 
 cursor-color = #3760bf
 shell-integration-features = no-cursor
