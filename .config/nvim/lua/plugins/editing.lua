@@ -13,17 +13,17 @@ return {
     },
   },
   {
-    "mg979/vim-visual-multi",
-    lazy = false,
-    init = function()
-      if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) then
-        require("lazy").load({ plugins = { "vim-visual-multi" } })
-      end
-    end,
-  },
-  {
     "gbprod/substitute.nvim",
     config = true,
+    keys = {
+      { "cr", "<cmd>lua require('substitute').operator()<cr>", desc = "Replace with register" },
+      { "crr", "<cmd>lua require('substitute').line()<cr>", desc = "Replace line with register" },
+      { "cR", "<cmd>lua require('substitute').eol()<cr>", desc = "Replace till end of line with register" },
+      { "cx", "<cmd>lua require('substitute.exchange').operator()<cr>", desc = "Exchange content" },
+      { "cxx", "<cmd>lua require('substitute.exchange').line()<cr>", desc = "Exchange line content" },
+      { "cr", "<cmd>lua require('substitute').visual()<cr>", mode = "x", desc = "Replace with register" },
+      { "X", "<cmd>lua require('substitute.exchange').visual()<cr>", mode = "x", desc = "Exchange selection" },
+    },
   },
   {
     "nacro90/numb.nvim",
