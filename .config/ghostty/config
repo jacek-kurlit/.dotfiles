@@ -17,7 +17,6 @@ shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = false
 
-command = nu
 copy-on-select = clipboard
 
 keybind = ctrl+shift+h=goto_split:left

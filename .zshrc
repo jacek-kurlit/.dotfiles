@@ -17,7 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # fzf not working with vim plugin.... seems like I should use either 
-plugins=(zsh-autosuggestions zsh-syntax-highlighting web-search aliases fzf)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting aliases fzf fzf-tab)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -69,4 +69,3 @@ export JAVA_HOME=~/.sdkman/candidates/java/current
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "/home/jacek-kurlit/.deno/env"

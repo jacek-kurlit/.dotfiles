@@ -6,6 +6,7 @@ local ai_code_tool = "plugins.extras.ai.codeium"
 -- end
 
 return {
-  { import = ai_code_tool },
+  -- turned off for now
+  -- { import = ai_code_tool },
   { import = "plugins.extras.ai.code_companion" },
 }
