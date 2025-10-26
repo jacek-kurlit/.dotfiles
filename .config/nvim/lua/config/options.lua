@@ -7,6 +7,3 @@ vim.o.foldcolumn = "1" -- '0' is not bad
 
 -- Disable adding comment on next line by removing 'cro'
 -- vim.opt.formatoptions = "jqlnt"
-
--- GPT env
-vim.env.OPENAI_API_HOST = "api.openai.com"
