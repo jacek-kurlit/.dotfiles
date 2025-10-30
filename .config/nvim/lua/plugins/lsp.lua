@@ -1,24 +1,37 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    init = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      -- disable a keymap
-      keys[#keys + 1] = { "<c-k>", mode = "i", false }
-      keys[#keys + 1] = { "<leader>cr", false }
-      keys[#keys + 1] =
-        { "<c-p>", vim.lsp.buf.signature_help, mode = { "i", "n" }, desc = "Signature Help", has = "signatureHelp" }
-    end,
     opts = {
-      capabilities = {
-        textDocument = {
-          foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
+      servers = {
+        ["*"] = {
+          capabilities = {
+            textDocument = {
+              foldingRange = {
+                dynamicRegistration = false,
+                lineFoldingOnly = true,
+              },
+            },
+          },
+          keys = {
+            {
+              "<leader>cr",
+              has = "rename",
+              false,
+            },
+            {
+              "<c-k>",
+              mode = "i",
+              false,
+            },
+            {
+              "<c-p>",
+              vim.lsp.buf.signature_help,
+              mode = { "i", "n" },
+              desc = "Signature Help",
+              has = "signatureHelp",
+            },
           },
         },
-      },
-      servers = {
         taplo = {},
       },
     },
