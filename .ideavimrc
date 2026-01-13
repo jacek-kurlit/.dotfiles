@@ -259,14 +259,11 @@ let g:WhichKeyDesc_rollback_line  = "<leader>grl line"
 
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
 nmap gd <Action>(GotoDeclaration)
-nmap gr <Action>(GotoDeclaration)
 nmap gy <Action>(GotoTypeDeclaration)
+nmap gr <Action>(GotoDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap gt <Action>(GotoTest)
-nmap gs <Action>(ParameterInfo)
 nmap gl <Action>(ShowErrorDescription)
-nmap g; <Action>(JumpToLastChange)
-nmap g, <Action>(JumpToNextChange)
 
 """""""""""""""""""""""" UNIMPARIED MAPPINGS """""""""""""""""""""""""""""
 nmap ]f <Action>(MethodDown)
