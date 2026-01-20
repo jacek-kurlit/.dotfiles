@@ -22,8 +22,8 @@ set functiontextobj
 set peekaboo
 
 " removing mappings
-nunmap gr
 nunmap grr
+nunmap gr
 
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
 " System clipboard fi
@@ -260,8 +260,8 @@ let g:WhichKeyDesc_rollback_line  = "<leader>grl line"
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
 nmap gd <Action>(GotoDeclaration)
 nmap gy <Action>(GotoTypeDeclaration)
-nmap gr <Action>(GotoDeclaration)
 nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(GotoDeclaration)
 nmap gt <Action>(GotoTest)
 nmap gl <Action>(ShowErrorDescription)
 
