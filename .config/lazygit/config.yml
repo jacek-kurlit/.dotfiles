@@ -1,5 +1,5 @@
 git:
-  paging:
-    colorArg: always
+  pagers:
+    - colorArg: always
 gui:
   nerdFontsVersion: "3"
