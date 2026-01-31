@@ -22,8 +22,8 @@ set functiontextobj
 set peekaboo
 
 " removing mappings
-nunmap gr
 nunmap grr
+nunmap gr
 
 """""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""
 " System clipboard fi
@@ -119,7 +119,7 @@ map <leader>sR <Action>(ReplaceInPath)
 let g:WhichKeyDesc_search_replace_in_workspace  = "<leader>sR search and replace in workspace"
 
 """""""""""""""""""""""" WINDOW MAPPINGS """""""""""""""""""""""""""""
-nmap <C-/> <Action>(ActivateTerminalToolWindow)
+" nmap <C-/> <Action>(ActivateTerminalToolWindow) - better to set up keymapping in intellij to do this
 nmap <C-w>q <Action>(CloseContent)
 
 """""""""""""""""""""""" BUFFER MAPPINGS """""""""""""""""""""""""""""
@@ -259,14 +259,11 @@ let g:WhichKeyDesc_rollback_line  = "<leader>grl line"
 
 """""""""""""""""""""""" GOTO MAPPINGS """""""""""""""""""""""""""""
 nmap gd <Action>(GotoDeclaration)
-nmap gr <Action>(GotoDeclaration)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(GotoDeclaration)
 nmap gt <Action>(GotoTest)
-nmap gs <Action>(ParameterInfo)
 nmap gl <Action>(ShowErrorDescription)
-nmap g; <Action>(JumpToLastChange)
-nmap g, <Action>(JumpToNextChange)
 
 """""""""""""""""""""""" UNIMPARIED MAPPINGS """""""""""""""""""""""""""""
 nmap ]f <Action>(MethodDown)

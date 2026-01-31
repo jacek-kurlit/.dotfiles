@@ -38,27 +38,24 @@ alias dsa='docker ps -q | xargs docker stop'
 alias json_to_csv="xclip -o | jq -r '.elements[] | [.id, .name] | @csv' | sed 's/\"//g'"
 alias decode_jwt="xclip -o | jq -R 'split(\".\") | .[0],.[1] | @base64d | fromjson'"
 alias json_beauty='xclip -o | jq . | xclip -sel clipboard'
-alias neo='neovide --size=3000x3000'
 alias fzfp='fzf --preview "bat --color=always --style=numbers {}"'
-
+if [[ $(uname) == "Darwin" ]]; then
+  #path copy clipboard
+  pcc() {
+    realpath $1 | tr -d '\n' | pbcopy
+  }
+  fcc() {
+    cat $1 | pbcopy
+  }
+fi
 # local bin add to path
-export PATH=$HOME/.local/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # STAR SHIP
 eval "$(starship init zsh)"
 
 # ZOXIDE
 eval "$(zoxide init zsh)"
-
-# yazi with cwd
-function yy() {
-	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-	yazi --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
 
 # SDKMAN
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
