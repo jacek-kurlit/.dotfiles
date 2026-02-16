@@ -86,9 +86,6 @@ let g:WhichKeyDesc_find_buffers  = "<leader>fb find buffers"
 map K <Action>(QuickJavaDoc)
 map <leader>f? <Action>(GotoAction)
 let g:WhichKeyDesc_find_actions  = "<leader>f? find actions"
-map <leader>fs <Action>(NewScratchFile)
-let g:WhichKeyDesc_file_scratch  = "<leader>fs new scratch file"
-
 
 """""""""""""""""""""""" LEADER MAPPINGS """""""""""""""""""""""""""""
 map <leader>a <Action>(ShowIntentionActions)
@@ -140,7 +137,7 @@ map <leader>pe <Action>(RunAnything)
 let g:WhichKeyDesc_project_analyze_dependencies  = "<leader>pd analyze maven dependencies"
 map <leader>pd <Action>(Maven.ProjectViewDependencyAnalyzer)
 
-let g:WhichKeyDesc_project_run_config  = "<leader>pr run configurations"
+let g:WhichKeyDesc_project_run_config  entity_parity_check_dag= "<leader>pr run configurations"
 
 map <leader>pr <Action>(ChooseRunConfiguration)
 
@@ -156,6 +153,9 @@ map <leader>pi <Action>(IdeaVim.ReloadVimRc.reload)
 let g:WhichKeyDesc_project_maven_dependencies  = "<leader>pm reload maven dependencies"
 map <leader>pm <Action>(ExternalSystem.ProjectRefreshAction)
 
+let g:WhichKeyDesc_project_bazel_sync  = "<leader>pb sync bazel"
+map <leader>pb <Action>(Blaze.PartialSync)
+
 
 """""""""""""""""""""""" CODE MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_code        = "<leader>c Code"
@@ -164,6 +164,7 @@ map <leader>co <Action>(OptimizeImports)
 map <leader>cg <Action>(Generate)
 map <leader>cm <Action>(OverrideMethods)
 map <leader>ch <Action>(TypeHierarchy)
+map <leader>cn <Action>(NewElement)
 
 """""""""""""""""""""""" DEBUG MAPPINGS """""""""""""""""""""""""""""
 let g:WhichKeyDesc_debug        = "<leader>d Debug"
