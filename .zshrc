@@ -5,7 +5,6 @@ if [ -f $LOCAL_DEV_CONFIG_FILE ]; then
     source $LOCAL_DEV_CONFIG_FILE
 fi
 ZSH_THEME=""
-export FZF_BASE=`which fzf`
 export ZSH="$HOME/.oh-my-zsh"
 
 # Uncomment the following line to enable command auto-correction.
@@ -24,7 +23,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export EDITOR='/usr/bin/nvim'
+export EDITOR='nvim'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
